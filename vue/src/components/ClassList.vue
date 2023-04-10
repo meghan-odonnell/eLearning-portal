@@ -3,16 +3,18 @@
       <h1>Class List</h1>
       <table>
           <thead>
-              <tr v-for="item in classes" v-bind:key="item.courseId">
+              <tr>
                   <th>Math</th>
                   <th>Science</th>
                   <th>Computer Programming</th>
               </tr>
           </thead>
           <tbody>
+              <tr  v-for="item in classes" v-bind:key="item.courseId">
               <td>{{ item.courseId }}</td>
               <td>{{ item.courseName }}</td>
               <td>{{ item.courseDescription }}</td>
+              </tr>
           </tbody>
       </table>
   </div>
@@ -26,7 +28,7 @@ export default {
     name: 'class-list',
     data() {
         return {
-            classes: []
+            classes: [],
         }
     },
     created() {
