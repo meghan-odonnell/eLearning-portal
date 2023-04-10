@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS users, courses;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -13,7 +13,9 @@ CREATE TABLE users (
 CREATE TABLE courses (
 	course_id SERIAL,
 	course_name varchar(50) NOT NULL UNIQUE,
-	course_description varchar(500)
+	course_description varchar(500),
+	difficulty varchar (50),
+	cost integer default 0
 );
 
 COMMIT TRANSACTION;
