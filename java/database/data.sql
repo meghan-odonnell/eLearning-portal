@@ -7,4 +7,11 @@ INSERT INTO courses (course_name, course_description, difficulty) VALUES ('Math'
 INSERT INTO courses (course_name, course_description, difficulty) VALUES ('Science','This is a science class','Intermediate');
 INSERT INTO courses (course_name, course_description, difficulty) VALUES ('Programming','Learn to wire it up!!','Advanced');
 
+
+INSERT INTO curriculum ((SELECT course_id FROM courses WHERE course_name = 'Math'));
+INSERT INTO curriculum ((SELECT course_id FROM courses WHERE course_name = 'Math'));
+INSERT INTO curriculum ((SELECT course_id FROM courses WHERE course_name = 'Science'));
+INSERT INTO curriculum ((SELECT course_id FROM courses WHERE course_name = 'Programing'));
+
+
 COMMIT TRANSACTION;
