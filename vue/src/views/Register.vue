@@ -20,6 +20,7 @@
       <button type="submit">Create Account</button>
       <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
     </form>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic">
   </div>
 </template>
 
@@ -79,5 +80,67 @@ export default {
 }
 label {
   margin-right: 0.5rem;
+}
+
+h1 {
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    font-family: "Comfortaa";
+    font-size: xx-large;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 40px;
+    text-decoration-line: underline;
+}
+
+div.form-input-group {
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    font-family: "Didact Gothic";
+    font-size: large;
+    font-weight: bold;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+button {
+    color: rgb(250, 249, 249);
+    font-family: "Comfortaa";
+    font-size: large;
+    padding: 20px;
+    background: rgb(6, 61, 94);
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 12%;
+    text-align: center;
+    border-radius: 25px;
+    margin-bottom: 80px;
+}
+
+p {
+    color: rgb(0, 0, 0);
+    font-family: "Didact Gothic";
+    font-weight: bold;
+    padding: 5px;
+    max-width: 100%;
+    font-size: large;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    text-align: center;
+    background: rgb(142, 219, 238);
+    border-radius: 10px;
 }
 </style>

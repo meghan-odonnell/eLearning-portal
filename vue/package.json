@@ -26,4 +26,5 @@
     "vue-loader-v16": "npm:vue-loader@16.1.2",
     "vue-template-compiler": "^2.6.12"
   }
+  
 }
