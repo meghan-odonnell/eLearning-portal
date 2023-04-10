@@ -10,4 +10,10 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
+CREATE TABLE courses (
+	course_id SERIAL,
+	course_name varchar(50) NOT NULL UNIQUE,
+	course_description varchar(500)
+);
+
 COMMIT TRANSACTION;
