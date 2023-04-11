@@ -23,11 +23,13 @@
       <router-link :to="{ name: 'register' }">Need an account? Sign up here.</router-link></p>
     </form>
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic">
+   
   </div>
 </template>
 
 <script>
 import authService from "../services/AuthService";
+
 
 
 export default {

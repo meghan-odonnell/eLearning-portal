@@ -4,10 +4,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.CourseDao;
 import com.techelevator.model.Course;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,12 +18,22 @@ public class LearningController {
         this.courseDao = courseDao;
     }
 
-
- //   @PreAuthorize("hasAnyRole('USER')")
     @PreAuthorize("permitAll")
     @RequestMapping(path="/courses", method = RequestMethod.GET)
     public List<Course> getAllCourses(){
+
         return courseDao.showAllCourses();
     }
+
+    @PreAuthorize("permitAll")
+    @RequestMapping(path = "/myCourses", method = RequestMethod.GET)
+    public List<Course> showMyCourses(@RequestParam int id) {
+        return courseDao.showMyCourses(id);
+    }
+
+    //** TO DO: Teacher Create a course
+    //** TO DO: Teacher create curriculum
+    //** TO DO: Student sign up for a course
+    //** TO DO:
 
 }
