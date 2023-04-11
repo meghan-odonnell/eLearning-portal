@@ -5,7 +5,9 @@
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       
     </div>
+    <img src="./img/supersmart.jpg" class="center" title="Super-Smart eLearning Solutions"/>
     <router-view />
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic">
   </div>
 </template>
@@ -80,6 +82,14 @@ body {
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
     background-attachment: fixed;
+}
+
+img {
+  max-height: 120px;
+  position: fixed;
+  bottom: 0;
+  padding: 20px;
+  right: 0px;
 }
 
 @keyframes gradient {
