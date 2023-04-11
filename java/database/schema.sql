@@ -11,7 +11,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE course (
-	course_id SERIAL,
+	course_id varchar(10),
 	course_name varchar(50) NOT NULL UNIQUE,
 	course_description varchar(500),
 	difficulty varchar (50),
@@ -20,8 +20,8 @@ CREATE TABLE course (
 );
 
 CREATE TABLE class (
-	class_id SERIAL,
-	course_id int NOT NULL,
+	class_id varchar(10),
+	course_id varchar(10) NOT NULL,
 	teacher_id int NOT NULL,
 	start_date date,
 	end_date date,
@@ -41,9 +41,9 @@ CREATE TABLE user_detail (
 );
 
 CREATE TABLE curriculum (
-	curriculum_id SERIAL,
+	curriculum_id varchar(10),
 	curriculum_name varchar(50) NOT NULL,
-	course_id int NOT NULL,
+	course_id varchar(10) NOT NULL,
 	reading varchar (5000),
 	homework varchar (1000),
 	resources varchar (1000),
@@ -52,8 +52,8 @@ CREATE TABLE curriculum (
 );
 
 CREATE table assignment (
-	assignment_id SERIAL,
-	curriculum_id int NOT NULL,
+	assignment_id varchar(10),
+	curriculum_id varchar(10) NOT NULL,
 	student_id int NOT NULL,
 	submission_date date,
 	status boolean DEFAULT false,
@@ -63,8 +63,8 @@ CREATE table assignment (
 );
 
 CREATE TABLE grade (
-	grade_id SERIAL,
-	assignment_id int NOT NULL,
+	grade_id varchar(10),
+	assignment_id varchar(10) NOT NULL,
 	student_id int NOT NULL,
 	grade varchar(1) DEFAULT 0,
 	CONSTRAINT pk_grade_id PRIMARY KEY (grade_id),
@@ -74,10 +74,11 @@ CREATE TABLE grade (
 
 CREATE TABLE student_class (
 	student_id int,
-	class_id int,
+	class_id varchar(10),
 	CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES users (user_id),
 	CONSTRAINT fk_class_id FOREIGN KEY (class_id) REFERENCES class (class_id)
 );
+
 
 COMMIT TRANSACTION;
 
