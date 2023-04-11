@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, course, user_detail, curriculum, assignment, class, grade;
+DROP TABLE IF EXISTS student_class, users, course, user_detail, curriculum, assignment, class, grade;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -21,8 +21,8 @@ CREATE TABLE course (
 
 CREATE TABLE class (
 	class_id SERIAL,
-	course_id int,
-	teacher_id int,
+	course_id int NOT NULL,
+	teacher_id int NOT NULL,
 	start_date date,
 	end_date date,
 	CONSTRAINT pk_class_id PRIMARY KEY (class_id),
@@ -32,7 +32,7 @@ CREATE TABLE class (
 
 CREATE TABLE user_detail (
 	user_detail_id SERIAL,
-	user_id int,
+	user_id int NOT NULL,
 	first_name varchar(20),
 	last_name varchar(20),
 	email varchar(30),
@@ -42,7 +42,9 @@ CREATE TABLE user_detail (
 
 CREATE TABLE curriculum (
 	curriculum_id SERIAL,
+	curriculum_name varchar(50) NOT NULL,
 	course_id int NOT NULL,
+	reading varchar (5000),
 	homework varchar (1000),
 	resources varchar (1000),
 	CONSTRAINT pk_curriculum_id PRIMARY KEY (curriculum_id),
@@ -52,9 +54,9 @@ CREATE TABLE curriculum (
 CREATE table assignment (
 	assignment_id SERIAL,
 	curriculum_id int NOT NULL,
-	student_id int,
+	student_id int NOT NULL,
 	submission_date date,
-	status varchar(20),
+	status boolean DEFAULT false,
 	CONSTRAINT pk_assignment_id PRIMARY KEY (assignment_id),
 	CONSTRAINT fk_curriculum_id FOREIGN KEY (curriculum_id) REFERENCES curriculum (curriculum_id),
 	CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES users (user_id)	
@@ -62,16 +64,20 @@ CREATE table assignment (
 
 CREATE TABLE grade (
 	grade_id SERIAL,
-	assignment_id int,
-	student_id int,
-	points_earned int,
-	points_available int,
+	assignment_id int NOT NULL,
+	student_id int NOT NULL,
+	grade varchar(1) DEFAULT 0,
 	CONSTRAINT pk_grade_id PRIMARY KEY (grade_id),
 	CONSTRAINT fk_assignment_id FOREIGN KEY (assignment_id) REFERENCES assignment (assignment_id),
 	CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES users (user_id)	
 );
 
-
+CREATE TABLE student_class (
+	student_id int,
+	class_id int,
+	CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES users (user_id),
+	CONSTRAINT fk_class_id FOREIGN KEY (class_id) REFERENCES class (class_id)
+);
 
 COMMIT TRANSACTION;
 

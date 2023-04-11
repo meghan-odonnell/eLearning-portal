@@ -8,4 +8,6 @@ public interface CourseDao {
 
     List<Course> showAllCourses();
 
+    List<Course> showMyCourses(int id);
+
 }

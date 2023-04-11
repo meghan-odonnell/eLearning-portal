@@ -138,7 +138,7 @@ p {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 15%;
+    width: 10%;
     text-align: center;
     background: rgb(142, 219, 238);
     border-radius: 10px;

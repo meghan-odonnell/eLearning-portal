@@ -2,13 +2,13 @@
 <template>
   <div id="login">
     <form @submit.prevent="login">
-      <h1 >Welcome to the E-Learning Portal!</h1>
+      <h1 >Welcome to the eLearning Portal!</h1>
       <h2>Please Sign In</h2>
-      <div role="alert" v-if="invalidCredentials">
+      <div class="alert" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
-      <div role="alert" v-if="this.$route.query.registration">
-        Thank you for registering, please sign in.
+      <div class="alert" role="alert" v-if="this.$route.query.registration" v-alert:value="alert">
+        Registration successful!
       </div>
       <div class="form-input-group">
         <label for="username">Username</label>
@@ -23,17 +23,19 @@
       <router-link :to="{ name: 'register' }">Need an account? Sign up here.</router-link></p>
     </form>
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic">
+   <math-fact></math-fact>
   </div>
 </template>
 
 <script>
 import authService from "../services/AuthService";
+import MathFact from "../components/MathFact.vue"
 
 
 export default {
   name: "login",
   components: {
-   
+   MathFact
   },
   data() {
     return {
@@ -71,6 +73,8 @@ export default {
 .form-input-group {
   margin-bottom: 1rem;
 }
+
+
 
 h1 { 
     color: rgb(249, 250, 252);
@@ -144,10 +148,15 @@ p {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 14%;
+    width: 10%;
     text-align: center;
     background: rgb(142, 219, 238);
     border-radius: 10px;
+}
+
+.alert {
+    text-align: center;
+    font-family: "Comfortaa";
 }
 
 label {
