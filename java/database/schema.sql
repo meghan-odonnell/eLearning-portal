@@ -52,7 +52,7 @@ CREATE TABLE curriculum (
 );
 
 CREATE table assignment (
-	assignment_id varchar(10),
+	assignment_id SERIAL,
 	curriculum_id varchar(10) NOT NULL,
 	student_id int NOT NULL,
 	submission_date date,
@@ -63,8 +63,8 @@ CREATE table assignment (
 );
 
 CREATE TABLE grade (
-	grade_id varchar(10),
-	assignment_id varchar(10) NOT NULL,
+	grade_id SERIAL,
+	assignment_id int NOT NULL,
 	student_id int NOT NULL,
 	grade varchar(1) DEFAULT 0,
 	CONSTRAINT pk_grade_id PRIMARY KEY (grade_id),
