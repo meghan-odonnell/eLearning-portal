@@ -116,16 +116,20 @@ button {
     color: rgb(250, 249, 249);
     font-family: "Comfortaa";
     font-size: large;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 18px;
+    padding-right: 4px;
+    padding-left: 1px;
     background: rgb(6, 61, 94);
-    max-width: 100%;
+    width: 20%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 12%;
     text-align: center;
     border-radius: 25px;
     margin-bottom: 80px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 p {
@@ -138,9 +142,11 @@ p {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 10%;
+    width: 30%;
     text-align: center;
     background: rgb(142, 219, 238);
     border-radius: 10px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 </style>
