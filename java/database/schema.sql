@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, courses,user_details,curriculum;
+DROP TABLE IF EXISTS users, courses,user_details,curriculum, assignments;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -30,12 +30,15 @@ CREATE TABLE user_details (
 CREATE TABLE curriculum (
 	curriculum_id SERIAL,
 	course_id int NOT NULL,
+	CONSTRAINT pk_curriculum_id PRIMARY KEY (curriculum_id),
 	CONSTRAINT fk_course_id FOREIGN KEY (course_id) REFERENCES courses (course_id)	
 );
 
 CREATE table assignments (
 	assignment_id SERIAL,
-	curriculum_id,
+	curriculum_id int NOT NULL,
+	CONSTRAINT pk_assignment_id PRIMARY KEY (assignment_id),
+	CONSTRAINT fk_curriculum_id FOREIGN KEY(curriculum_id) REFERENCES curriculum (curriculum_id)
 );
 
 

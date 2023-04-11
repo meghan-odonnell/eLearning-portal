@@ -30,6 +30,13 @@ public class JdbcCourseDao implements CourseDao {
                 return courses;
         }
 
+    @Override
+    public List<Course> showMyCourses(int id) {
+            //select courses from courses table where id=?. join the student table
+
+        return null;
+    }
+
     private Course mapRowToUser(SqlRowSet results) {
             Course course = new Course();
             course.setCourseId(results.getInt("course_id"));
