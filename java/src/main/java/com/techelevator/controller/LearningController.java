@@ -2,7 +2,7 @@ package com.techelevator.controller;
 
 
 import com.techelevator.dao.CourseDao;
-import com.techelevator.dao.ScienceDao;
+
 import com.techelevator.model.Course;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,9 @@ public class LearningController {
 
     private CourseDao courseDao;
 
+
     public LearningController(CourseDao courseDao) {
+
         this.courseDao = courseDao;
     }
 
@@ -29,20 +31,22 @@ public class LearningController {
 //    @PreAuthorize("permitAll")
     @RequestMapping(path = "/myCourses", method = RequestMethod.GET)
     public List<Course> showMyCourses(@RequestParam int id) {
+
         return courseDao.showMyCourses(id);
     }
 
-
+//    @PreAuthorize("permitAll")
     @RequestMapping(path="/scienceCourses", method = RequestMethod.GET)
     public List<Course> getAllScienceCourses(){
 
-        return courseDao.showAllCourses();
+        return courseDao.showAllScienceCourses();
+    }
 
     //** TO DO: Teacher Create a course
     //** TO DO: Teacher create curriculum
     //** TO DO: Student sign up for a course
     //** TO DO:
 
-}
+
 }
 

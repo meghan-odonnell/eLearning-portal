@@ -35,11 +35,6 @@ INSERT INTO curriculum (curriculum_id, course_id, curriculum_name, reading, home
 			'links'
 		   );				   
 
-
-INSERT INTO class (course_id, teacher_id, start_date, end_date, class_id) VALUES ((SELECT course_id FROM course WHERE course_name = 'Programming'), (SELECT user_id FROM users WHERE username = 'admin'), '2023-01-17', '2023-04-21', 'SPNG23-P3');
-INSERT INTO class (course_id, teacher_id, start_date, end_date, class_id) VALUES ((SELECT course_id FROM course WHERE course_name = 'Math'), (SELECT user_id FROM users WHERE username = 'admin'), '2023-01-17', '2023-04-21', 'SPNG23-M1');
-INSERT INTO class (course_id, teacher_id, start_date, end_date, class_id) VALUES ((SELECT course_id FROM course WHERE course_name = 'Science'), (SELECT user_id FROM users WHERE username = 'admin'), '2023-01-17', '2023-04-21', 'SPNG23-S2');
-
 INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
 	VALUES (
 		'S2C1',
@@ -83,9 +78,9 @@ VALUES ((SELECT user_id FROM users where username = 'user'),
 		'A');
 
 
-INSERT INTO student_class(student_id, class_id)
+INSERT INTO student_class(student_id, course_id)
 	VALUES ((SELECT user_id FROM users where username = 'user'),
-			'SPNG23-S2');
+			'S2');
 
 
 COMMIT TRANSACTION;
