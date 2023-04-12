@@ -13,7 +13,7 @@
       </div>
 
 
-      <input type="button" value = "Test the alert" onclick="alert('Registration successful!');" />
+      <!-- <input type="button" value = "Test the alert" onclick="alert('Registration successful!');" /> -->
       
 
       <div class="form-input-group">
@@ -29,19 +29,20 @@
       <router-link :to="{ name: 'register' }">Need an account? Sign up here.</router-link></p>
     </form>
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic">
-   <!-- <math-fact></math-fact> -->
+   <h3 class="math">Random Math Fact</h3>
+   <math-fact class="math"></math-fact>
   </div>
 </template>
 
 <script>
 import authService from "../services/AuthService";
-// import MathFact from "../components/MathFact.vue"
+import MathFact from "../components/MathFact.vue"
 
 
 export default {
   name: "login",
   components: {
-  //  MathFact
+   MathFact
   },
   data() {
     return {
@@ -76,14 +77,26 @@ export default {
 </script>
 
 <style scoped>
+body {
+   background-image: url("../img/image.png");
+    
+}
+
 .form-input-group {
   margin-bottom: 1rem;
 }
 
-
+.math {
+    /* margin-left: 30px; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+  }
 
 h1 { 
-    color: rgb(249, 250, 252);
+    color: rgb(0, 4, 10);
     font-family: "Comfortaa";
     font-size: 50px;
     max-width: 100%;
@@ -96,7 +109,7 @@ h1 {
 }
 
 h2 { 
-    color: rgb(249, 250, 252);
+    color: rgb(0, 4, 10);
     font-family: "Comfortaa";
     font-size: 40px;
     max-width: 100%;
@@ -110,7 +123,7 @@ h2 {
 }
 
 h3 { 
-    color: rgb(0, 0, 0);
+    color: rgb(0, 4, 10);
     padding: 20px;
     font-family: "Didact Gothic";
     font-size: xx-large;
@@ -127,8 +140,9 @@ h3 {
 div.form-input-group {
     color: rgb(0, 0, 0);
     padding: 20px;
+    border-color: black;
     font-family: "Didact Gothic";
-    font-size: large;
+    font-size: small;
     font-weight: bold;
     max-width: 100%;
     display: block;
@@ -136,7 +150,7 @@ div.form-input-group {
     margin-right: auto;
     width: 300px;
     text-align: center;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 button {
@@ -175,24 +189,24 @@ p {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    background: rgb(142, 219, 238);
+    /* background: rgb(142, 219, 238); */
     border-radius: 10px;
     overflow: hidden;
     white-space: nowrap;
 }
 
-.alert {
+/* .alert {
     text-align: center;
     font-family: "Comfortaa";
 }
 
 label {
   margin-right: 0.5rem;
-}
+} */
 
 
 
-#modalContainer {
+/* #modalContainer {
 	background-color:rgba(0, 0, 0, 0.3);
 	position:absolute;
   top:0;
@@ -249,6 +263,6 @@ label {
 	border-radius: 0px;
 	text-decoration:none;
   outline:0!important;
-}
+} */
 
 </style>

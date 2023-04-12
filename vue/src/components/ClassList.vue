@@ -2,16 +2,16 @@
   <div>
       <h1 class="classlist">Class List:</h1>
       <table>
-          <thead>
+          <!-- <thead>
               <tr>
                   <th class="math">Math</th>
                   <th class="science">Science</th>
                   <th class="cp">Computer Programming</th>
               </tr>
-          </thead>
+          </thead> -->
           <tbody>
               <tr  v-for="item in classes" v-bind:key="item.courseId">
-              <td>{{ item.courseId }}</td>
+              
               <td>{{ item.courseName }}</td>
               <td>{{ item.courseDescription }}</td>
               </tr>

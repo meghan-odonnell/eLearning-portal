@@ -5,7 +5,7 @@
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       
     </div>
-    <img src="./img/supersmart.jpg" class="center" title="Super-Smart eLearning Solutions"/>
+    <!-- <img src="./img/supersmart.jpg" class="center" title="Super-Smart eLearning Solutions"/> -->
     <router-view />
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic">
@@ -23,11 +23,27 @@ export default {
 </script>
 
 <style>
-body {
+/* body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+} */
+body {
+
+  
+  
+
+    /* margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto; */
+    /* background-color: #f2f2f2; */
+    /* background-image: "https://img.freepik.com/premium-vector/back-school-doodle-sketch-cartoon-seamless-pattern_221062-914.jpg?size=626&ext=jpg"; */
+    /* background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+     animation: gradient 15s ease infinite; */
+     background-size: 400% 400%;
+    background-attachment: fixed;
 }
+
 .container {
   width: 100%;
   max-width: 1100px;
@@ -74,25 +90,16 @@ body {
     margin-bottom: 40px;
 }
 
-body {
-    margin: auto;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    overflow: auto;
-    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
-    animation: gradient 15s ease infinite;
-    background-size: 400% 400%;
-    background-attachment: fixed;
-}
-
-img {
+/* img {
   max-height: 120px;
   position: fixed;
   bottom: 0;
   padding: 20px;
   right: 0px;
-}
+} */
 
-@keyframes gradient {
+
+/* @keyframes gradient {
     0% {
         background-position: 0% 0%;
     }
@@ -149,8 +156,8 @@ img {
 
     100% {
         transform: translateX(1);
-    }
-}
+    } 
+}*/
 
 
 </style>

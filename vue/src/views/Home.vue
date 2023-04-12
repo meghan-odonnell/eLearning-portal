@@ -6,7 +6,7 @@
 
   <p class="mathfact">Here's a random math fact:  </p>
   <math-fact class="mathfact"></math-fact>
-  <p>{{ mathFact }}</p>
+  <p class="math">{{ mathFact }}</p>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa%7CDidact Gothic">
   </div>
@@ -32,7 +32,7 @@ export default {
 </script>
 <style>
   p#auth {
-    color: rgb(249, 250, 252);
+    color: rgb(11, 12, 12);
     font-family: "Comfortaa";
     font-size: 30px;
     max-width: 100%;
@@ -59,8 +59,5 @@ export default {
     margin-bottom: 50px;
   }
 
-  .mathfact {
-    margin-left: 30px;
-    font-family: "Comfortaa";
-  }
+
 </style>
