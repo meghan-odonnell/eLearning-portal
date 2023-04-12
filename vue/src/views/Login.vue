@@ -2,14 +2,20 @@
 <template>
   <div id="login">
     <form @submit.prevent="login">
-      <h1 >Welcome to the eLearning Portal!</h1>
-      <h2>Please Sign In</h2>
+      <h1>Welcome to Super-Smart</h1>
+      <h2>eLearning Solutions</h2>
+      <h3>Please Sign In</h3>
       <div class="alert" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
       <div class="alert" role="alert" v-if="this.$route.query.registration" v-alert:value="alert">
         Registration successful!
       </div>
+
+
+      <input type="button" value = "Test the alert" onclick="alert('Registration successful!');" />
+      
+
       <div class="form-input-group">
         <label for="username">Username</label>
         <input type="text" id="username" v-model="user.username" required autofocus />
@@ -23,19 +29,19 @@
       <router-link :to="{ name: 'register' }">Need an account? Sign up here.</router-link></p>
     </form>
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic">
-   <math-fact></math-fact>
+   <!-- <math-fact></math-fact> -->
   </div>
 </template>
 
 <script>
 import authService from "../services/AuthService";
-import MathFact from "../components/MathFact.vue"
+// import MathFact from "../components/MathFact.vue"
 
 
 export default {
   name: "login",
   components: {
-   MathFact
+  //  MathFact
   },
   data() {
     return {
@@ -80,7 +86,19 @@ h1 {
     color: rgb(249, 250, 252);
     font-family: "Comfortaa";
     font-size: 50px;
-    padding: 20px;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+
+}
+
+h2 { 
+    color: rgb(249, 250, 252);
+    font-family: "Comfortaa";
+    font-size: 40px;
     max-width: 100%;
     display: block;
     margin-left: auto;
@@ -91,7 +109,7 @@ h1 {
     margin-bottom: 50px;
 }
 
-h2 { 
+h3 { 
     color: rgb(0, 0, 0);
     padding: 20px;
     font-family: "Didact Gothic";
@@ -126,32 +144,41 @@ button {
     font-family: "Comfortaa";
     font-size: large;
     font-weight: bold;
-    padding: 20px;
     background: rgb(6, 61, 94);
     max-width: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 8%;
+    padding-top: 20px;
+    padding-bottom: 18px;
+    padding-right: 1px;
+    padding-left: 1px;
+    width: 20%;
     text-align: center;
     border-radius: 25px;
     margin-bottom: 80px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 p {
     font-family: "Didact Gothic";
     font-weight: bold;
     color: rgb(0, 0, 0);
-    padding: 5px;
-    max-width: 100%;
+    max-width: 30%;
     font-size: large;
     display: block;
+    padding-top: 1px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 10%;
     text-align: center;
     background: rgb(142, 219, 238);
     border-radius: 10px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .alert {
@@ -162,4 +189,66 @@ p {
 label {
   margin-right: 0.5rem;
 }
+
+
+
+#modalContainer {
+	background-color:rgba(0, 0, 0, 0.3);
+	position:absolute;
+  top:0;
+	width:100%;
+	height:100%;
+	left:0px;
+	z-index:10000;
+}
+
+#alertBox {
+	position:relative;
+	width:33%;
+	min-height:100px;
+  max-height:400px;
+	margin-top:50px;
+	border:1px solid #fff;
+	background-color:#fff;
+	background-repeat:no-repeat;
+  top:30%;
+}
+
+#modalContainer > #alertBox {
+	position:fixed;
+}
+
+#alertBox h1 {
+	margin:0;
+	font:bold 1em Raleway,arial;
+	background-color:#f97352;
+	color:#FFF;
+	border-bottom:1px solid #f97352;
+	padding:10px 0 10px 5px;
+}
+
+#alertBox p {
+	height:50px;
+	padding-left:5px;
+  padding-top:30px;
+  text-align:center;
+  vertical-align:middle;
+}
+
+#alertBox #closeBtn {
+	display:block;
+	position:relative;
+	margin:10px auto 10px auto;
+	padding:7px;
+	border:0 none;
+	width:70px;
+	text-transform:uppercase;
+	text-align:center;
+	color:#FFF;
+	background-color:#f97352;
+	border-radius: 0px;
+	text-decoration:none;
+  outline:0!important;
+}
+
 </style>
