@@ -15,6 +15,7 @@ public class JdbcCourseDao implements CourseDao {
         private final JdbcTemplate jdbcTemplate;
 
         public JdbcCourseDao(JdbcTemplate jdbcTemplate) {
+
             this.jdbcTemplate = jdbcTemplate;
         }
 
@@ -29,6 +30,18 @@ public class JdbcCourseDao implements CourseDao {
             }
                 return courses;
         }
+    @Override
+    public List<Course> showAllScienceCourses() {
+        List<Course> scienceCourses = new ArrayList<>();
+        String sql = "SELECT curriculum_id, curriculum_name, course_id, reading\n" +
+                "FROM curriculum";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()) {
+            Course scienceCourse = mapRowToUser(results);
+            scienceCourses.add(scienceCourse);
+        }
+        return scienceCourses;
+    }
 
     @Override
     public List<Course> showMyCourses(int id) {
