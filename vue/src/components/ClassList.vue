@@ -1,5 +1,8 @@
 <template>
-  <div>
+
+    <div class="header">
+  <img src="../img/image.png" alt="super-smart">
+
       <h1 class="classlist">Class List:</h1>
       <table>
           <!-- <thead>
@@ -41,6 +44,17 @@ export default {
 </script>
 
 <style>
+
+.header {
+  position: relative;
+  text-align: center;
+}
+
+.header img {
+width: 100%;
+ max-height: 50%;
+  
+}
 
 .classlist {
   font-size: 36px;

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- <h1 id="home">Home</h1> -->
-    <p id="auth">Courses</p>
+ 
     <class-list> </class-list>
     <table>
       <th><router-link to="/science">Science Curriculum</router-link></th>
