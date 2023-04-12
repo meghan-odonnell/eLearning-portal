@@ -41,7 +41,61 @@ export default {
 </script>
 
 <style>
-h1.classlist {
+
+.classlist {
+  font-size: 36px;
+  color: #f5a623;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 20px auto;
+  width: 80%;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f5a623;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+  transition: background-color 0.3s ease;
+}
+
+td:first-child {
+  color: #f5a623;
+  font-weight: bold;
+}
+
+td:nth-child(2) {
+  color: #7f7f7f;
+}
+
+tbody {
+   font-family: 'Comfortaa', sans-serif;
+}
+
+
+
+
+
+
+
+/* h1.classlist {
     color: rgb(0, 0, 0);
     padding: 20px;
     font-family: "Didact Gothic";
@@ -75,9 +129,9 @@ th {
     margin-right: auto;
     width: 100%;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 10px; */
     
-}
+
 
 
 </style>

@@ -1,7 +1,10 @@
 <template>
   <div class="home">
+
+
+    
     <h1 id="home">Home</h1>
-    <p id="auth">Student View</p>
+    <p id="auth">Cirriculum Choices</p>
    <class-list></class-list>
 
   <p class="mathfact">Here's a random math fact:  </p>
@@ -31,6 +34,8 @@ export default {
 
 </script>
 <style>
+
+
   p#auth {
     color: rgb(11, 12, 12);
     font-family: "Comfortaa";
