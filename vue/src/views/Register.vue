@@ -75,7 +75,88 @@ export default {
 </script>
 
 <style scoped>
+
+#register {
+  font-family: 'Comfortaa', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F5F5F5;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
 .form-input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 300px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 93%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12), 
+              inset 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12), 
+              inset 0 1px 5px rgba(0, 0, 0, 0.24), 
+              0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+button[type="submit"] {
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #387acc;
+}
+
+p {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+a {
+  color: #4a90e2;
+}
+
+
+
+/* .form-input-group {
   margin-bottom: 1rem;
 }
 label {
@@ -148,5 +229,5 @@ p {
     border-radius: 10px;
     overflow: hidden;
     white-space: nowrap;
-}
+} */
 </style>
