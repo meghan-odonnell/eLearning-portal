@@ -39,12 +39,6 @@ public class LearningController {
         return courseDao.showMyCourses(id);
     }
 
-//    @PreAuthorize("permitAll")
-    @RequestMapping(path="/scienceCourses", method = RequestMethod.GET)
-    public List<Course> getAllScienceCourses(){
-
-        return courseDao.showAllScienceCourses();
-    }
 
     @RequestMapping(path="/curriculum", method = RequestMethod.GET)
     public List<Curriculum> showAllCurriculum(){
