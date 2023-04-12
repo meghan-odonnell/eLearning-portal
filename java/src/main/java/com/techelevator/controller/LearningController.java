@@ -6,9 +6,12 @@ import com.techelevator.dao.CourseDao;
 import com.techelevator.dao.CurriculumDao;
 import com.techelevator.model.Course;
 import com.techelevator.model.Curriculum;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -39,7 +42,10 @@ public class LearningController {
         return courseDao.showMyCourses(id);
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1e790c47d3dcd250d0801d60da6633f960b5f37d
     @RequestMapping(path="/curriculum", method = RequestMethod.GET)
     public List<Curriculum> showAllCurriculum(){
         return curriculumDao.showAllCurriculum();
@@ -48,6 +54,17 @@ public class LearningController {
     @RequestMapping(path="/courseCurriculum/{courseId}", method = RequestMethod.GET)
     public List<Curriculum> showCourseCurriculum(@PathVariable String courseId){
         return curriculumDao.showCourseCurriculum(courseId);
+    }
+
+    @RequestMapping(path = "/singleCurriculum/{curriculumId}", method = RequestMethod.GET)
+    public Curriculum showSingleCurriculum(@PathVariable String curriculumId){
+        return curriculumDao.showSingleCurriculum(curriculumId);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/curriculum", method = RequestMethod.POST)
+    public void createCurriculum(@Valid @RequestBody Curriculum curriculum){
+        curriculumDao.createCurriculum(curriculum);
     }
 
     //** TO DO: Teacher Create a course
