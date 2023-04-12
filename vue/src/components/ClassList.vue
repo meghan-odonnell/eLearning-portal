@@ -1,64 +1,58 @@
 <template>
+  <div class="header">
+    <img src="../img/image.png" alt="super-smart" />
 
-    <div class="header">
-  <img src="../img/image.png" alt="super-smart">
-
-      <h1 class="classlist">Class List:</h1>
-      <table>
-          <!-- <thead>
+    <h1 class="classlist">Class List:</h1>
+    <table>
+      <!-- <thead>
               <tr>
                   <th class="math">Math</th>
                   <th class="science">Science</th>
                   <th class="cp">Computer Programming</th>
               </tr>
           </thead> -->
-          <tbody>
-              <tr  v-for="item in classes" v-bind:key="item.courseId">
-              
-              <td>{{ item.courseName }}</td>
-              <td>{{ item.courseDescription }}</td>
-              </tr>
-          </tbody>
-      </table>
+      <tbody>
+        <tr v-for="item in classes" v-bind:key="item.courseId">
+          <td>{{ item.courseName }}</td>
+          <td>{{ item.courseDescription }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
-
-import DatabaseService from '../services/DatabaseService.js'
+import DatabaseService from "../services/DatabaseService.js";
 
 export default {
-    name: 'class-list',
-    data() {
-        return {
-            classes: [],
-        }
-    },
-    created() {
-        DatabaseService.getAllClasses().then(response => {
-            this.classes = response.data;
-        })
-    }
-
-}
+  name: "class-list",
+  data() {
+    return {
+      classes: [],
+    };
+  },
+  created() {
+    DatabaseService.getAllClasses().then((response) => {
+      this.classes = response.data;
+    });
+  },
+};
 </script>
 
 <style>
-
 .header {
   position: relative;
   text-align: center;
 }
 
 .header img {
-width: 100%;
- max-height: 50%;
-  
+  width: 100%;
+  max-height: 50%;
 }
 
 .classlist {
   font-size: 36px;
- color: #5F9EA0;
+  color: #5f9ea0;
   text-align: center;
 }
 
@@ -68,7 +62,8 @@ table {
   width: 80%;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #ccc;
   padding: 12px;
   text-align: left;
@@ -100,14 +95,8 @@ td:nth-child(2) {
 }
 
 tbody {
-   font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
 }
-
-
-
-
-
-
 
 /* h1.classlist {
     color: rgb(0, 0, 0);
@@ -144,8 +133,4 @@ th {
     width: 100%;
     padding: 10px;
     margin-top: 10px; */
-    
-
-
-
 </style>
