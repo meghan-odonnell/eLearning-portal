@@ -22,7 +22,7 @@
 
 <script>
 
-import classListService from '../services/ClassList.js'
+import DatabaseService from '../services/DatabaseService.js'
 
 export default {
     name: 'class-list',
@@ -32,7 +32,7 @@ export default {
         }
     },
     created() {
-        classListService.getAllClasses().then(response => {
+        DatabaseService.getAllClasses().then(response => {
             this.classes = response.data;
         })
     }

@@ -4,9 +4,9 @@
 
     
     <h1 id="home">Home</h1>
-    <p id="auth">Curriculum Choices</p>
+    <p id="auth">Courses</p>
    <class-list></class-list>
-
+    <curriculum></curriculum>
   <p class="mathfact">Here's a random math fact:  </p>
   <math-fact class="mathfact"></math-fact>
   <p class="math">{{ mathFact }}</p>
@@ -18,12 +18,13 @@
 <script>
 import ClassList from '../components/ClassList.vue';
 import MathFact from "../components/MathFact.vue";
-
+import Curriculum from "../components/Curriculum.vue";
 
 export default {
   components: { 
       ClassList,
-      MathFact
+      MathFact,
+      Curriculum
     },
 
   name: "home"
