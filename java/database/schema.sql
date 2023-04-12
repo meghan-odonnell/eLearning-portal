@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS student_class, users, course, user_detail, curriculum, assignment, class, grade;
+DROP TABLE IF EXISTS student_class, users, course, user_detail, curriculum, assignment, grade;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -17,17 +17,6 @@ CREATE TABLE course (
 	difficulty varchar (50),
 	cost integer default 0,
 	CONSTRAINT pk_courses_course PRIMARY KEY (course_id)
-);
-
-CREATE TABLE class (
-	class_id varchar(10),
-	course_id varchar(10) NOT NULL,
-	teacher_id int NOT NULL,
-	start_date date,
-	end_date date,
-	CONSTRAINT pk_class_id PRIMARY KEY (class_id),
-	CONSTRAINT fk_course_id FOREIGN KEY (course_id) REFERENCES course (course_id),
-	CONSTRAINT fk_teacher_id FOREIGN KEY (teacher_id) REFERENCES users (user_id)
 );
 
 CREATE TABLE user_detail (
@@ -74,9 +63,9 @@ CREATE TABLE grade (
 
 CREATE TABLE student_class (
 	student_id int,
-	class_id varchar(10),
+	course_id varchar(10),
 	CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES users (user_id),
-	CONSTRAINT fk_class_id FOREIGN KEY (class_id) REFERENCES class (class_id)
+	CONSTRAINT fk_course_id FOREIGN KEY (course_id) REFERENCES course (course_id)
 );
 
 
