@@ -42,10 +42,7 @@ public class LearningController {
         return courseDao.showMyCourses(id);
     }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 1e790c47d3dcd250d0801d60da6633f960b5f37d
     @RequestMapping(path="/curriculum", method = RequestMethod.GET)
     public List<Curriculum> showAllCurriculum(){
         return curriculumDao.showAllCurriculum();

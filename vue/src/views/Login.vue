@@ -12,10 +12,6 @@
         Registration successful!
       </div>
 
-
-      <!-- <input type="button" value = "Test the alert" onclick="alert('Registration successful!');" /> -->
-      
-
       <div class="form-input-group">
         <label for="username">Username</label>
         <input type="text" id="username" v-model="user.username" required autofocus />

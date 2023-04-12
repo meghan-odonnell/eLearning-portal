@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h1 class="curriculum">Curriculum:</h1>
+    <h1 class="curriculum">Science Curriculum:</h1>
     <div v-for="item in curriculum" v-bind:key="item.curriculumId">
-      <h2>{{ item.curriculumName }}</h2>
-      <p>{{ item.reading }}</p>
+      <table>
+        <th>{{ item.curriculumName }}</th>
+        <td>{{ item.reading }}</td>
+      </table>
     </div>
   </div>
 </template>
@@ -27,29 +29,10 @@ export default {
 </script>
 
 <style>
-
-.curriculum {
-  font-size: 36px;
-  color: #f5a623;
+h1{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
 }
-
-
-
-
-/* h1.classlist {
-    color: rgb(0, 0, 0);
-    padding: 20px;
-    font-family: "Didact Gothic";
-    font-size: 40px;
-    display: block;
-    margin-left: 70px;
-    margin-right: auto;
-    width: 100%;
-    margin-bottom: 0px;
-    text-decoration-line: underline;
-/* } */
-
 
 
 </style>

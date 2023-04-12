@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1 class="curriculum">Curriculum:</h1>
+     <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+    <h1 class="curriculum">Science Curriculum:</h1>
     <div v-for="item in curriculum" v-bind:key="item.curriculumId">
       <h2>{{ item.curriculumName }}</h2>
       <p>{{ item.reading }}</p>

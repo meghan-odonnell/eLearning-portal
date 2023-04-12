@@ -1,10 +1,17 @@
 <template>
   <div class="home">
-    <h1 id="home">Home</h1>
+    <!-- <h1 id="home">Home</h1> -->
     <p id="auth">Courses</p>
     <class-list> </class-list>
+    <table>
+      <th><router-link to="/science">Science Curriculum</router-link></th>
+      <th><router-link to="/math">Math Curriculum</router-link></th>
+      <th>  <router-link to="/programming">Programming Curriculum</router-link></th>
+    </table>
    
-    <router-link to="/science">Curriculum</router-link>
+    <!-- <router-link to="/science">Science Curriculum</router-link> -->
+    <!-- <router-link to="/math">Math Curriculum</router-link> -->
+    <!-- <router-link to="/programming">Programming Curriculum</router-link> -->
    
     <p class="mathfact">Here's a random math fact:</p>
     <math-fact class="mathfact"></math-fact>

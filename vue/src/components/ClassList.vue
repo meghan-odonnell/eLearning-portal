@@ -44,7 +44,7 @@ export default {
 
 .classlist {
   font-size: 36px;
-  color: #f5a623;
+ color: #5F9EA0;
   text-align: center;
 }
 

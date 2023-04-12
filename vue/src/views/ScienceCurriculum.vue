@@ -18,7 +18,7 @@ export default {
    
   },
 
-  name: "home",
+  name: "science",
 };
 </script>
 <style>
