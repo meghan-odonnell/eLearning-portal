@@ -4,7 +4,7 @@
 
     
     <h1 id="home">Home</h1>
-    <p id="auth">Cirriculum Choices</p>
+    <p id="auth">Curriculum Choices</p>
    <class-list></class-list>
 
   <p class="mathfact">Here's a random math fact:  </p>
