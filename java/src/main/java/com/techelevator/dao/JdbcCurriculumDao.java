@@ -50,12 +50,28 @@ public class JdbcCurriculumDao implements CurriculumDao {
 
     @Override
     public Curriculum showSingleCurriculum (String curriculumId) {
-      return null;
+      String sql = " SELECT curriculum_id, curriculum_name, course_id, reading, homework, resources " +
+                   " FROM curriculum WHERE curriculum_id= ? ";
+      SqlRowSet results = jdbcTemplate.queryForRowSet(sql, curriculumId);
+      if (results.next()) {
+          return mapRowToCurriculum(results);
+      } else {
+          return null;
+      }
     }
 
+
+    // FOR createCurriculum method below:
+    // may need to do something with course_id as the error I get for
+    // this is that the courseId I create isnt in the course table
     @Override
-    public Curriculum createCurriculum () {
-        return null;
+    public Curriculum createCurriculum (Curriculum curriculum) {
+        String sql = "INSERT INTO curriculum (curriculum_id, curriculum_name, course_id, reading, homework, resources) " +
+                " VALUES (?, ?, ?, ?, ?, ?) RETURNING curriculum_id " ;
+        String newId = jdbcTemplate.queryForObject(sql, String.class, curriculum.getCurriculumId(),
+                curriculum.getCurriculumName(),curriculum.getCourseId(),
+                curriculum.getReading(), curriculum.getHomework(), curriculum.getResources());
+        return showSingleCurriculum(newId);
     }
 
     @Override
