@@ -18,14 +18,14 @@ public class LearningController {
         this.courseDao = courseDao;
     }
 
-    @PreAuthorize("permitAll")
-    @RequestMapping(path="/courses", method = RequestMethod.GET)
+//    @PreAuthorize("permitAll")
+    @RequestMapping(path="/course", method = RequestMethod.GET)
     public List<Course> getAllCourses(){
 
         return courseDao.showAllCourses();
     }
 
-    @PreAuthorize("permitAll")
+//    @PreAuthorize("permitAll")
     @RequestMapping(path = "/myCourses", method = RequestMethod.GET)
     public List<Course> showMyCourses(@RequestParam int id) {
         return courseDao.showMyCourses(id);

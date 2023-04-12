@@ -2,7 +2,7 @@ package com.techelevator.model;
 
 public class Course {
 
-    private int courseId;
+    private String courseId;
     private String courseName;
     private String courseDescription;
     private String difficulty;
@@ -11,7 +11,7 @@ public class Course {
     public Course() {
     }
 
-    public Course(int courseId, String courseName, String courseDescription, String level, Integer cost) {
+    public Course(String courseId, String courseName, String courseDescription, String level, Integer cost) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.courseDescription = courseDescription;
@@ -19,11 +19,11 @@ public class Course {
         this.cost = cost;
     }
 
-    public int getCourseId() {
+    public String getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(int courseId) {
+    public void setCourseId(String courseId) {
         this.courseId = courseId;
     }
 
