@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 
 import com.techelevator.dao.CourseDao;
+import com.techelevator.dao.ScienceDao;
 import com.techelevator.model.Course;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -31,9 +32,17 @@ public class LearningController {
         return courseDao.showMyCourses(id);
     }
 
+
+    @RequestMapping(path="/scienceCourses", method = RequestMethod.GET)
+    public List<Course> getAllScienceCourses(){
+
+        return courseDao.showAllCourses();
+
     //** TO DO: Teacher Create a course
     //** TO DO: Teacher create curriculum
     //** TO DO: Student sign up for a course
     //** TO DO:
 
 }
+}
+
