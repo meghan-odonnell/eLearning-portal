@@ -31,6 +31,39 @@ public class JdbcCurriculumDao implements CurriculumDao {
         return allCurriculum;
     }
 
+        @Override
+    public List<Curriculum> showCourseCurriculum (String courseId) {
+        List<Curriculum> courseCurr = new ArrayList<>();
+        String sql = "SELECT curriculum_id, curriculum_name, course_id, reading, homework, resources" +
+                " FROM curriculum WHERE course_id=?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, courseId);
+        while(results.next()) {
+            Curriculum curriculum = mapRowToCurriculum(results);
+            courseCurr.add(curriculum);
+        }
+        return courseCurr;
+    };
+
+
+    //TODO Finish Curriculum methods
+
+
+    @Override
+    public Curriculum showSingleCurriculum (String curriculumId) {
+      return null;
+    }
+
+    @Override
+    public Curriculum createCurriculum () {
+        return null;
+    }
+
+    @Override
+    public Curriculum editCurriculum (String curriculumId){
+        return null;
+    }
+
+
     private Curriculum mapRowToCurriculum(SqlRowSet results){
         Curriculum curriculum = new Curriculum();
         curriculum.setCurriculumId(results.getString("curriculum_id"));

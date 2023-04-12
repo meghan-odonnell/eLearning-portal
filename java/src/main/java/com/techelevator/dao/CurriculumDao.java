@@ -7,4 +7,12 @@ import java.util.List;
 public interface CurriculumDao {
 
     List<Curriculum> showAllCurriculum ();
+
+    List<Curriculum> showCourseCurriculum (String courseId);
+
+    Curriculum showSingleCurriculum (String curriculumId);
+
+    Curriculum createCurriculum ();
+
+    Curriculum editCurriculum (String curriculumId);
 }

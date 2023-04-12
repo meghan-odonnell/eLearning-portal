@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="curriculum">Curriculum:</h1>
-    <div v-for="item in classes" v-bind:key="item.curriculumId">
+    <div v-for="item in curriculum" v-bind:key="item.curriculumId">
       <h2>{{ item.curriculumName }}</h2>
       <p>{{ item.reading }}</p>
     </div>

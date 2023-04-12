@@ -19,9 +19,10 @@ public class LearningController {
     private CurriculumDao curriculumDao;
 
 
-    public LearningController(CourseDao courseDao) {
+    public LearningController(CourseDao courseDao, CurriculumDao curriculumDao) {
 
         this.courseDao = courseDao;
+        this.curriculumDao = curriculumDao;
     }
 
 //    @PreAuthorize("permitAll")
@@ -48,6 +49,11 @@ public class LearningController {
     @RequestMapping(path="/curriculum", method = RequestMethod.GET)
     public List<Curriculum> showAllCurriculum(){
         return curriculumDao.showAllCurriculum();
+    }
+
+    @RequestMapping(path="/courseCurriculum", method = RequestMethod.GET)
+    public List<Curriculum> showCourseCurriculum(@RequestParam String courseId){
+        return curriculumDao.showCourseCurriculum(courseId);
     }
 
     //** TO DO: Teacher Create a course

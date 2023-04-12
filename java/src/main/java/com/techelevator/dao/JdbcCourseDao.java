@@ -25,7 +25,7 @@ public class JdbcCourseDao implements CourseDao {
             String sql = "SELECT course_id, course_name, course_description, difficulty, cost FROM course";
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {
-                Course course = mapRowToUser(results);
+                Course course = mapRowToCourse(results);
                 courses.add(course);
             }
                 return courses;
@@ -37,7 +37,7 @@ public class JdbcCourseDao implements CourseDao {
                 "FROM curriculum";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
-            Course scienceCourse = mapRowToUser(results);
+            Course scienceCourse = mapRowToCourse(results);
             scienceCourses.add(scienceCourse);
         }
         return scienceCourses;
@@ -50,7 +50,7 @@ public class JdbcCourseDao implements CourseDao {
         return null;
     }
 
-    private Course mapRowToUser(SqlRowSet results) {
+    private Course mapRowToCourse(SqlRowSet results) {
             Course course = new Course();
             course.setCourseId(results.getString("course_id"));
             course.setCourseName(results.getString("course_name"));
