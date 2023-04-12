@@ -81,4 +81,3 @@ CREATE TABLE student_class (
 
 
 COMMIT TRANSACTION;
-
