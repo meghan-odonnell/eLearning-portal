@@ -21,7 +21,7 @@ public class JdbcCourseDao implements CourseDao {
         @Override
         public List<Course> showAllCourses(){
             List<Course> courses = new ArrayList<>();
-            String sql = "SELECT course_id, course_name, course_description, difficulty, cost FROM courses";
+            String sql = "SELECT course_id, course_name, course_description, difficulty, cost FROM course";
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {
                 Course course = mapRowToUser(results);
@@ -39,7 +39,7 @@ public class JdbcCourseDao implements CourseDao {
 
     private Course mapRowToUser(SqlRowSet results) {
             Course course = new Course();
-            course.setCourseId(results.getInt("course_id"));
+            course.setCourseId(results.getString("course_id"));
             course.setCourseName(results.getString("course_name"));
             course.setCourseDescription(results.getString("course_description"));
             course.setDifficulty(results.getString("difficulty"));

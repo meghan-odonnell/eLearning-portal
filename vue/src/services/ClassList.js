@@ -7,6 +7,6 @@ const http = axios.create({
 export default {
     //service call
     getAllClasses() {
-        return http.get('/courses');
+        return http.get('/course');
     }
 }

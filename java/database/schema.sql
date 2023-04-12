@@ -63,7 +63,11 @@ CREATE table assignment (
 );
 
 CREATE TABLE grade (
+<<<<<<< HEAD
 	grade_id SERIAL,
+=======
+	grade_id int,
+>>>>>>> 757de084788079228d2fe75ebe6297680979ccd5
 	assignment_id int NOT NULL,
 	student_id int NOT NULL,
 	grade varchar(1) DEFAULT 0,

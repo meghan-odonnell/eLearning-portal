@@ -1,4 +1,3 @@
-
 <template>
   <div class="home">
     <h1 id="home">Home</h1>
@@ -9,7 +8,7 @@
   <math-fact class="mathfact"></math-fact>
   <p>{{ mathFact }}</p>
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa%7CDidact Gothic">
   </div>
 </template>
 
@@ -65,4 +64,3 @@ export default {
     font-family: "Comfortaa";
   }
 </style>
-
