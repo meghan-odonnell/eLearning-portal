@@ -51,8 +51,8 @@ public class LearningController {
         return curriculumDao.showAllCurriculum();
     }
 
-    @RequestMapping(path="/courseCurriculum", method = RequestMethod.GET)
-    public List<Curriculum> showCourseCurriculum(@RequestParam String courseId){
+    @RequestMapping(path="/courseCurriculum/{courseId}", method = RequestMethod.GET)
+    public List<Curriculum> showCourseCurriculum(@PathVariable String courseId){
         return curriculumDao.showCourseCurriculum(courseId);
     }
 

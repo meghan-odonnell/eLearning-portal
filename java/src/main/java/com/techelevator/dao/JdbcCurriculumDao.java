@@ -34,8 +34,8 @@ public class JdbcCurriculumDao implements CurriculumDao {
         @Override
     public List<Curriculum> showCourseCurriculum (String courseId) {
         List<Curriculum> courseCurr = new ArrayList<>();
-        String sql = "SELECT curriculum_id, curriculum_name, course_id, reading, homework, resources" +
-                " FROM curriculum WHERE course_id=?";
+        String sql = "(SELECT curriculum_id, curriculum_name, course_id, reading, homework, resources" +
+                " FROM curriculum WHERE course_id= ? )";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, courseId);
         while(results.next()) {
             Curriculum curriculum = mapRowToCurriculum(results);

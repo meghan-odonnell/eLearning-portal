@@ -28,7 +28,7 @@ Newton\''s second law of motion states that force equals mass times acceleration
 		   );
 INSERT INTO curriculum (curriculum_id, course_id, curriculum_name, reading, homework, resources) 
 	VALUES  ('S2C3',	
-			'S2',
+			'M1',
 			'Chapter 3: Introduction to Biology',
 			'The human body is made up of trillions of cells. The average human heart beats about 100,000 times per day. The genetic material in all living things is made up of DNA, which consists of four bases: adenine, thymine, cytosine, and guanine.',
 		   'homework',
