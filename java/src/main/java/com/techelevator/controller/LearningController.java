@@ -3,7 +3,9 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.CourseDao;
 
+import com.techelevator.dao.CurriculumDao;
 import com.techelevator.model.Course;
+import com.techelevator.model.Curriculum;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +16,7 @@ import java.util.List;
 public class LearningController {
 
     private CourseDao courseDao;
+    private CurriculumDao curriculumDao;
 
 
     public LearningController(CourseDao courseDao) {
@@ -40,6 +43,11 @@ public class LearningController {
     public List<Course> getAllScienceCourses(){
 
         return courseDao.showAllScienceCourses();
+    }
+
+    @RequestMapping(path="/curriculum", method = RequestMethod.GET)
+    public List<Curriculum> showAllCurriculum(){
+        return curriculumDao.showAllCurriculum();
     }
 
     //** TO DO: Teacher Create a course
