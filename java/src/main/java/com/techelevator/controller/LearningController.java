@@ -1,9 +1,11 @@
 package com.techelevator.controller;
 
 
+import com.techelevator.dao.AssignmentDao;
 import com.techelevator.dao.CourseDao;
 
 import com.techelevator.dao.CurriculumDao;
+import com.techelevator.model.Assignment;
 import com.techelevator.model.Course;
 import com.techelevator.model.Curriculum;
 import org.springframework.http.HttpStatus;
@@ -20,12 +22,14 @@ public class LearningController {
 
     private CourseDao courseDao;
     private CurriculumDao curriculumDao;
+    private AssignmentDao assignmentDao;
 
 
-    public LearningController(CourseDao courseDao, CurriculumDao curriculumDao) {
+    public LearningController(CourseDao courseDao, CurriculumDao curriculumDao, AssignmentDao assignmentDao) {
 
         this.courseDao = courseDao;
         this.curriculumDao = curriculumDao;
+        this.assignmentDao = assignmentDao;
     }
 
 //    @PreAuthorize("permitAll")
@@ -64,12 +68,36 @@ public class LearningController {
         curriculumDao.createCurriculum(curriculum);
     }
 
-    //this does not work in postman
     @RequestMapping(path = "/curriculum/{curriculumId}", method = RequestMethod.PUT)
     public void updateCurriculum(@PathVariable String curriculumId, @RequestBody Curriculum curriculum) {
         curriculumDao.editCurriculum(curriculum, curriculumId);
     }
 
+    @RequestMapping(path = "/assignment", method = RequestMethod.GET)
+    public List<Assignment> getAllAssignments() {
+        return assignmentDao.getAllAssignments();
+    }
+
+    @RequestMapping(path = "/studentAssignments/{studentId}", method = RequestMethod.GET)
+    public List<Assignment> getAssignmentsByStudent(@PathVariable int studentId){
+        return assignmentDao.getAssignmentsByStudent(studentId);
+    }
+
+    @RequestMapping(path = "/assignment/{assignmentId}", method = RequestMethod.GET)
+    public Assignment getOneAssignment(@PathVariable int assignmentId){
+        return assignmentDao.getOneAssignment(assignmentId);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/assignment", method = RequestMethod.POST)
+    public void createAssignment(@RequestBody Assignment assignment){
+        assignmentDao.createAssignment(assignment);
+    }
+
+    @RequestMapping(path = "/assignment/{assignmentId}", method = RequestMethod.PUT)
+    public void editAssignment(@PathVariable int assignmentId, @RequestBody Assignment assignment){
+        assignmentDao.editAssignment(assignment, assignmentId);
+    }
 
 }
 
