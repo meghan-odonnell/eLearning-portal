@@ -73,7 +73,7 @@ public class JdbcCurriculumDao implements CurriculumDao {
     @Override
     public void editCurriculum (Curriculum curriculum, String curriculumId){
         String sql = "UPDATE curriculum\n" +
-                "SET curriculum_id = ?, curriculum_name = ?, course_id = ?, reading = ?, homework = ?, resources = ?\n" +
+                "SET curriculum_id = ?, course_id = ?, curriculum_name = ?, reading = ?, homework = ?, resources = ?\n" +
                 "WHERE curriculum_id = ?;";
         jdbcTemplate.update(sql, curriculum.getCurriculumId(), curriculum.getCourseId(),
                 curriculum.getCurriculumName(), curriculum.getHomework(),
