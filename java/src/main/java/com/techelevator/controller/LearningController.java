@@ -60,14 +60,14 @@ public class LearningController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/curriculum", method = RequestMethod.POST)
-    public void createCurriculum(@Valid @RequestBody Curriculum curriculum){
+    public void createCurriculum(@RequestBody Curriculum curriculum){
         curriculumDao.createCurriculum(curriculum);
     }
-
-    //** TO DO: Teacher Create a course
-    //** TO DO: Teacher create curriculum
-    //** TO DO: Student sign up for a course
-    //** TO DO:
+    //this does not work in postman
+    @RequestMapping(path = "/curriculum", method = RequestMethod.PUT)
+    public void updateCurriculum( @RequestBody Curriculum curriculum) {
+        curriculumDao.editCurriculum(curriculum);
+    }
 
 
 }

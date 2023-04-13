@@ -60,39 +60,26 @@ public class JdbcCurriculumDao implements CurriculumDao {
       }
     }
 
-
-    // FOR createCurriculum method below:
-    // may need to do something with course_id as the error I get for
-    // this is that the courseId isnt in the course table
     @Override
     public Curriculum createCurriculum (Curriculum curriculum) {
         String sql = "INSERT INTO curriculum (curriculum_id, curriculum_name, course_id, reading, homework, resources) " +
-                " VALUES (?, ?, ?, ?, ?, ?) " ;
+                " VALUES (?, ?, ?, ?, ?, ?) RETURNING curriculum_id " ;
         String newId = jdbcTemplate.queryForObject(sql, String.class, curriculum.getCurriculumId(),
                 curriculum.getCurriculumName(),curriculum.getCourseId(),
                 curriculum.getReading(), curriculum.getHomework(), curriculum.getResources());
         return showSingleCurriculum(newId);
     }
 
-//    START TRANSACTION;
-//
-//    INSERT INTO curriculum (curriculum_id, curriculum_name, course_id, reading, homework, resources)
-//    VALUES ('S4C4', 'Chapter 4', 'M2', 'this is words', 'no', 'links');
-//
-//
-//    INSERT INTO curriculum
-//    SELECT curriculum_id, curriculum_name, course_id, reading, homework, resources
-//    FROM course
-//    LEFT JOIN curriculum
-//    ON course.course_id = curriculum.curriculum_id ;
-//
-//    COMMIT TRANSACTION;
-
     @Override
-    public Curriculum editCurriculum (String curriculumId){
-        return null;
-    }
+    public void editCurriculum (Curriculum curriculum){
+        String sql = "UPDATE curriculum\n" +
+                "SET curriculum_id = ?, curriculum_name = ?, course_id = ?, reading = ?, homework = ?, resources = ?\n" +
+                "WHERE course_id = ?;";
+        jdbcTemplate.update(sql, curriculum.getCurriculumId(), curriculum.getCourseId(),
+                curriculum.getCurriculumName(), curriculum.getHomework(),
+                curriculum.getReading(), curriculum.getResources());
 
+    }
 
     private Curriculum mapRowToCurriculum(SqlRowSet results){
         Curriculum curriculum = new Curriculum();
@@ -104,5 +91,14 @@ public class JdbcCurriculumDao implements CurriculumDao {
         curriculum.setResources(results.getString("resources"));
         return curriculum;
     }
+
+//    private Curriculum updateMapRowToCurriculum(SqlRowSet results) {
+//        Curriculum curriculum = new Curriculum();
+//        curriculum.setCurriculumName(results.getString("curriculum_name"));
+//        curriculum.setHomework(results.getString("homework"));
+//        curriculum.setReading(results.getString("reading"));
+//        curriculum.setResources(results.getString("resources"));
+//        return curriculum;
+//    }
 
 }
