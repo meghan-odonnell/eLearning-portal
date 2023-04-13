@@ -7,7 +7,7 @@ public interface GradeDao {
 
     Grade getGrade(int gradeId);
 
-    Grade editGrade(int gradeId, Grade grade);
+    void editGrade(int gradeId, Grade grade);
 
 
 }

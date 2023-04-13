@@ -1,6 +1,7 @@
 package com.techelevator.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Assignment {
 
@@ -61,4 +62,5 @@ public class Assignment {
     public void setSubmitted(boolean submitted) {
         isSubmitted = submitted;
     }
+
 }
