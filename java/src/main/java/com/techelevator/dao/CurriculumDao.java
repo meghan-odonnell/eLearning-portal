@@ -16,5 +16,5 @@ public interface CurriculumDao {
 
     Curriculum createCurriculum (Curriculum curriculum);
 
-    void editCurriculum (Curriculum curriculum);
+    void editCurriculum (Curriculum curriculum, String curriculumId);
 }

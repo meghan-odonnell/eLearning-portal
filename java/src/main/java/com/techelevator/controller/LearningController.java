@@ -63,10 +63,11 @@ public class LearningController {
     public void createCurriculum(@RequestBody Curriculum curriculum){
         curriculumDao.createCurriculum(curriculum);
     }
+
     //this does not work in postman
-    @RequestMapping(path = "/curriculum", method = RequestMethod.PUT)
-    public void updateCurriculum( @RequestBody Curriculum curriculum) {
-        curriculumDao.editCurriculum(curriculum);
+    @RequestMapping(path = "/curriculum/{curriculumId}", method = RequestMethod.PUT)
+    public void updateCurriculum(@PathVariable String curriculumId, @RequestBody Curriculum curriculum) {
+        curriculumDao.editCurriculum(curriculum, curriculumId);
     }
 
 
