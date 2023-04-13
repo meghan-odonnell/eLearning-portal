@@ -45,12 +45,13 @@ public class Assignment {
         this.studentId = studentId;
     }
 
-    public Date getSubmittedDate() {
-        return submittedDate;
-    }
-
     public void setSubmittedDate(Date submittedDate) {
         this.submittedDate = submittedDate;
+    }
+
+    public Date getSubmittedDate() {
+
+        return submittedDate;
     }
 
     public boolean isSubmitted() {
