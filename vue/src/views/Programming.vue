@@ -8,7 +8,8 @@
 <script>
 // import ClassList from "../components/ClassList.vue";
 // import MathFact from "../components/MathFact.vue";
-import Curriculum from '../components/Curriculum.vue'
+import Curriculum from '../components/Curriculum.vue';
+
 
 
 export default {
