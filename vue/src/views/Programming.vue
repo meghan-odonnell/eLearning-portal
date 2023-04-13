@@ -19,13 +19,13 @@
 
 <script>
 import DatabaseService from "../services/DatabaseService.js";
-import { VueAccordion, VueAccordionPane } from "vue-accordion";
+// import { VueAccordion, VueAccordionPane } from "vue-accordion";
 
 export default {
   name: "Programming",
   components: {
-    VueAccordion,
-    VueAccordionPane,
+    // VueAccordion,
+    // VueAccordionPane,
   },
   data() {
     return {
