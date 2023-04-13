@@ -1,20 +1,30 @@
 <template>
   <div class="header">
-    <img src="../img/image.png" alt="super-smart" />
+  <div class="header-image">
+  <img src="../img/superSmartBanner.jpg" alt="super-smart" />
+</div>
+
+<router-link
+  v-bind:to="{ name: 'logout' }"
+  v-if="$store.state.token != ''"
+  class="table-link"
+>
+  Logout
+</router-link>
+
 
     <h1 class="classlist">Class List:</h1>
     <table>
-      <!-- <thead>
-              <tr>
-                  <th class="math">Math</th>
-                  <th class="science">Science</th>
-                  <th class="cp">Computer Programming</th>
-              </tr>
-          </thead> -->
       <tbody>
+        <tr>
+          <th>Course Name</th>
+          <th>Course Description</th>
+          <th>Cost</th>
+        </tr>
         <tr v-for="item in classes" v-bind:key="item.courseId">
           <td>{{ item.courseName }}</td>
           <td>{{ item.courseDescription }}</td>
+          <td> $ {{ item.cost }} </td>
         </tr>
       </tbody>
     </table>
@@ -57,20 +67,21 @@ export default {
 }
 
 table {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   margin: 20px auto;
   width: 80%;
 }
 
 th,
 td {
-  border: 1px solid #ccc;
+  border: none;
   padding: 12px;
   text-align: left;
 }
 
 th {
-  background-color: #f5a623;
+  background-color: #82b3a4;
   color: white;
   font-weight: bold;
   text-transform: uppercase;
@@ -97,6 +108,31 @@ td:nth-child(2) {
 tbody {
   font-family: "Comfortaa", sans-serif;
 }
+
+.table-link {
+  color: #5f9ea0;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 8px 8px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+  float: right;
+}
+
+.table-link:hover {
+  background-color: #5f9ea0;
+  color: #f8f8f8;
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+
 
 /* h1.classlist {
     color: rgb(0, 0, 0);

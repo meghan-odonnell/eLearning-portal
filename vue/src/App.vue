@@ -1,11 +1,10 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp; -->
+    <!-- <div id="nav">
+      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       
-    </div>
-    <!-- <img src="./img/supersmart.jpg" class="center" title="Super-Smart eLearning Solutions"/> -->
+    </div> -->
     <router-view />
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic">

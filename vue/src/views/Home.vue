@@ -1,17 +1,14 @@
 <template>
   <div class="home">
-    <!-- <h1 id="home">Home</h1> -->
  
     <class-list> </class-list>
-    <table>
-      <th><router-link to="/science">Science Curriculum</router-link></th>
-      <th><router-link to="/math">Math Curriculum</router-link></th>
-      <th>  <router-link to="/programming">Programming Curriculum</router-link></th>
-    </table>
-   
-    <!-- <router-link to="/science">Science Curriculum</router-link> -->
-    <!-- <router-link to="/math">Math Curriculum</router-link> -->
-    <!-- <router-link to="/programming">Programming Curriculum</router-link> -->
+
+   <table class="table">
+  <th><router-link to="/science">Science Curriculum</router-link></th>
+  <th><router-link to="/math">Math Curriculum</router-link></th>
+  <th><router-link to="/programming">Programming Curriculum</router-link></th>
+  </table>
+
    
     <p class="mathfact">Here's a random math fact:</p>
     <math-fact class="mathfact"></math-fact>
@@ -19,8 +16,7 @@
 
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Comfortaa%7CDidact Gothic"
-    />
+      href="https://fonts.googleapis.com/css?family=Comfortaa%7CDidact Gothic"/>
   </div>
 </template>
 
@@ -37,33 +33,33 @@ export default {
 
   name: "home",
 };
+
 </script>
 <style>
-p#auth {
-  color: rgb(11, 12, 12);
-  font-family: "Comfortaa";
-  font-size: 30px;
-  max-width: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  text-align: center;
-  border-radius: 20px;
-  margin-bottom: 50px;
+
+.table {
+ 
+  justify-content: center;
+
 }
 
-h1#home {
-  color: rgb(0, 0, 0);
-  font-family: "Comfortaa";
-  font-size: 40px;
-  max-width: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  text-align: center;
-  border-radius: 20px;
-  margin-bottom: 50px;
+.table a {
+  color: #5f9ea0;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
 }
+
+.table a:hover {
+  background-color: #5f9ea0;
+  color: #f8f8f8;
+  transition: background-color 0.3s ease;
+}
+
 </style>
