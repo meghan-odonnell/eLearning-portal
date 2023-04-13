@@ -8,6 +8,7 @@ import store from '../store/index'
 import ScienceCurriculum from '../views/ScienceCurriculum.vue'
 import Programming from '../views/Programming.vue'
 import Math from '../views/Math.vue'
+import Test from '../views/Test.vue'
 
 
 Vue.use(Router)
@@ -72,6 +73,12 @@ const router = new Router({
       name: "programming",
       component: Programming
     },
+    {
+      path: "/test",
+      name: "test",
+      component: Test
+    },
+
 
   ]
 })

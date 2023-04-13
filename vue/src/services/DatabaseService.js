@@ -26,4 +26,8 @@ export default {
         return http.get(`/curriculum/${id}`);
     },
 
+    createCurriculum(curriculum) {
+        return http.post(`/curriculum`,curriculum)
+    },
+  
 }
