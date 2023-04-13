@@ -1,19 +1,32 @@
 <template>
   <div>
-     <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+    <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
     <h1 class="curriculum">Programming Curriculum:</h1>
-    <div v-for="item in curriculum" v-bind:key="item.curriculumId">
-      <h2>{{ item.curriculumName }}</h2>
-      <p>{{ item.reading }}</p>
-    </div>
+    <vue-accordion>
+      <vue-accordion-pane v-for="item in curriculum" :key="item.curriculumId">
+        <template #title>
+          <div class="pane-title">{{ item.curriculumName }}</div>
+        </template>
+        <template #content>
+          <div class="pane-content">
+            <p>{{ item.reading }}</p>
+          </div>
+        </template>
+      </vue-accordion-pane>
+    </vue-accordion>
   </div>
 </template>
 
 <script>
 import DatabaseService from "../services/DatabaseService.js";
+import { VueAccordion, VueAccordionPane } from "vue-accordion";
 
 export default {
-  name: "curriculum",
+  name: "programmingcurriculum",
+  components: {
+    VueAccordion,
+    VueAccordionPane,
+  },
   data() {
     return {
       curriculum: [],
