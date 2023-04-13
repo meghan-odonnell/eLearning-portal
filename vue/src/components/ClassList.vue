@@ -3,6 +3,10 @@
   <div class="header-image">
   <img src="../img/superSmartBanner.jpg" alt="super-smart" />
 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1c182760001c542ccffa2eabd99f94fce90eda57
 <router-link
   v-bind:to="{ name: 'logout' }"
   v-if="$store.state.token != ''"
@@ -10,6 +14,11 @@
 >
   Logout
 </router-link>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 1c182760001c542ccffa2eabd99f94fce90eda57
     <h1 class="classlist">Class List:</h1>
     <table>
       <tbody>
@@ -70,7 +79,11 @@ td {
   text-align: left;
 }
 th {
+<<<<<<< HEAD
   background-color: #82B3A4;
+=======
+  background-color: #82b3a4;
+>>>>>>> 1c182760001c542ccffa2eabd99f94fce90eda57
   color: white;
   font-weight: bold;
   text-transform: uppercase;
@@ -92,24 +105,49 @@ td:nth-child(2) {
 tbody {
   font-family: "Comfortaa", sans-serif;
 }
+<<<<<<< HEAD
 .table-link {
   color: #5F9EA0;
+=======
+
+.table-link {
+  color: #5f9ea0;
+>>>>>>> 1c182760001c542ccffa2eabd99f94fce90eda57
   font-family: "Comfortaa", sans-serif;
   font-size: 20px;
   text-transform: uppercase;
   text-decoration: none;
   padding: 8px 8px;
   border-radius: 10px;
+<<<<<<< HEAD
   background-color: #F8F8F8;
+=======
+  background-color: #f8f8f8;
+>>>>>>> 1c182760001c542ccffa2eabd99f94fce90eda57
   margin: 0 5px;
   transition: background-color 0.3s ease;
   float: right;
 }
+<<<<<<< HEAD
 .table-link:hover {
   background-color: #5F9EA0;
   color: #F8F8F8;
   transition: background-color 0.3s ease;
 }
+=======
+
+.table-link:hover {
+  background-color: #5f9ea0;
+  color: #f8f8f8;
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+
+
+>>>>>>> 1c182760001c542ccffa2eabd99f94fce90eda57
 /* h1.classlist {
     color: rgb(0, 0, 0);
     padding: 20px;
