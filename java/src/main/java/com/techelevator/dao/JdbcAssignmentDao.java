@@ -35,7 +35,7 @@ public class JdbcAssignmentDao implements AssignmentDao{
         List<Assignment> oneAssignments = new ArrayList<>();
         String sql = "SELECT assignment_id, curriculum_id, student_id, submission_date, status\n" +
                 "FROM assignment\n" +
-                "WHERE student_id = ?;";
+                "WHERE student_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, studentId);
         while(results.next()) {
             Assignment assignment = mapRowToAssignment(results);
@@ -60,6 +60,24 @@ public class JdbcAssignmentDao implements AssignmentDao{
 
     @Override
     public Assignment createAssignment(Assignment assignment) {
+        String sql = "INSERT INTO assignment (assignment_id, curriculum_id, student_id, submission_date, status) " +
+                " VALUES (?, ?, ?, ?, ?) " +
+                " RETURNING assignment_id";
+        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class,
+                assignment.getAssignmentId(), assignment.getCurriculumId(),
+                assignment.getStudentId(), assignment.getSubmittedDate(), assignment.isSubmitted());
+        return getOneAssignment(newId);
+    }
+
+    @Override
+    public Assignment createAssignments(Assignment assignment) {
+        String getStudent = "select student_id \n" +
+                "from student_class\n" +
+                "JOIN course \n" +
+                "ON student_class.course_id = course.course_id\n" +
+                "JOIN curriculum \n" +
+                "ON curriculum.course_id = course.course_id\n" +
+                "where curriculum_id = ?";
         String sql = "INSERT INTO assignment (assignment_id, curriculum_id, student_id, submission_date, status) " +
                 " VALUES (?, ?, ?, ?, ?) " +
                 " RETURNING assignment_id";

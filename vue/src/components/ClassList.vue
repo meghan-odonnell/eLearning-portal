@@ -1,8 +1,6 @@
 <template>
   <div class="header">
-  <div class="header-image">
-  <img src="../img/superSmartBanner.jpg" alt="super-smart" />
-</div>
+
 <router-link
   v-bind:to="{ name: 'logout' }"
   v-if="$store.state.token != ''"

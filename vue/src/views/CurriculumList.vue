@@ -1,15 +1,20 @@
 <template>
   <div>
+    <div>
+   <header-pic  class="header-image"></header-pic>
+</div>
       <curriculum></curriculum>
     </div>
 </template>
 
 <script>
 import Curriculum from '../components/Curriculum.vue'
+import HeaderPic from '../components/HeaderPic.vue';
 
 export default {
   components: {
     Curriculum,
+    HeaderPic,
   },
 
   name: "curriculum-list",

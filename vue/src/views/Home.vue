@@ -1,6 +1,8 @@
 <template>
   <div class="home">
- 
+ <div>
+   <header-pic></header-pic>
+ </div>
     <class-list> </class-list>
 
     <p class="mathfact">Here's a random math fact:</p>
@@ -15,12 +17,14 @@
 
 <script>
 import ClassList from "../components/ClassList.vue";
+import HeaderPic from '../components/HeaderPic.vue';
 import MathFact from "../components/MathFact.vue";
 
 export default {
   components: {
     ClassList,
     MathFact,
+    HeaderPic,
    
   },
 
@@ -29,12 +33,6 @@ export default {
 
 </script>
 <style>
-
-.table {
- 
-  justify-content: center;
-
-}
 
 .table a {
   color: #5f9ea0;

@@ -75,6 +75,7 @@ public class LearningController {
 
     @RequestMapping(path = "/assignment", method = RequestMethod.GET)
     public List<Assignment> getAllAssignments() {
+
         return assignmentDao.getAllAssignments();
     }
 
@@ -91,6 +92,7 @@ public class LearningController {
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/assignment", method = RequestMethod.POST)
     public void createAssignment(@RequestBody Assignment assignment){
+
         assignmentDao.createAssignment(assignment);
     }
 
