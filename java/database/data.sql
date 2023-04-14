@@ -3,6 +3,10 @@ BEGIN TRANSACTION;
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 INSERT INTO users (username,password_hash,role) VALUES ('meghan','$2a$10$MXWhj.tMfEHlnKs6GhXFfeDs3Y6NNoTGXt9Xn4CdLs59aZR28qdDa','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('student1','asdfad','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('student2','adfadf','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('student4','asdfadfg','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('student5','qewrqwe','ROLE_USER');
 
 INSERT INTO course (course_id, course_name, course_description, difficulty) VALUES ('M1', 'Math','Basic Math','Beginner');
 INSERT INTO course (course_id, course_name, course_description, difficulty) VALUES ('S2', 'Science','This is a science class','Intermediate');
@@ -82,5 +86,20 @@ INSERT INTO student_class(student_id, course_id)
 	VALUES ((SELECT user_id FROM users where username = 'user'),
 			'S2');
 
+INSERT INTO student_class(student_id, course_id)
+	VALUES ((SELECT user_id FROM users where username = 'student1'),
+			'S2');
+			
+INSERT INTO student_class(student_id, course_id)
+	VALUES ((SELECT user_id FROM users where username = 'student2'),
+			'S2');
+
+INSERT INTO student_class(student_id, course_id)
+	VALUES ((SELECT user_id FROM users where username = 'student1'),
+			'M1');
+			
+INSERT INTO student_class(student_id, course_id)
+	VALUES ((SELECT user_id FROM users where username = 'student3'),
+			'M1');
 
 COMMIT TRANSACTION;
