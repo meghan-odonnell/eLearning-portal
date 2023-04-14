@@ -5,8 +5,6 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
-import ScienceCurriculum from '../views/ScienceCurriculum.vue'
-import Math from '../views/Math.vue'
 import Test from '../views/Test.vue'
 import Lesson from '../views/Lesson.vue'
 import CurriculumList from '../views/CurriculumList.vue'
@@ -58,16 +56,6 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-    },
-    {
-      path: "/science",
-      name: "science",
-      component: ScienceCurriculum
-    },
-    {
-      path: "/math",
-      name: "math",
-      component: Math
     },
     {
       path: "/test",

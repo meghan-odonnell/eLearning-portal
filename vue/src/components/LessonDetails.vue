@@ -1,5 +1,5 @@
 <template>
-<div>Test LESSON DETAILS
+<div>LESSON DETAILS
   <div class="lesson-detail">  
  
     <h1>{{ curriculum.curriculumName }}</h1>
