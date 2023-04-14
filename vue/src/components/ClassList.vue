@@ -21,7 +21,7 @@
         <tr v-for="item in classes" v-bind:key="item.courseId">
            
           <td>
-           <router-link v-bind:to="{name: 'test'}"> 
+           <router-link v-bind:to="{name: 'CurriculumList', params: {courseName:item.courseId}}"> 
             {{ item.courseName }}
              </router-link> 
              </td> 

@@ -25,12 +25,13 @@ export default {
     };
   },
   created() {
-    DatabaseService.getAllCurriculum().then((response) => {
-      this.curriculum = response.data;
+    // DatabaseService.getAllCurriculum().then((response) => {
+    //   this.curriculum = response.data;
       // const courseId = "S2";
-      // const courseId = this.$route.params.id
-      // DatabaseService.getCourseCurriculum(courseId).then((response) => {
-      // this.curriculum = response.data;
+      
+      DatabaseService.getCourseCurriculum(this.$route.params.courseName)
+      .then((response) => {
+        this.curriculum = response.data;
     })
   },
 };

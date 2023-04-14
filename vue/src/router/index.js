@@ -9,6 +9,7 @@ import ScienceCurriculum from '../views/ScienceCurriculum.vue'
 import Math from '../views/Math.vue'
 import Test from '../views/Test.vue'
 import Lesson from '../views/Lesson.vue'
+import CurriculumList from '../views/CurriculumList.vue'
 
 
 Vue.use(Router)
@@ -78,7 +79,11 @@ const router = new Router({
       name: "Lesson",
       component: Lesson
     },
-    
+    {
+      path: '/:courseName',
+      name: "CurriculumList",
+      component: CurriculumList
+    },
 
   ]
 })
