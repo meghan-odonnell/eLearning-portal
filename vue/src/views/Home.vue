@@ -7,6 +7,7 @@
   <th><router-link to="/science">Science Curriculum</router-link></th>
   <th><router-link to="/math">Math Curriculum</router-link></th>
   <th><router-link to="/programming">Programming Curriculum</router-link></th>
+
   </table>
 
    

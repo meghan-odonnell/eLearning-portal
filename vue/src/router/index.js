@@ -73,6 +73,7 @@ const router = new Router({
       component: Test
     },
 
+
     // added this
     {
       path: '/science/:id',
