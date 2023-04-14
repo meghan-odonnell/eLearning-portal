@@ -8,6 +8,7 @@ import store from '../store/index'
 import ScienceCurriculum from '../views/ScienceCurriculum.vue'
 import Math from '../views/Math.vue'
 import Test from '../views/Test.vue'
+import Lesson from '../views/Lesson.vue'
 
 
 Vue.use(Router)
@@ -76,9 +77,9 @@ const router = new Router({
 
     // added this
     {
-      path: '/science/:id',
+      path: '/curriculum/:id',
       name: "Lesson",
-      component: ScienceCurriculum
+      component: Lesson
     },
     // 
 

@@ -22,8 +22,12 @@ export default {
         return http.get('/curriculum');
     },
 
-    getOneCurriculum(id) {
-        return http.get(`/curriculum/${id}`);
+    getCourseCurriculum(courseId) {
+        return http.get(`/courseCurriculum/${courseId}`);
+    },
+
+    getOneCurriculum(curriculumId) {
+        return http.get(`/singleCurriculum/${curriculumId}`);
     },
 
     createCurriculum(curriculum) {

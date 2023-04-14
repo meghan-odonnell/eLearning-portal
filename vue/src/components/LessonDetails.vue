@@ -1,9 +1,18 @@
 <template>
-  <div>
-    <h1>{{ curriculumName }}</h1>
-    <p>{{ reading }}</p>
-    <p>{{ homework }}</p>
-    <p>{{ resources }}</p>
+<div>Test LESSON DETAILS
+  <div class="lesson-detail" v-for="item in curriculum" v-bind:key="item.curriculumId">  
+ 
+    <h1>{{ item.curricurriculumName }}</h1>
+    <th>{{ item.curriculumName }}</th>
+        <p>{{ item.reading }}</p>
+        <p>HOMEWORK: {{ item.homework}}</p>
+        <p>RESOURCES: {{ item.resources}}</p>
+        
+   <table>
+        
+
+      </table>
+  </div>
   </div>
 </template>
 
@@ -11,22 +20,40 @@
 import DatabaseService from '../services/DatabaseService.js';
 
 export default {
-  name: 'CurriculumDetail',
+  name: 'lesson-detail',
   data() {
     return {
-      curriculumName: '',
-      reading: '',
-      homework: '',
-      resources: '',
+      curriculum: [],
     };
   },
-  async created() {
-    const curriculumId = this.$route.params.id;
-    const response = await DatabaseService.getCurriculumById(curriculumId);
-    this.curriculumName = response.curriculum_name;
-    this.reading = response.reading;
-    this.homework = response.homework;
-    this.resources = response.resources;
-  },
-};
+
+
+  created() {
+
+    //this returns them all
+      DatabaseService.getAllCurriculum().then((response) => {
+      this.curriculum = response.data;
+      });
+
+
+      
+    // const curriculumId = this.$route.params.id;
+    // const curriculumId = "S2C1";
+    
+  //this returns multiple records but they are blank
+
+    // DatabaseService.getOneCurriculum(this.$route.params.id)
+    // .then((response) => {
+    //   console.log(this.$route.params.id),
+    //   console.log("???")
+    //   this.curriculum = response.data;
+    //   })
+    // .catch(
+    //   console.log("error"),
+    //   console.log(this.$route.params.id)
+    //   )
+    // },
+
+},
+}
 </script>

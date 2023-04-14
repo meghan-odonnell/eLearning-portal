@@ -8,7 +8,7 @@
 
 <script>
 
-import LessonCard from '../components/LessonCard.vue'
+import LessonCard from '../components/MiscComp/LessonCard.vue'
 import LessonDetails from '../components/LessonDetails.vue'
 import NewCurriculum from '../components/NewCurriculum.vue'
 export default {

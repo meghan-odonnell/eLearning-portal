@@ -3,7 +3,11 @@
     <h1 class="curriculum">Science Curriculum:</h1>
     <div v-for="item in curriculum" v-bind:key="item.curriculumId">
       <table>
-        <th>{{ item.curriculumName }}</th>
+        <th>
+          <router-link v-bind:to="{name: 'Lesson', params: { id:item.curriculumId}}"> 
+          {{ item.curriculumName }}
+           </router-link>
+          </th>
         <td>{{ item.reading }}</td>
       </table>
     </div>
@@ -23,7 +27,11 @@ export default {
   created() {
     DatabaseService.getAllCurriculum().then((response) => {
       this.curriculum = response.data;
-    });
+      // const courseId = "S2";
+      // const courseId = this.$route.params.id
+      // DatabaseService.getCourseCurriculum(courseId).then((response) => {
+      // this.curriculum = response.data;
+    })
   },
 };
 </script>

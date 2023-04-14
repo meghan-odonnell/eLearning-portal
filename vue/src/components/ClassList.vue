@@ -19,7 +19,13 @@
           <th>Cost</th>
         </tr>
         <tr v-for="item in classes" v-bind:key="item.courseId">
-          <td>{{ item.courseName }}</td>
+           
+          <td>
+           <router-link v-bind:to="{name: 'test'}"> 
+            {{ item.courseName }}
+             </router-link> 
+             </td> 
+           
           <td>{{ item.courseDescription }}</td>
           <td> $ {{ item.cost }} </td>
         </tr>

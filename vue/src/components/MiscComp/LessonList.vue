@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import DatabaseService from '../services/DatabaseService.js';
+// import DatabaseService from '../services/DatabaseService.js';
 
 export default {
   name: 'CurriculumList',
@@ -22,10 +22,10 @@ export default {
       courseName: '',
     };
   },
-  async created() {
-    const courseId = this.$route.params.id;
-    const response = await DatabaseService.getOneCurriculum(this.curriculum.curriculumId;
-    this.curricula = response.data;
+//   async created() {
+//     const courseId = this.$route.params.id;
+//     const response = await DatabaseService.getOneCurriculum(this.curriculum.curriculumId;
+//     this.curricula = response.data;
     
-};
+ };
 </script>
