@@ -73,15 +73,12 @@ const router = new Router({
       name: "test",
       component: Test
     },
-
-
-    // added this
     {
       path: '/curriculum/:id',
       name: "Lesson",
       component: Lesson
     },
-    // 
+    
 
   ]
 })
