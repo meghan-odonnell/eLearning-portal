@@ -13,7 +13,7 @@
    
     <p class="mathfact">Here's a random math fact:</p>
     <math-fact class="mathfact"></math-fact>
-    <p class="math">{{ mathFact }}</p>
+    <!-- <p class="math">{{ mathFact }}</p> -->
 
     <link
       rel="stylesheet"

@@ -21,6 +21,7 @@ import DatabaseService from '../services/DatabaseService.js';
 
 export default {
   name: 'lesson-detail',
+  props: {},
   data() {
     return {
       curriculum: [],
@@ -31,9 +32,9 @@ export default {
   created() {
 
     //this returns them all
-      DatabaseService.getAllCurriculum().then((response) => {
-      this.curriculum = response.data;
-      });
+      // DatabaseService.getAllCurriculum().then((response) => {
+      // this.curriculum = response.data;
+      // });
 
 
       
@@ -42,17 +43,17 @@ export default {
     
   //this returns multiple records but they are blank
 
-    // DatabaseService.getOneCurriculum(this.$route.params.id)
-    // .then((response) => {
-    //   console.log(this.$route.params.id),
-    //   console.log("???")
-    //   this.curriculum = response.data;
-    //   })
-    // .catch(
-    //   console.log("error"),
-    //   console.log(this.$route.params.id)
-    //   )
-    // },
+    DatabaseService.getOneCurriculum(this.$route.params.id)
+    .then((response) => {
+      console.log(this.$route.params.id),
+      console.log("???")
+      this.curriculum = response.data;
+      })
+    .catch(
+      console.log("error"),
+      console.log(this.$route.params.id)
+      )
+    
 
 },
 }

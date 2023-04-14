@@ -1,7 +1,7 @@
 <template>
   <div>
-      <rest-math-facts-service></rest-math-facts-service>
-  <p>{{ mathFact }}</p>
+      <!-- <rest-math-facts-service></rest-math-facts-service> -->
+  <p>{{$store.state.mathFact}}</p>
   </div>
 </template>
 
@@ -11,19 +11,12 @@
 import RestMathFactsService from '../services/RestMathFactsService.js'
 
 export default {
-    components: { 
-      RestMathFactsService
     
-    },
     name: 'math-fact',
-    data() {
-        return {
-            mathFact: "",
-        }
-    },
+    
     created() {
       RestMathFactsService.getMathFact().then(response => {
-            this.mathFact = response.data;
+            this.$store.commit('SET_MATH_FACT',response.data)
         })
     }
 

@@ -1,37 +1,37 @@
 import axios from 'axios';
 
-const http = axios.create({
-    baseURL: 'http://localhost:9000'
-})
+// const http = axios.create({
+//     baseURL: 'http://localhost:9000'
+// })
 
 export default {
     //service call
     getAllClasses() {
-        return http.get('/course');
+        return axios.get('/course');
     },
 
     getOneClass(id) {
-        return http.get(`/course/${id}`);
+        return axios.get(`/course/${id}`);
     },
 
     getMyClasses(userId) {
-        return http.get(`/myCourses/${userId}`);
+        return axios.get(`/myCourses/${userId}`);
     },
 
     getAllCurriculum() {
-        return http.get('/curriculum');
+        return axios.get('/curriculum');
     },
 
     getCourseCurriculum(courseId) {
-        return http.get(`/courseCurriculum/${courseId}`);
+        return axios.get(`/courseCurriculum/${courseId}`);
     },
 
     getOneCurriculum(curriculumId) {
-        return http.get(`/singleCurriculum/${curriculumId}`);
+        return axios.get(`/singleCurriculum/${curriculumId}`);
     },
 
     createCurriculum(curriculum) {
-        return http.post(`/curriculum`,curriculum)
+        return axios.post(`/curriculum`,curriculum)
     },
   
 }
