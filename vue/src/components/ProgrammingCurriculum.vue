@@ -2,25 +2,17 @@
   <div>
     <h1 class="curriculum">Programming Curriculum:</h1>
 
-    <VueAccordion :multiple="true" :activeIndex="0">
-      <VueAccordionTab v-for="item in curriculum" :header="item.title" :key="item.id">
-        <p>{{ item.content }}</p>
-      </VueAccordionTab>
-    </VueAccordion>
   </div>
 </template>
 
 <script>
 import DatabaseService from "../services/DatabaseService.js";
-import { VueAccordion, VueAccordionTab } from "vue-accordion";
-// import Accordion from 'primevue/accordion';
-// import AccordionTab from 'primevue/accordiontab';
+
 
 export default {
   name: "programmingcurriculum",
   components: {
-    VueAccordion,
-    VueAccordionTab,
+
 
   },
   
