@@ -16,6 +16,8 @@ public interface AssignmentDao {
     Assignment createAssignment (Assignment assignment);
 
     void editAssignment (Assignment assignment, int assignmentId);
+//
+//    Assignment createAssignments(Assignment assignment);
 
 //    List<Assignment> getStudentsByCourse(String curriculumId);
 }

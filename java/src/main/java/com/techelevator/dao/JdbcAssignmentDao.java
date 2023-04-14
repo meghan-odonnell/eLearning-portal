@@ -69,23 +69,32 @@ public class JdbcAssignmentDao implements AssignmentDao{
         return getOneAssignment(newId);
     }
 
-    @Override
-    public Assignment createAssignments(Assignment assignment) {
-        String getStudent = "select student_id \n" +
-                "from student_class\n" +
-                "JOIN course \n" +
-                "ON student_class.course_id = course.course_id\n" +
-                "JOIN curriculum \n" +
-                "ON curriculum.course_id = course.course_id\n" +
-                "where curriculum_id = ?";
-        String sql = "INSERT INTO assignment (assignment_id, curriculum_id, student_id, submission_date, status) " +
-                " VALUES (?, ?, ?, ?, ?) " +
-                " RETURNING assignment_id";
-        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class,
-                assignment.getAssignmentId(), assignment.getCurriculumId(),
-                assignment.getStudentId(), assignment.getSubmittedDate(), assignment.isSubmitted());
-        return getOneAssignment(newId);
-    }
+//    @Override
+//    public Assignment createAssignments(Assignment assignment) {
+//        List<Assignment> students = new ArrayList<>();
+//        String getStudent = "select student_id \n" +
+//                "from student_class\n" +
+//                "JOIN course \n" +
+//                "ON student_class.course_id = course.course_id\n" +
+//                "JOIN curriculum \n" +
+//                "ON curriculum.course_id = course.course_id\n" +
+//                "where curriculum_id = ?";
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(getStudent);
+//        while( results.next()){
+//            Assignment assignment1 = mapRowToAssignment
+//            students.add(results);
+//        }
+//
+//        for (student in students){
+//
+//        String sql = "INSERT INTO assignment (assignment_id, curriculum_id, student_id, submission_date, status) " +
+//                " VALUES (?, ?, ?, ?, ?) " +
+//                " RETURNING assignment_id";
+//        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class,
+//                assignment.getAssignmentId(), assignment.getCurriculumId(),
+//                student, assignment.getSubmittedDate(), assignment.isSubmitted());
+//        return getOneAssignment(newId);
+//    }
 
     @Override
     public void editAssignment(Assignment assignment, int assignmentId) {
