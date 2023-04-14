@@ -33,5 +33,8 @@ export default {
     createCurriculum(curriculum) {
         return axios.post(`/curriculum`,curriculum)
     },
-  
+    
+    createAssignment(assignment) {
+        return axios.post(`/assignment`,assignment)
+    }
 }
