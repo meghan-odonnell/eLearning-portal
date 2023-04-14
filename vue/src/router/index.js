@@ -6,7 +6,6 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import ScienceCurriculum from '../views/ScienceCurriculum.vue'
-import Programming from '../views/Programming.vue'
 import Math from '../views/Math.vue'
 import Test from '../views/Test.vue'
 
@@ -67,11 +66,6 @@ const router = new Router({
       path: "/math",
       name: "math",
       component: Math
-    },
-    {
-      path: "/programming",
-      name: "programming",
-      component: Programming
     },
     {
       path: "/test",
