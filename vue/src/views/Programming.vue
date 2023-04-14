@@ -11,7 +11,11 @@
 
 <script>
 
+import DatabaseService from "../services/DatabaseService.js";
+// import { VueAccordion, VueAccordionPane } from "vue-accordion";
+
 import ProgrammingCurriculum from '../components/ProgrammingCurriculum.vue';
+
 
 export default {
   name: "Programming",
