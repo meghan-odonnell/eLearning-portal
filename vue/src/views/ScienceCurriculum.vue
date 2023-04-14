@@ -14,8 +14,6 @@ import Curriculum from '../components/Curriculum.vue'
 export default {
   components: {
     Curriculum,
-    
-   
   },
 
   name: "science",
