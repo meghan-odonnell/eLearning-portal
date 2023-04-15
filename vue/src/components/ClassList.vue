@@ -47,15 +47,8 @@ export default {
   },
 };
 </script>
-<style>
-.header {
-  position: relative;
-  text-align: center;
-}
-.header img {
-  width: 100%;
-  max-height: 50%;
-}
+<style scoped>
+
 .classlist {
   font-size: 36px;
   color: #5F9EA0;
@@ -66,6 +59,7 @@ table {
   border-spacing: 0;
   margin: 20px auto;
   width: 80%;
+  table-layout: fixed; /* or 'auto' */
 }
 th,
 td {
@@ -114,37 +108,5 @@ tbody {
   color: #F8F8F8;
   transition: background-color 0.3s ease;
 }
-/* h1.classlist {
-    color: rgb(0, 0, 0);
-    padding: 20px;
-    font-family: "Didact Gothic";
-    font-size: 40px;
-    display: block;
-    margin-left: 70px;
-    margin-right: auto;
-    width: 100%;
-    margin-bottom: 0px;
-    text-decoration-line: underline;
-}
-table {
-    color: rgb(0, 0, 0);
-    padding: 20px;
-    font-family: "Didact Gothic";
-    font-size: 30px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    margin-bottom: 0px;
-}
-th {
-    border: thick dotted rgb(0, 0, 0);
-    margin: auto;
-    max-width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px; */
+
 </style>

@@ -1,8 +1,15 @@
 <template>
   <div>
-    <div>
-   <header-pic  class="header-image"></header-pic>
+    <div  class="container">
+   <header-pic></header-pic>
 </div>
+<router-link
+  v-bind:to="{ name: 'logout' }"
+  v-if="$store.state.token != ''"
+  class="table-link"
+>
+  Logout
+</router-link>
       <curriculum></curriculum>
     </div>
 </template>
@@ -21,6 +28,22 @@ export default {
 };
 </script>
 <style>
+
+.container img {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+.home img {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
 p#auth {
   color: rgb(11, 12, 12);
   font-family: "Comfortaa";
@@ -47,5 +70,23 @@ h1#home {
   text-align: center;
   border-radius: 20px;
   margin-bottom: 50px;
+}
+.table-link {
+  color: #5F9EA0;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 8px 8px;
+  border-radius: 10px;
+  background-color: #F8F8F8;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+  float: right;
+}
+.table-link:hover {
+  background-color: #5F9EA0;
+  color: #F8F8F8;
+  transition: background-color 0.3s ease;
 }
 </style>

@@ -42,6 +42,16 @@ h1{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
 }
+.container {
+  max-width: 100%;
+  text-align: center;
+}
 
+.home img {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
 
 </style>

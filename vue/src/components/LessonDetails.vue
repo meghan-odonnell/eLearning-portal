@@ -1,5 +1,6 @@
 <template>
-<div>LESSON DETAILS
+<div>
+  <header-pic></header-pic>
   <div class="lesson-detail">  
  
     <h1>{{ curriculum.curriculumName }}</h1>
@@ -15,9 +16,14 @@
 
 <script>
 import DatabaseService from '../services/DatabaseService.js';
+import HeaderPic from '../components/HeaderPic.vue'
 
 export default {
+  components: {
+    HeaderPic
+  },
   name: 'lesson-detail',
+  
   
   data() {
     return {

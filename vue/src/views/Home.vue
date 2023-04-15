@@ -1,30 +1,28 @@
 <template>
   <div class="home">
- <div>
-   <header-pic></header-pic>
- </div>
-    <class-list> </class-list>
+    <div class="container">
+      <img src="../img/superSmartBanner.jpg" alt="super-smart" />
+  </div>
+   
+    <class-list></class-list>
 
-    <p class="mathfact">Here's a random math fact:</p>
-    <math-fact class="mathfact"></math-fact>
- 
+    <!-- <p class="mathfact">Here's a random math fact:</p>
+    <math-fact class="mathfact"></math-fact> -->
 
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Comfortaa%7CDidact Gothic"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa%7CDidact Gothic" />
   </div>
 </template>
 
 <script>
 import ClassList from "../components/ClassList.vue";
-import HeaderPic from '../components/HeaderPic.vue';
-import MathFact from "../components/MathFact.vue";
+
+// import MathFact from "../components/MathFact.vue";
 
 export default {
   components: {
     ClassList,
-    MathFact,
-    HeaderPic,
+    // MathFact,
+  
    
   },
 
@@ -33,6 +31,17 @@ export default {
 
 </script>
 <style>
+.container {
+  max-width: 100%;
+  text-align: center;
+}
+
+.home img {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
 
 .table a {
   color: #5f9ea0;
@@ -52,5 +61,4 @@ export default {
   color: #f8f8f8;
   transition: background-color 0.3s ease;
 }
-
 </style>
