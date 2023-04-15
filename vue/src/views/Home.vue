@@ -3,7 +3,11 @@
     <div class="container">
       <img src="../img/superSmartBanner.jpg" alt="super-smart" />
   </div>
-   
+   <button>
+    <router-link v-bind:to="{name: 'teacherdashboard' }"> hi
+    </router-link>
+
+   </button>
     <class-list></class-list>
     
 

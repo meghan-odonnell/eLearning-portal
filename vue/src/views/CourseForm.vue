@@ -1,6 +1,6 @@
 <template>
   <div>
-      
+      course form
   </div>
 </template>
 
