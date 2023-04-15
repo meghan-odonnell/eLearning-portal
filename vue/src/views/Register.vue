@@ -7,7 +7,13 @@
       </div>
       <div class="form-input-group">
         <label for="username">Username</label>
-        <input type="text" id="username" v-model="user.username" required autofocus />
+        <input
+          type="text"
+          id="username"
+          v-model="user.username"
+          required
+          autofocus
+        />
       </div>
       <div class="form-input-group">
         <label for="password">Password</label>
@@ -15,45 +21,69 @@
       </div>
       <div class="form-input-group">
         <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
+        <input
+          type="password"
+          id="confirmPassword"
+          v-model="user.confirmPassword"
+          required
+        />
+      </div>
+      <div class="form-input-group">
+        <label for="role">User Type: Choose One: </label>
+        <select name="role" v-model="user.role" required>
+          <option value="user">Student</option>
+          <option value="admin">Teacher</option>
+        </select>
       </div>
       <button type="submit">Create Account</button>
-      <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
+      <p>
+        <router-link :to="{ name: 'login' }"
+          >Already have an account? Log in.</router-link
+        >
+      </p>
     </form>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic"
+    />
   </div>
 </template>
 
 <script>
-import authService from '../services/AuthService';
+import authService from "../services/AuthService";
 
 export default {
-  name: 'register',
+  name: "register",
   data() {
     return {
       user: {
-        username: '',
-        password: '',
-        confirmPassword: '',
-        role: 'user',
+        username: "",
+        password: "",
+        confirmPassword: "",
+        role: "user",
       },
       registrationErrors: false,
-      registrationErrorMsg: 'There were problems registering this user.',
+      registrationErrorMsg: "There were problems registering this user.",
     };
   },
   methods: {
     register() {
+      if (this.role === "admin") {
+        this.role = "admin";
+      } else {
+        this.role = "user";
+      }
       if (this.user.password != this.user.confirmPassword) {
         this.registrationErrors = true;
-        this.registrationErrorMsg = 'Password & Confirm Password do not match.';
+        this.registrationErrorMsg = "Password & Confirm Password do not match.";
       } else {
         authService
           .register(this.user)
           .then((response) => {
             if (response.status == 201) {
               this.$router.push({
-                path: '/login',
-                query: { registration: 'success' },
+                path: "/login",
+                query: { registration: "success" },
               });
             }
           })
@@ -61,23 +91,22 @@ export default {
             const response = error.response;
             this.registrationErrors = true;
             if (response.status === 400) {
-              this.registrationErrorMsg = 'Bad Request: Validation Errors';
+              this.registrationErrorMsg = "Bad Request: Validation Errors";
             }
           });
       }
     },
     clearErrors() {
       this.registrationErrors = false;
-      this.registrationErrorMsg = 'There were problems registering this user.';
+      this.registrationErrorMsg = "There were problems registering this user.";
     },
   },
 };
 </script>
 
 <style scoped>
-
 #register {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,7 +116,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   padding: 20px;
   border-radius: 5px;
 }
@@ -117,16 +146,15 @@ input[type="password"] {
   border: none;
   border-radius: 5px;
   background-color: #fff;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12), 
-              inset 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12),
+    inset 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus {
   outline: none;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12), 
-              inset 0 1px 5px rgba(0, 0, 0, 0.24), 
-              0 0 5px rgba(74, 144, 226, 0.5);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12),
+    inset 0 1px 5px rgba(0, 0, 0, 0.24), 0 0 5px rgba(74, 144, 226, 0.5);
 }
 
 button[type="submit"] {
@@ -153,8 +181,6 @@ p {
 a {
   color: #4a90e2;
 }
-
-
 
 /* .form-input-group {
   margin-bottom: 1rem;
