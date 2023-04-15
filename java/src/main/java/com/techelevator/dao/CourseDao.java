@@ -10,5 +10,7 @@ public interface CourseDao {
 
     List<Course> showMyCourses(int id);
 
+    Course createCourse(Course course);
 
+    Course showOneCourse (String courseId);
 }

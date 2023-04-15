@@ -46,6 +46,15 @@ public class LearningController {
         return courseDao.showMyCourses(id);
     }
 
+    @RequestMapping(path = "/course/{courseId}", method = RequestMethod.GET)
+    public Course showCourse(@PathVariable String courseId){
+        return courseDao.showOneCourse(courseId);
+    }
+
+    @RequestMapping(path = "/course", method = RequestMethod.POST)
+    public Course createCourse(@RequestBody Course course){
+        return courseDao.createCourse(course);
+    }
 
     @RequestMapping(path="/curriculum", method = RequestMethod.GET)
     public List<Curriculum> showAllCurriculum(){

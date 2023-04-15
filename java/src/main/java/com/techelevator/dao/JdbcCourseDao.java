@@ -39,6 +39,29 @@ public class JdbcCourseDao implements CourseDao {
         return null;
     }
 
+    @Override
+    public Course showOneCourse (String courseId) {
+            String sql = "SELECT course_id, course_name, course_description, difficulty, cost " +
+                    " from course WHERE course_id= ? ";
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, courseId);
+            if (results.next()) {
+                return mapRowToCourse(results);
+            } else {
+                return null;
+            }
+    }
+
+
+    @Override
+    public Course createCourse(Course course){
+        String sql = "INSERT INTO course " +
+                " (course_id, course_name, course_description, difficulty, cost) " +
+                " VALUES (?, ?, ?, ?, ?) RETURNING course_id; ";
+        String newId = jdbcTemplate.queryForObject(sql, String.class, course.getCourseId(),course.getCourseName(),
+                course.getCourseDescription(), course.getDifficulty(), course.getCost());
+        return showOneCourse(newId);
+    }
+
     private Course mapRowToCourse(SqlRowSet results) {
             Course course = new Course();
             course.setCourseId(results.getString("course_id"));
