@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="curriculum">Curriculum:</h1>
+    <!-- <h1 class="curriculum">Curriculum:</h1> -->
     <div v-for="item in curriculum" v-bind:key="item.curriculumId">
       <table>
         <th>

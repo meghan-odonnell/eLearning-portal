@@ -1,21 +1,27 @@
 <template>
+  <div>
+    <assignments></assignments>
     <div>
-        <assignments></assignments>
+      <button>
+        <router-link v-bind:to="{ name: 'CourseForm' }">
+          Course Form
+        </router-link>
+      </button>
     </div>
+  </div>
 </template>
 
 <script>
-import Assignments from '../components/Assignments.vue'
+import Assignments from "../components/Assignments.vue";
 
 export default {
-    components: {
-        Assignments
-    } 
-}
+  components: {
+    Assignments,
+  },
+};
 </script>
 
 
 
 <style>
-
 </style>

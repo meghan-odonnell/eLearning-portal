@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h3>done</h3>
+  <h3>Assignments</h3>
   <div >
       <table>
         <th>Student Id</th>

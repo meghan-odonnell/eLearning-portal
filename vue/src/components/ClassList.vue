@@ -8,6 +8,15 @@
 >
   Logout
 </router-link>
+
+<router-link
+  v-bind:to="{ name: 'TeacherDashboard' }"
+  v-if="$store.state.token != ''"
+  class="table-link"
+>
+  Teacher Dashboard
+</router-link>
+
     <h1 class="classlist">Class List:</h1>
     <table>
       <tbody>
