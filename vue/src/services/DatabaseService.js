@@ -36,5 +36,8 @@ export default {
     
     createAssignment(assignment) {
         return axios.post(`/assignment`,assignment)
+    },
+    getHomework(studentId) {
+        return axios.get(`'/studentAssignments/'${studentId}`)
     }
 }

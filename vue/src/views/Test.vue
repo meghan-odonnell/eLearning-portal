@@ -1,18 +1,17 @@
 <template>
   <div>
-      <new-curriculum></new-curriculum>
-      
-      <lesson-details></lesson-details>
+    <assignments></assignments>
+  
   </div>
 </template>
 
 <script>
+import Assignments from '../components/Assignments.vue'
 
 
-import LessonDetails from '../components/LessonDetails.vue'
-import NewCurriculum from '../components/NewCurriculum.vue'
+
 export default {
-  components: { NewCurriculum, LessonDetails },
+  components: {  Assignments },
 
 }
 </script>
