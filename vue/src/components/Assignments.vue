@@ -1,31 +1,31 @@
 <template>
-  <div>
-    <h3>Test Page for Homework</h3>
-    <ul>
-      <li v-for="assignment in assignments" :key="assignment.studentId">
-        {{ assignment.curriculumId }} - {{ assignment.status }}
-      </li>
-    </ul>
-  </div>
+<div>
+  <h3>fucking work you BITCH</h3>
+  <div v-for="item in assignments" v-bind:key="item.assignmentId">
+      <table>
+        <!-- <th v-bind:to="{name: 'Home', params: { id:item.assignmentId}}">
+        
+          </th> -->
+        <td>{{ item.status }}</td>
+      </table>
+    </div>
+    </div>
 </template>
 
 <script>
 import DatabaseService from '../services/DatabaseService.js'
 
 export default {
-  props: {
-    studentId: {
-      type: Number,
-      required: true,
-    },
-  },
+ name: "homework-details",
+   
+  
   data() {
     return {
       assignments: [],
     };
   },
   created() {
-    DatabaseService.getHomework(this.studentId)
+    DatabaseService.getHomework()
       .then(response => {
         this.assignments = response.data;
       })

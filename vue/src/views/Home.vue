@@ -5,6 +5,7 @@
   </div>
    
     <class-list></class-list>
+    <assignments></assignments>
 
     <!-- <p class="mathfact">Here's a random math fact:</p>
     <math-fact class="mathfact"></math-fact> -->
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import Assignments from '../components/Assignments.vue';
 import ClassList from "../components/ClassList.vue";
 
 // import MathFact from "../components/MathFact.vue";
@@ -21,6 +23,7 @@ import ClassList from "../components/ClassList.vue";
 export default {
   components: {
     ClassList,
+    Assignments,
     // MathFact,
   
    

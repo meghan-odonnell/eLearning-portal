@@ -11,7 +11,8 @@ import Assignments from '../components/Assignments.vue'
 
 
 export default {
-  components: {  Assignments },
+  components: {  
+    Assignments },
 
 }
 </script>
