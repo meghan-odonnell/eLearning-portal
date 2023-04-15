@@ -20,8 +20,12 @@ public class JdbcAssignmentDao implements AssignmentDao{
     @Override
     public List<Assignment> getAllAssignments() {
         List<Assignment> allAssignments = new ArrayList<>();
-        String sql = "SELECT assignment_id, curriculum_id, student_id, submission_date, status\n" +
-                "FROM assignment;";
+        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, " +
+                " users.username, curriculum.curriculum_name " +
+                " FROM assignment " +
+                " JOIN users ON assignment.student_id = users.user_id " +
+                " JOIN curriculum ON curriculum.curriculum_id = assignment.curriculum_id " +
+                " ; ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Assignment assignment = mapRowToAssignment(results);
@@ -33,9 +37,12 @@ public class JdbcAssignmentDao implements AssignmentDao{
     @Override
     public List<Assignment> getAssignmentsByStudent(int studentId) {
         List<Assignment> oneAssignments = new ArrayList<>();
-        String sql = "SELECT assignment_id, curriculum_id, student_id, submission_date, status\n" +
-                "FROM assignment\n" +
-                "WHERE student_id = ?";
+        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, " +
+                " users.username, curriculum.curriculum_name " +
+                " FROM assignment " +
+                " JOIN users ON assignment.student_id = users.user_id " +
+                " JOIN curriculum ON curriculum.curriculum_id = assignment.curriculum_id " +
+                " WHERE student_id = ?; ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, studentId);
         while(results.next()) {
             Assignment assignment = mapRowToAssignment(results);
@@ -47,8 +54,11 @@ public class JdbcAssignmentDao implements AssignmentDao{
 
     @Override
     public Assignment getOneAssignment(int assignmentId) {
-    String sql = "SELECT assignment_id, curriculum_id, student_id, submission_date, status " +
-            " FROM assignment " +
+        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, " +
+                " users.username, curriculum.curriculum_name " +
+                " FROM assignment " +
+                " JOIN users ON assignment.student_id = users.user_id " +
+                " JOIN curriculum ON curriculum.curriculum_id = assignment.curriculum_id " +
             " WHERE assignment_id = ? ;";
     SqlRowSet results = jdbcTemplate.queryForRowSet(sql, assignmentId);
     if (results.next()){
@@ -113,6 +123,9 @@ public class JdbcAssignmentDao implements AssignmentDao{
         assignment.setStudentId(results.getInt("student_id"));
         assignment.setSubmittedDate(results.getDate("submission_date"));
         assignment.setSubmitted(results.getBoolean("status"));
+        assignment.setStudentName(results.getString("username"));
+        assignment.setCurriculumName(results.getString("curriculum_name"));
+
 
         return assignment;
     }

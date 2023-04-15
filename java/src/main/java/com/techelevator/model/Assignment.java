@@ -10,16 +10,37 @@ public class Assignment {
     private int studentId;
     private Date submittedDate;
     private boolean isSubmitted;
+    private String studentName;
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public String getCurriculumName() {
+        return curriculumName;
+    }
+
+    public void setCurriculumName(String curriculumName) {
+        this.curriculumName = curriculumName;
+    }
+
+    private String curriculumName;
 
     public Assignment() {
     }
 
-    public Assignment(int assignmentId, String curriculumId, int studentId, Date submittedDate, boolean isSubmitted) {
+    public Assignment(int assignmentId, String curriculumId, int studentId, Date submittedDate, boolean isSubmitted, String studentName, String curriculumName) {
         this.assignmentId = assignmentId;
         this.curriculumId = curriculumId;
         this.studentId = studentId;
         this.submittedDate = submittedDate;
         this.isSubmitted = isSubmitted;
+        this.studentName = studentName;
+        this.curriculumName = curriculumName;
     }
 
     public int getAssignmentId() {
