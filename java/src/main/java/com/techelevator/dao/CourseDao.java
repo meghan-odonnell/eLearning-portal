@@ -13,4 +13,8 @@ public interface CourseDao {
     Course createCourse(Course course);
 
     Course showOneCourse (String courseId);
-}
+
+    Course editCourse (String courseId, Course course);
+
+    Course deleteCourse (String courseId);
+};

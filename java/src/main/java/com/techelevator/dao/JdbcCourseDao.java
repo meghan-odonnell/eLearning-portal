@@ -62,6 +62,18 @@ public class JdbcCourseDao implements CourseDao {
         return showOneCourse(newId);
     }
 
+
+    @Override
+    public Course editCourse(String courseId, Course course) {
+        return null;
+    }
+
+    @Override
+    public Course deleteCourse(String courseId) {
+            String sql =
+        return null;
+    }
+
     private Course mapRowToCourse(SqlRowSet results) {
             Course course = new Course();
             course.setCourseId(results.getString("course_id"));
