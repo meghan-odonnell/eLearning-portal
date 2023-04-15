@@ -8,6 +8,10 @@ import store from '../store/index'
 import Test from '../views/Test.vue'
 import Lesson from '../views/Lesson.vue'
 import CurriculumList from '../views/CurriculumList.vue'
+import StudentDashboard from '../views/StudentDashboard.vue'
+import TeacherDashboard from '../views/TeacherDashboard.vue'
+import CurriculumForm from '../views/CurriculumForm.vue'
+import CourseForm from '../views/CourseForm.vue'
 
 
 Vue.use(Router)
@@ -72,6 +76,26 @@ const router = new Router({
       name: "CurriculumList",
       component: CurriculumList
     },
+    {
+      path: '/studentDashboard',
+      name: "StudentDashboard",
+      component: StudentDashboard
+    },
+    {
+      path: '/teacherDashboard',
+      name: "TeacherDashboard",
+      component: TeacherDashboard
+    },
+    {
+      path: '/curriculumForm',
+      name: "CurriculumForm",
+      component: CurriculumForm
+    },
+    {
+      path: '/courseForm',
+      name: "CourseForm",
+      component: CourseForm
+    }
 
   ]
 })

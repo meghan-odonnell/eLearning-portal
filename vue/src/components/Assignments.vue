@@ -1,10 +1,17 @@
 <template>
 <div>
-  <h3>fucking work you BITCH</h3>
+  <h3>done</h3>
   <div >
       <table>
+        <th>Student Id</th>
+        <th>Student Name</th>
+        <th>Submission Date</th>
+        <th>Status</th>
         <tr v-for="item in assignments" v-bind:key="item.assignmentId">
-        <td>{{ item.assignmentId }}</td>
+        <td>{{ item.studentId }}</td>
+        <td>{{ item.studentName }}</td>
+        <td>{{ item.submissionDate }}</td>
+        <td>{{ item.status }}</td>
         </tr>
       </table>
     </div>
