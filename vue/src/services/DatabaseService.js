@@ -30,6 +30,10 @@ export default {
         return axios.get(`/singleCurriculum/${curriculumId}`);
     },
 
+    createCourse(course) {
+        return axios.post(`/course`,course);
+    },
+
     createCurriculum(curriculum) {
         return axios.post(`/curriculum`,curriculum)
     },
