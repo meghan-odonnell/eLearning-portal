@@ -1,6 +1,6 @@
 <template>
   <div>
-  <router-link class="btn-2" v-bind:to="{name: 'courseform'}">  Course </router-link>
+  <router-link class="btn-2" v-bind:to="{name: 'courseform'}">  Add Course </router-link>
   <router-link class="btn-2" v-bind:to="{name: 'curriculumform'}"> Add Curriculum</router-link>
     <router-link
       v-bind:to="{ name: 'home' }"
