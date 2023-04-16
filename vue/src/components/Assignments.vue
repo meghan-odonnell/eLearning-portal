@@ -8,7 +8,7 @@
         <th>Student Name</th>
         <th>Submission Date</th>
         <th>Status</th>
-        <tr v-for="item in assignments" v-bind:key="item.assignmentId">
+        <tr v-for="item in assignments" v-bind:key="item.assignmentId " v-bind:class="{ 'not-submitted': !item.submitted }">
           <td>{{ item.studentId }}</td>
           <td>{{ item.studentName }}</td>
           <td>{{ item.submittedDate }}</td>
@@ -74,7 +74,10 @@ export default {
 };
 </script>
 
-<style >
+<style scoped >
+.not-submitted {
+  background-color: #ffe6e6; /* light pink */
+}
 h1 {
   font-size: 36px;
   color: #5f9ea0;

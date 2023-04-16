@@ -51,12 +51,9 @@ export default {
   // }
 };
 </script>
-<style>
+<style scoped>
 
-.grayed-out {
-  color: gray;
-  pointer-events: none; /* This prevents the link from being clickable */
-}
+
 .container {
   max-width: 100%;
   text-align: center;
@@ -79,12 +76,7 @@ export default {
   border-radius: 10px;
   background-color: #f8f8f8;
   margin: 0 10px;
-  transition: background-color 0.3s ease;
 }
 
-.table a:hover {
-  background-color: #5f9ea0;
-  color: #f8f8f8;
-  transition: background-color 0.3s ease;
-}
+
 </style>

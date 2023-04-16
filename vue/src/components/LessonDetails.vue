@@ -78,9 +78,7 @@ th {
   font-weight: bold;
   text-transform: uppercase;
 }
-tr:nth-child(even) {
-  background-color: #F8F8F8;
-}
+
 tr:hover {
   background-color: #F5F5F5;
   transition: background-color 0.3s ease;
@@ -89,29 +87,10 @@ td:first-child {
   color: #F5A623;
   font-weight: bold;
 }
-td:nth-child(2) {
-  color: #7F7F7F;
-}
+
 tbody {
   font-family: "Comfortaa", sans-serif;
 }
-.table-link {
-  color: #5F9EA0;
-  font-family: "Comfortaa", sans-serif;
-  font-size: 20px;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 8px 8px;
-  border-radius: 10px;
-  background-color: #F8F8F8;
-  margin: 0 5px;
-  transition: background-color 0.3s ease;
-  float: right;
-}
-.table-link:hover {
-  background-color: #5F9EA0;
-  color: #F8F8F8;
-  transition: background-color 0.3s ease;
-}
+
 
 </style>

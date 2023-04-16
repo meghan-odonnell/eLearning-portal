@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <h1 class="curriculum">Curriculum:</h1> -->
     <router-link class="btn-2" v-bind:to="{name: 'curriculumform'}"> Add Curriculum</router-link>
     <div v-for="item in curriculum" v-bind:key="item.curriculumId">
       <table>
@@ -38,7 +37,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 h1{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;

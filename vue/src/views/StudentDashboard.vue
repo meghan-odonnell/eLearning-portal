@@ -1,6 +1,21 @@
 <template>
     <div>
         <header-pic></header-pic>
+        
+        <router-link
+      v-bind:to="{ name: 'logout' }"
+      v-if="$store.state.token != ''"
+      class="table-link"
+      >Logout</router-link>
+      
+   <router-link
+      v-bind:to="{ name: 'home' }"
+      v-if="$store.state.token != ''"
+      class="table-link"
+    >
+      HOME
+    </router-link>
+
         <assignments></assignments>
     </div>
 </template>
