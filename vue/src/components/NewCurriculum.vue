@@ -4,12 +4,12 @@
     <h2>Add Curriculum Details</h2>
     <form class="create-curriculum" v-on:submit.prevent>
       <div class="form-input-group">
-        <label for="courseId">courseId</label>
+        <label for="courseId">Course Id</label>
         <input name="courseId" type="text" v-model="curriculum.courseId" />
       </div>
 
       <div class="form-input-group">
-        <label for="curriculumId">curriculumId</label>
+        <label for="curriculumId">Curriculum Id</label>
         <input
           name="curriculumId"
           type="text"
@@ -17,7 +17,7 @@
         />
       </div>
       <div class="form-input-group">
-        <label for="chapterName">curriculumName</label>
+        <label for="chapterName">Curriculum Name</label>
         <input
           name="chapterName"
           type="text"
