@@ -157,6 +157,17 @@ input[type="password"]:focus {
     inset 0 1px 5px rgba(0, 0, 0, 0.24), 0 0 5px rgba(74, 144, 226, 0.5);
 }
 
+.form-input-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12),
+    inset 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
 button[type="submit"] {
   background-color: #4a90e2;
   color: #fff;

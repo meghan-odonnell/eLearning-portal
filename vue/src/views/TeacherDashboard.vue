@@ -38,7 +38,7 @@ export default {
 
 
 
-<style>
+<style scoped>
 
 
 .btn-2 {
