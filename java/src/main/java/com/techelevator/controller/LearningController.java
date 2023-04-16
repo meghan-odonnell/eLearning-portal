@@ -50,6 +50,7 @@ public class LearningController {
     public Course showCourse(@PathVariable String courseId){
         return courseDao.showOneCourse(courseId);
     }
+    @PreAuthorize("hasRole('ADMIN')")
 
     @RequestMapping(path = "/course", method = RequestMethod.POST)
     public Course createCourse(@RequestBody Course course){
@@ -70,13 +71,14 @@ public class LearningController {
     public Curriculum showSingleCurriculum(@PathVariable String curriculumId){
         return curriculumDao.showSingleCurriculum(curriculumId);
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/curriculum", method = RequestMethod.POST)
     public void createCurriculum(@RequestBody Curriculum curriculum){
         curriculumDao.createCurriculum(curriculum);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(path = "/curriculum/{curriculumId}", method = RequestMethod.PUT)
     public void updateCurriculum(@PathVariable String curriculumId, @RequestBody Curriculum curriculum) {
         curriculumDao.editCurriculum(curriculum, curriculumId);
@@ -97,6 +99,7 @@ public class LearningController {
     public Assignment getOneAssignment(@PathVariable int assignmentId){
         return assignmentDao.getOneAssignment(assignmentId);
     }
+
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/assignment", method = RequestMethod.POST)
