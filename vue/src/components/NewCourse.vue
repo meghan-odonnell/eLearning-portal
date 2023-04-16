@@ -26,7 +26,7 @@
     <input name="cost" type="text" v-model="course.cost" />
  </div>
  <div class="form-input-group">
-    <button type="submit" class="btn-submit" v-on:click="saveCourse()">
+    <button type="submit" class="btn" v-on:click="saveCourse()">
       Submit</button>
        </div>
   </form>
@@ -37,7 +37,7 @@
 import DatabaseService from "../services/DatabaseService";
 
 export default {
-  name: "create-curriculum",
+  name: "create-course",
   data() {
     return {
       course: {
@@ -52,9 +52,7 @@ export default {
   methods: {
     setCourseId() {},
     // get the course id based on the teacher's course selection. Teacher should not be entering manually
-    setCurriculumID() {
-      //  get the week/day number from form? and then concat with this.courseId
-    },
+
 
     saveCourse() {
         const newCourse = {
@@ -69,8 +67,9 @@ export default {
       DatabaseService
       .createCourse(newCourse)
       .then((response) => {
-          if (response.status === 201) {
-            this.$router.push("/");
+          if (response.status === 201 || 
+          response.status === 200) {
+            this.$router.push({name: "teacherdashboard"});
           }
         })
         .catch((error) => {

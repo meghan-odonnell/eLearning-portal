@@ -26,12 +26,12 @@ Vue.use(Router)
  * If they have (or don"t need to) they"re allowed to go about their way.
  */
 
-// const router = new Router({
-//   mode: "history",
-//   base: process.env.BASE_URL,
-//   routes: [
+const router = new Router({
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes: [
 
-  const routes = [
+  // const routes = [
     {
       path: "/",
       name: "home",
@@ -103,12 +103,12 @@ Vue.use(Router)
 
 
   ]
-// })
-const router = new Router({
-  mode: "history",
-  base: process.env.BASE_URL,
-  routes
 })
+// const router = new Router({
+//   mode: "history",
+//   base: process.env.BASE_URL,
+//   routes
+// })
 router.beforeEach((to, from, next) => {
   // Determine if the route requires Authentication
   const requiresAuth = to.matched.some(x => x.meta.requiresAuth);

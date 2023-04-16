@@ -82,7 +82,7 @@ export default {
       DatabaseService.createCurriculum(newCurriculum)
         .then((response) => {
           if (response.status === 201) {
-            this.$router.push("/");
+            this.$router.push({name: 'curriculumlist', params: {courseName: this.curriculum.courseId}});
           }
         })
         .catch((error) => {
