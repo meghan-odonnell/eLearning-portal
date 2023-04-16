@@ -10,9 +10,13 @@
       class="table-link"
       >Logout</router-link>
 
-   
-      <router-link class="table-link" v-bind:to="{ name: 'teacherdashboard' }"> teacher's dashboard </router-link>
-    
+   <!-- <div>
+      <router-link class="table-link" v-bind:to="{ name: 'teacherdashboard' }"
+     
+      
+      > teacher's dashboard </router-link>
+      </div> -->
+
 
     <class-list></class-list>
 
@@ -31,11 +35,28 @@ export default {
     ClassList,
     // MathFact,
   },
+  // props: {
+  //   role: {
+  //     type: String,
+  //     required: true,
+  //   },
+  // },
 
   name: "home",
+
+  // computed: {
+  //   isUser() {
+  //     return this.role === "user";
+  //   }
+  // }
 };
 </script>
 <style>
+
+.grayed-out {
+  color: gray;
+  pointer-events: none; /* This prevents the link from being clickable */
+}
 .container {
   max-width: 100%;
   text-align: center;

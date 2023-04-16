@@ -68,10 +68,10 @@ export default {
   },
   methods: {
     register() {
-      if (this.role === "admin") {
-        this.role = "admin";
+      if (this.role === "ROLE_ADMIN") {
+        this.role = "ROLE_ADMIN";
       } else {
-        this.role = "user";
+        this.role = "ROLE_USER";
       }
       if (this.user.password != this.user.confirmPassword) {
         this.registrationErrors = true;

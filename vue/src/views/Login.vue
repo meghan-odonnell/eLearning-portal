@@ -59,6 +59,13 @@ export default {
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
           }
+          console.log(this.$store.state.user);
+          if(this.$store.state.user.authorities[0].name === 'ROLE_ADMIN') {
+            this.$router.push({name: "teacherdashboard"})
+
+          } else if(this.$store.state.user.authorities[0].name === 'ROLE_USER') {
+            this.$router.push({name: "studentdashboard"})
+          }
         })
         .catch(error => {
           const response = error.response;

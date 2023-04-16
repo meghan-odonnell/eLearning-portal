@@ -20,6 +20,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
+    
     mathFact: ""
   },
   mutations: {
@@ -33,6 +34,7 @@ export default new Vuex.Store({
     },
     SET_USER(state, user) {
       state.user = user;
+ 
       localStorage.setItem('user',JSON.stringify(user));
     },
     LOGOUT(state) {
