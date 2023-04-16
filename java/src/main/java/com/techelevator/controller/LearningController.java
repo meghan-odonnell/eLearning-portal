@@ -20,9 +20,9 @@ import java.util.List;
 @CrossOrigin
 public class LearningController {
 
-    private CourseDao courseDao;
-    private CurriculumDao curriculumDao;
-    private AssignmentDao assignmentDao;
+    private final CourseDao courseDao;
+    private final CurriculumDao curriculumDao;
+    private final AssignmentDao assignmentDao;
 
 
     public LearningController(CourseDao courseDao, CurriculumDao curriculumDao, AssignmentDao assignmentDao) {
@@ -32,14 +32,14 @@ public class LearningController {
         this.assignmentDao = assignmentDao;
     }
 
-//    @PreAuthorize("permitAll")
-    @RequestMapping(path="/course", method = RequestMethod.GET)
-    public List<Course> getAllCourses(){
+    //    @PreAuthorize("permitAll")
+    @RequestMapping(path = "/course", method = RequestMethod.GET)
+    public List<Course> getAllCourses() {
 
         return courseDao.showAllCourses();
     }
 
-//    @PreAuthorize("permitAll")
+    //    @PreAuthorize("permitAll")
     @RequestMapping(path = "/myCourses", method = RequestMethod.GET)
     public List<Course> showMyCourses(@RequestParam int id) {
 
@@ -47,38 +47,39 @@ public class LearningController {
     }
 
     @RequestMapping(path = "/course/{courseId}", method = RequestMethod.GET)
-    public Course showCourse(@PathVariable String courseId){
+    public Course showCourse(@PathVariable String courseId) {
         return courseDao.showOneCourse(courseId);
     }
-    @PreAuthorize("hasRole('admin')")
 
+   // @PreAuthorize("hasRole('admin')")
     @RequestMapping(path = "/course", method = RequestMethod.POST)
-    public Course createCourse(@RequestBody Course course){
+    public Course createCourse(@RequestBody Course course) {
         return courseDao.createCourse(course);
     }
 
-    @RequestMapping(path="/curriculum", method = RequestMethod.GET)
-    public List<Curriculum> showAllCurriculum(){
+    @RequestMapping(path = "/curriculum", method = RequestMethod.GET)
+    public List<Curriculum> showAllCurriculum() {
         return curriculumDao.showAllCurriculum();
     }
 
-    @RequestMapping(path="/courseCurriculum/{courseId}", method = RequestMethod.GET)
-    public List<Curriculum> showCourseCurriculum(@PathVariable String courseId){
+    @RequestMapping(path = "/courseCurriculum/{courseId}", method = RequestMethod.GET)
+    public List<Curriculum> showCourseCurriculum(@PathVariable String courseId) {
         return curriculumDao.showCourseCurriculum(courseId);
     }
 
     @RequestMapping(path = "/singleCurriculum/{curriculumId}", method = RequestMethod.GET)
-    public Curriculum showSingleCurriculum(@PathVariable String curriculumId){
+    public Curriculum showSingleCurriculum(@PathVariable String curriculumId) {
         return curriculumDao.showSingleCurriculum(curriculumId);
     }
-    @PreAuthorize("hasRole('admin')")
+
+    //@PreAuthorize("hasRole('admin')")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/curriculum", method = RequestMethod.POST)
-    public void createCurriculum(@RequestBody Curriculum curriculum){
+    public void createCurriculum(@RequestBody Curriculum curriculum) {
         curriculumDao.createCurriculum(curriculum);
     }
 
-    @PreAuthorize("hasRole('admin')")
+    //@PreAuthorize("hasRole('admin')")
     @RequestMapping(path = "/curriculum/{curriculumId}", method = RequestMethod.PUT)
     public void updateCurriculum(@PathVariable String curriculumId, @RequestBody Curriculum curriculum) {
         curriculumDao.editCurriculum(curriculum, curriculumId);
@@ -91,25 +92,25 @@ public class LearningController {
     }
 
     @RequestMapping(path = "/studentAssignments/{studentId}", method = RequestMethod.GET)
-    public List<Assignment> getAssignmentsByStudent(@PathVariable String studentId){
+    public List<Assignment> getAssignmentsByStudent(@PathVariable String studentId) {
         return assignmentDao.getAssignmentsByStudent(studentId);
     }
 
     @RequestMapping(path = "/assignment/{assignmentId}", method = RequestMethod.GET)
-    public Assignment getOneAssignment(@PathVariable int assignmentId){
+    public Assignment getOneAssignment(@PathVariable int assignmentId) {
         return assignmentDao.getOneAssignment(assignmentId);
     }
 
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/assignment", method = RequestMethod.POST)
-    public void createAssignment(@RequestBody Assignment assignment){
+    public void createAssignment(@RequestBody Assignment assignment) {
 
         assignmentDao.createAssignment(assignment);
     }
 
     @RequestMapping(path = "/assignment/{assignmentId}", method = RequestMethod.PUT)
-    public void editAssignment(@PathVariable int assignmentId, @RequestBody Assignment assignment){
+    public void editAssignment(@PathVariable int assignmentId, @RequestBody Assignment assignment) {
         assignmentDao.editAssignment(assignment, assignmentId);
     }
 

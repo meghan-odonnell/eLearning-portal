@@ -1,58 +1,75 @@
 <template>
-<div>
-  <h1>Assignments</h1>
-  
-  <div >
+  <div>
+    <h1>Assignments</h1>
+
+    <div>
       <table>
         <th>Student Id</th>
         <th>Student Name</th>
         <th>Submission Date</th>
         <th>Status</th>
         <tr v-for="item in assignments" v-bind:key="item.assignmentId">
-        <td>{{ item.studentId }}</td>
-        <td>{{ item.studentName }}</td>
-        <td>{{ item.submissionDate }}</td>
-        <td>{{ item.status }}</td>
+          <td>{{ item.studentId }}</td>
+          <td>{{ item.studentName }}</td>
+          <td>{{ item.submittedDate }}</td>
+          <td>
+            {{ item.submitted }}
+          
+           
+          </td>
         </tr>
       </table>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
-import DatabaseService from '../services/DatabaseService.js'
+import DatabaseService from "../services/DatabaseService.js";
 
 export default {
- name: "homework-details",
-   
-  
+  name: "homework-details",
+
   data() {
     return {
       assignments: [],
     };
   },
   created() {
+    console.log(this.$store.state.user.id);
+    console.log(typeof this.$store.state.user.id);
 
-    console.log(this.$store.state.user.id)
-    console.log(typeof this.$store.state.user.id)
-
-    if(this.$store.state.user.authorities[0].name === 'ROLE_ADMIN') {
+    if (this.$store.state.user.authorities[0].name === "ROLE_ADMIN") {
       DatabaseService.getHomework()
-      .then(response => {
-        this.assignments = response.data;
-      })
-      .catch(error => {
-        console.error(error);
-      });
+        .then((response) => {
+          this.assignments = response.data;
+          this.assignments.forEach((item) => {
+            if (item.submissionDate) {
+              item.status = true;
+            } else {
+              item.status = false;
+            }
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
-   if(this.$store.state.user.authorities[0].name === 'ROLE_USER') 
-    DatabaseService.getMyAssignments(this.$store.state.user.id)
-      .then(response => {
-        this.assignments = response.data;
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    if (this.$store.state.user.authorities[0].name === "ROLE_USER")
+      DatabaseService.getMyAssignments(this.$store.state.user.id)
+        .then((response) => {
+          this.assignments = response.data;
+          this.assignments.forEach((item) => {
+            if (item.submissionDate) {
+              item.status = true;
+            } else {
+              item.status = false;
+            }
+          });
+        })
+
+        .catch((error) => {
+          console.error(error);
+        });
   },
 };
 </script>
@@ -60,7 +77,7 @@ export default {
 <style >
 h1 {
   font-size: 36px;
-  color: #5F9EA0;
+  color: #5f9ea0;
   text-align: center;
 }
 </style>

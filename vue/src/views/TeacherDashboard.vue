@@ -1,7 +1,12 @@
 <template>
   <div>
-  <router-link class="btn-2" v-bind:to="{name: 'courseform'}">  Add Course </router-link>
-  <router-link class="btn-2" v-bind:to="{name: 'curriculumform'}"> Add Curriculum</router-link>
+    <header-pic></header-pic>
+    <router-link class="btn-2" v-bind:to="{ name: 'courseform' }">
+      Add Course
+    </router-link>
+    <router-link class="btn-2" v-bind:to="{ name: 'curriculumform' }">
+      Add Curriculum</router-link
+    >
     <router-link
       v-bind:to="{ name: 'home' }"
       v-if="$store.state.token != ''"
@@ -9,14 +14,15 @@
     >
       HOME
     </router-link>
-   <router-link
+    <router-link
       v-bind:to="{ name: 'logout' }"
       v-if="$store.state.token != ''"
       class="table-link"
     >
       Logout
     </router-link>
-   <assignments></assignments>
+    
+    <assignments></assignments>
     <class-list></class-list>
   </div>
 </template>
@@ -25,12 +31,13 @@
 import Assignments from "../components/Assignments.vue";
 
 import ClassList from "../components/ClassList.vue";
+import HeaderPic from "../components/HeaderPic.vue";
 
 export default {
   components: {
     ClassList,
-
     Assignments,
+    HeaderPic,
   },
 };
 </script>
@@ -39,32 +46,22 @@ export default {
 
 
 <style scoped>
-
-
 .btn-2 {
-
-  color: #F8F8F8;
+  color: #f8f8f8;
   font-family: "Comfortaa", sans-serif;
   font-size: 20px;
   text-transform: uppercase;
-  
+
   padding: 8px 8px;
   border-radius: 10px;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   margin: 0 5px;
   transition: background-color 0.3s ease;
-  float:left;
-  
-
-
+  float: left;
 }
 .btn-2 {
-  background-color: #5F9EA0;
-  color: #F8F8F8;
+  background-color: #5f9ea0;
+  color: #f8f8f8;
   transition: background-color 0.3s ease;
 }
-
-
-
-
 </style>

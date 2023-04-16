@@ -37,7 +37,7 @@
         <input name="resources" type="text" v-model="curriculum.resources" />
       </div>
       <div class="form-input-group">
-        <button type="submit" class="btn" v-on:click="saveCurriculum()">
+        <button type="submit" class="btn" v-on:click="saveCurriculum">
           Submit
         </button>
       </div>
