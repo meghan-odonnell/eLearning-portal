@@ -1,7 +1,7 @@
 <template>
   <div>
-    <button class="btn-2"><router-link v-bind:to="{name: 'courseform'}">  Course </router-link></button> 
-    <button class="btn-2"><router-link v-bind:to="{name: 'curriculumform'}"> Add Curriculum</router-link></button>
+  <router-link class="btn-2" v-bind:to="{name: 'courseform'}">  Course </router-link>
+  <router-link class="btn-2" v-bind:to="{name: 'curriculumform'}"> Add Curriculum</router-link>
     <router-link
       v-bind:to="{ name: 'home' }"
       v-if="$store.state.token != ''"
@@ -39,7 +39,7 @@ export default {
 
 
 <style>
-<<<<<<< HEAD
+
 
 .btn-2 {
 
@@ -53,7 +53,7 @@ export default {
   background-color: #F8F8F8;
   margin: 0 5px;
   transition: background-color 0.3s ease;
-  display: block;
+  float:left;
   
 
 

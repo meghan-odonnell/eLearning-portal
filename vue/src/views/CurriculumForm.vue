@@ -1,5 +1,9 @@
 <template>
   <div>
+      <router-link v-bind:to="{ name: 'teacherdashboard' }">
+        Back to Dashboard
+      </router-link>
+    
       <new-curriculum></new-curriculum>
   </div>
 </template>

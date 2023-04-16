@@ -1,10 +1,6 @@
 <template>
 <div>
-   <button class="btn">
-      <router-link v-bind:to="{ name: 'teacherdashboard' }">
-        Back to Dashboard
-      </router-link>
-    </button>
+
   <h2>Add Course Details</h2>
 
 
