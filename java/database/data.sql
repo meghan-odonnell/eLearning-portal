@@ -85,12 +85,14 @@ INSERT INTO assignment (curriculum_id, student_id, submission_date,status)
 -- 		'A');
 
 
---  INSERT INTO student_class(student_id, course_id)
--- 	VALUES ((SELECT user_id FROM users where username = 'kid'),'M1');
---  INSERT INTO student_class(student_id, course_id)
--- 	VALUES ((SELECT user_id FROM users where username = 'kid'),'S2');	
--- INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
--- VALUES ('S2C3',(SELECT user_id FROM users where username = 'kid'),'2023-04-11','FALSE');
+INSERT INTO student_class(student_id, course_id)
+VALUES ((SELECT user_id FROM users where username = 'ang'),'M1');
+
+INSERT INTO student_class(student_id, course_id)
+VALUES ((SELECT user_id FROM users where username = 'ang'),'S2');
+
+INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
+VALUES ('S2C3',(SELECT user_id FROM users where username = 'ang'),'2023-04-11','FALSE');
 	
 	
 
