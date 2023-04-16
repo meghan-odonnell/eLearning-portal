@@ -9,7 +9,7 @@ public interface AssignmentDao {
 
     List<Assignment> getAllAssignments();
 
-    List<Assignment> getAssignmentsByStudent(int studentId);
+    List<Assignment> getAssignmentsByStudent(String studentId);
 
     Assignment getOneAssignment (int assignmentId);
 

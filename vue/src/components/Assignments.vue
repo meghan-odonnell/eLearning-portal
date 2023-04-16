@@ -1,6 +1,7 @@
 <template>
 <div>
   <h1>Assignments</h1>
+  
   <div >
       <table>
         <th>Student Id</th>
@@ -31,7 +32,21 @@ export default {
     };
   },
   created() {
-    DatabaseService.getHomework()
+
+    console.log(this.$store.state.user.id)
+    console.log(typeof this.$store.state.user.id)
+
+    if(this.$store.state.user.authorities[0].name === 'ROLE_ADMIN') {
+      DatabaseService.getHomework()
+      .then(response => {
+        this.assignments = response.data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    }
+   if(this.$store.state.user.authorities[0].name === 'ROLE_USER') 
+    DatabaseService.getMyAssignments(this.$store.state.user.id)
       .then(response => {
         this.assignments = response.data;
       })

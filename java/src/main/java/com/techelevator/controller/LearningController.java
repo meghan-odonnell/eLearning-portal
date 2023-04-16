@@ -91,7 +91,7 @@ public class LearningController {
     }
 
     @RequestMapping(path = "/studentAssignments/{studentId}", method = RequestMethod.GET)
-    public List<Assignment> getAssignmentsByStudent(@PathVariable int studentId){
+    public List<Assignment> getAssignmentsByStudent(@PathVariable String studentId){
         return assignmentDao.getAssignmentsByStudent(studentId);
     }
 
