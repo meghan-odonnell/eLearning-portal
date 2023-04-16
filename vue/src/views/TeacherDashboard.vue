@@ -29,6 +29,7 @@ import ClassList from "../components/ClassList.vue";
 export default {
   components: {
     ClassList,
+
     Assignments,
   },
 };
@@ -38,6 +39,7 @@ export default {
 
 
 <style>
+<<<<<<< HEAD
 
 .btn-2 {
 
@@ -61,6 +63,7 @@ export default {
   color: #F8F8F8;
   transition: background-color 0.3s ease;
 }
+
 
 
 

@@ -1,13 +1,8 @@
 <template>
   <div class="header">
-<!-- 
-<router-link
-  v-bind:to="{ name: 'logout' }"
-  v-if="$store.state.token != ''"
-  class="table-link"
->
-  Logout
-</router-link> -->
+
+
+
     <h1 class="classlist">Class List:</h1>
     <table>
       <tbody>
