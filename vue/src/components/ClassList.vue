@@ -1,13 +1,13 @@
 <template>
   <div class="header">
-
+<!-- 
 <router-link
   v-bind:to="{ name: 'logout' }"
   v-if="$store.state.token != ''"
   class="table-link"
 >
   Logout
-</router-link>
+</router-link> -->
     <h1 class="classlist">Class List:</h1>
     <table>
       <tbody>
@@ -24,7 +24,7 @@
              </router-link> 
              </td> 
            
-          <td>{{ item.courseDescription }}</td>
+          <td> {{ item.courseDescription }}</td>
           <td> $ {{ item.cost }} </td>
         </tr>
       </tbody>

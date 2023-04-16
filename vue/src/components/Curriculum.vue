@@ -4,7 +4,7 @@
     <div v-for="item in curriculum" v-bind:key="item.curriculumId">
       <table>
         <th>
-          <router-link v-bind:to="{name: 'Lesson', params: { id:item.curriculumId}}"> 
+          <router-link v-bind:to="{name: 'lesson', params: { id:item.curriculumId}}"> 
           {{ item.curriculumName }}
            </router-link>
           </th>

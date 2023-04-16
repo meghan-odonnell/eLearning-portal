@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
+     
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic">
+ 
+ 
+ 
+  <!-- <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-      
     </div> -->
+
+   
     <router-view />
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic">
+ 
   </div>
 </template>
 <script>
@@ -22,11 +27,11 @@ export default {
 </script>
 
 <style>
-/* body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+body {
+  font-family: comforta, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-} */
+}
 body {
 
   
@@ -58,6 +63,8 @@ body {
   position: absolute;
   right: 0;
 }
+
+
 .btn {
   display: inline-block;
   font-weight: 400;

@@ -1,27 +1,52 @@
 <template>
-  <form class="create-curriculum" v-on:submit.prevent>
-      <label for="courseId">"courseId"</label>
-    <input name="courseId" type="text" v-model="curriculum.courseId" />
+  <div>
+    <button class="btn">
+      <router-link v-bind:to="{ name: 'teacherdashboard' }">
+        Back to Dashboard
+      </router-link>
+    </button>
+    <h2>Add Curriculum Details</h2>
+    <form class="create-curriculum" v-on:submit.prevent>
+      <div class="form-input-group">
+        <label for="courseId">courseId</label>
+        <input name="courseId" type="text" v-model="curriculum.courseId" />
+      </div>
 
-      <label for="curriculumId">"curriculumId"</label>>
-    <input name="curriculumId" type="text" v-model="curriculum.curriculumId" />
-
-      <label for="chapterName">"curriculumName"</label>
-    <input name="chapterName" type="text" v-model="curriculum.curriculumName"/>
-
-      <label for="reading">"reading"</label>
-    <input name="reading" type="text" v-model="curriculum.reading" />
-
-      <label for="homework">"homework"</label>
-    <input name="homework" type="text" v-model="curriculum.homework" />
-
-      <label for="resources">"resources"</label>
-    <input name="resources" type="text" v-model="curriculum.resources" />
-
-
-    <button type="submit" class="btn-submit" v-on:click="saveCurriculum()">
-      Submit</button>
-  </form>
+      <div class="form-input-group">
+        <label for="curriculumId">curriculumId</label>
+        <input
+          name="curriculumId"
+          type="text"
+          v-model="curriculum.curriculumId"
+        />
+      </div>
+      <div class="form-input-group">
+        <label for="chapterName">curriculumName</label>
+        <input
+          name="chapterName"
+          type="text"
+          v-model="curriculum.curriculumName"
+        />
+      </div>
+      <div class="form-input-group">
+        <label for="reading">Reading Materials</label>
+        <input name="reading" type="text" v-model="curriculum.reading" />
+      </div>
+      <div class="form-input-group">
+        <label for="homework">Homework</label>
+        <input name="homework" type="text" v-model="curriculum.homework" />
+      </div>
+      <div class="form-input-group">
+        <label for="resources">Links / Additional Resources</label>
+        <input name="resources" type="text" v-model="curriculum.resources" />
+      </div>
+      <div class="form-input-group">
+        <button type="submit" class="btn" v-on:click="saveCurriculum()">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -49,19 +74,17 @@ export default {
     },
 
     saveCurriculum() {
-        const newCurriculum = {
+      const newCurriculum = {
         curriculumId: this.curriculum.curriculumId,
         curriculumName: this.curriculum.curriculumName,
         courseId: this.curriculum.courseId,
         homework: this.curriculum.homework,
         resources: this.curriculum.resources,
         reading: this.curriculum.reading,
-        };
+      };
 
-        
-      DatabaseService
-      .createCurriculum(newCurriculum)
-      .then((response) => {
+      DatabaseService.createCurriculum(newCurriculum)
+        .then((response) => {
           if (response.status === 201) {
             this.$router.push("/");
           }
@@ -92,4 +115,48 @@ export default {
 </script>
 
 <style>
+.create-curriculum {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-input-group {
+  margin-bottom: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+input[type="text"] {
+  width: 95%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #5f9ea0;
+  color: #fff;
+}
+
+button[type="submit"]:hover {
+  cursor: pointer;
+  background-color: #427f84;
+}
 </style>

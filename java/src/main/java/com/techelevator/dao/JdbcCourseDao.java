@@ -70,7 +70,7 @@ public class JdbcCourseDao implements CourseDao {
 
     @Override
     public Course deleteCourse(String courseId) {
-            String sql =
+
         return null;
     }
 

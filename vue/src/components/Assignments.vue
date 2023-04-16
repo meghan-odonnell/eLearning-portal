@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h3>done</h3>
+  <h1>Assignments</h1>
   <div >
       <table>
         <th>Student Id</th>
@@ -41,3 +41,11 @@ export default {
   },
 };
 </script>
+
+<style >
+h1 {
+  font-size: 36px;
+  color: #5F9EA0;
+  text-align: center;
+}
+</style>

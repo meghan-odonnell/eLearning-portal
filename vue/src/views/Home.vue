@@ -2,19 +2,22 @@
   <div class="home">
     <div class="container">
       <img src="../img/superSmartBanner.jpg" alt="super-smart" />
-  </div>
-   <button>
-    <router-link v-bind:to="{name: 'teacherdashboard' }"> hi
-    </router-link>
+    </div>
 
-   </button>
-    <class-list></class-list>
+    <router-link
+      v-bind:to="{ name: 'logout' }"
+      v-if="$store.state.token != ''"
+      class="table-link"
+      >Logout</router-link>
+
+   
+      <router-link class="table-link" v-bind:to="{ name: 'teacherdashboard' }"> teacher's dashboard </router-link>
     
+
+    <class-list></class-list>
 
     <!-- <p class="mathfact">Here's a random math fact:</p>
     <math-fact class="mathfact"></math-fact> -->
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa%7CDidact Gothic" />
   </div>
 </template>
 
@@ -25,15 +28,12 @@ import ClassList from "../components/ClassList.vue";
 
 export default {
   components: {
-    ClassList
+    ClassList,
     // MathFact,
-  
-   
   },
 
   name: "home",
 };
-
 </script>
 <style>
 .container {

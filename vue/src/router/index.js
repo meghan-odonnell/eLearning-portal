@@ -76,7 +76,7 @@ Vue.use(Router)
     },
     {
       path: "/curriculum/:id",
-      name: "Lesson",
+      name: "lesson",
       component: Lesson
     },
     {
@@ -91,7 +91,7 @@ Vue.use(Router)
     },
     {
       path: "/curriculumForm",
-      name: "CurriculumForm",
+      name: "curriculumform",
       component: CurriculumForm
     },
     {

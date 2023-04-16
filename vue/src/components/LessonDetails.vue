@@ -13,10 +13,10 @@
           <h3>Submit Homework</h3>
           <label for="studentId">Student ID:</label>
           <input type="text" id="studentId" v-model="studentId" />
-          <label for="homeworkText">Homework Ansers:</label>
+          <label for="homework">Homework Ansers:</label>
           <textarea
-            id="homeworkText"
-            v-model="homeworkText"
+            id="homework"
+            v-model="homework"
             placeholder="Enter your homework text here"
           ></textarea>
           <button type="submit">Submit Homework</button>
