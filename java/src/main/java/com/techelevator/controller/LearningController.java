@@ -97,7 +97,7 @@ public class LearningController {
     }
 
     @RequestMapping(path = "/assignment/{assignmentId}", method = RequestMethod.GET)
-    public Assignment getOneAssignment(@PathVariable int assignmentId) {
+    public Assignment getOneAssignment(@PathVariable String assignmentId) {
         return assignmentDao.getOneAssignment(assignmentId);
     }
 
@@ -110,7 +110,7 @@ public class LearningController {
     }
 
     @RequestMapping(path = "/assignment/{assignmentId}", method = RequestMethod.PUT)
-    public void editAssignment(@PathVariable int assignmentId, @RequestBody Assignment assignment) {
+    public void editAssignment(@PathVariable String assignmentId, @RequestBody Assignment assignment) {
         assignmentDao.editAssignment(assignment, assignmentId);
     }
 

@@ -46,5 +46,9 @@ export default {
     },
     getMyAssignments(studentId) {
         return axios.get(`/studentAssignments/${studentId}`)
+    },   
+    getOneAssignment(assignmentId){
+        return axios.get(`/assignment/${assignmentId}`);
     }
+
 }

@@ -1,23 +1,31 @@
 <template>
   <div>
-    <h1>Assignments</h1>
+    <h1>Ungraded Assignments</h1>
 
     <div>
       <table>
+         
         <th>Student Id</th>
         <th>Student Name</th>
         <th>Submission Date</th>
         <th>Submitted</th>
         <th>Grade</th>
+
+        
         <tr v-for="item in assignments" v-bind:key="item.assignmentId " v-bind:class="{ 'not-submitted': !item.submitted }">
-          <td>{{ item.studentId }}</td>
+        
+        <router-link v-bind:to="{name: 'grading', params: { id:item.assignmentId}}">
+          <td>{{ item.studentId }} </td>
+            </router-link>
           <td>{{ item.studentName }}</td>
           <td>{{ item.submittedDate }}</td>
           <td >
            {{ item.submitted === true ? 'Submitted' : 'Not submitted' }}        
           </td>
           <td>{{ item.grade }}</td>
+            
         </tr>
+      
       </table>
     </div>
   </div>
@@ -41,14 +49,14 @@ export default {
     if (this.$store.state.user.authorities[0].name === "ROLE_ADMIN") {
       DatabaseService.getHomework()
         .then((response) => {
-          this.assignments = response.data;
-          // this.assignments.forEach((item) => {
-          //   if (item.submissionDate) {
-          //     item.status = true;
-          //   } else {
-          //     item.status = false;
-          //   }
-          // });
+          this.assignments = response.data.filter(item => item.submitted === true && item.grade === 0);
+        //   this.assignments.forEach((item) => {
+        //     if (item.submissionDate) {
+        //       item.status = true;
+        //     } else {
+        //       item.status = false;
+        //     }
+        //   });
         })
         .catch((error) => {
           console.error(error);

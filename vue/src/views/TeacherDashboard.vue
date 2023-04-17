@@ -16,7 +16,7 @@
       Logout
     </router-link>
     &nbsp;
-    
+    <ungraded></ungraded>
     <assignments></assignments>
     <class-list></class-list>
   </div>
@@ -27,12 +27,14 @@ import Assignments from "../components/Assignments.vue";
 
 import ClassList from "../components/ClassList.vue";
 import HeaderPic from "../components/HeaderPic.vue";
+import Ungraded from '../components/Ungraded.vue';
 
 export default {
   components: {
     ClassList,
     Assignments,
     HeaderPic,
+    Ungraded,
   },
 };
 </script>

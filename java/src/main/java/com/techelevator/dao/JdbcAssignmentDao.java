@@ -20,7 +20,7 @@ public class JdbcAssignmentDao implements AssignmentDao{
     @Override
     public List<Assignment> getAllAssignments() {
         List<Assignment> allAssignments = new ArrayList<>();
-        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, " +
+        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, grade, " +
                 " users.username, curriculum.curriculum_name " +
                 " FROM assignment " +
                 " JOIN users ON assignment.student_id = users.user_id " +
@@ -38,7 +38,7 @@ public class JdbcAssignmentDao implements AssignmentDao{
     public List<Assignment> getAssignmentsByStudent(String studentId) {
         List<Assignment> oneAssignments = new ArrayList<>();
         Integer id = Integer.parseInt(studentId);
-        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, " +
+        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, grade, " +
                 " users.username, curriculum.curriculum_name " +
                 " FROM assignment " +
                 " JOIN users ON assignment.student_id = users.user_id " +
@@ -54,14 +54,15 @@ public class JdbcAssignmentDao implements AssignmentDao{
     }
 
     @Override
-    public Assignment getOneAssignment(int assignmentId) {
-        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, " +
+    public Assignment getOneAssignment(String assignmentId) {
+        Integer id = Integer.parseInt(assignmentId);
+        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, grade, " +
                 " users.username, curriculum.curriculum_name " +
                 " FROM assignment " +
                 " JOIN users ON assignment.student_id = users.user_id " +
                 " JOIN curriculum ON curriculum.curriculum_id = assignment.curriculum_id " +
             " WHERE assignment_id = ? ;";
-    SqlRowSet results = jdbcTemplate.queryForRowSet(sql, assignmentId);
+    SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
     if (results.next()){
         return mapRowToAssignment(results);
     } else {
@@ -71,13 +72,14 @@ public class JdbcAssignmentDao implements AssignmentDao{
 
     @Override
     public Assignment createAssignment(Assignment assignment) {
-        String sql = "INSERT INTO assignment (assignment_id, curriculum_id, student_id, submission_date, status) " +
-                " VALUES (?, ?, ?, ?, ?) " +
+        String sql = "INSERT INTO assignment (assignment_id, curriculum_id, student_id, submission_date, status, grade) " +
+                " VALUES (?, ?, ?, ?, ?, ?) " +
                 " RETURNING assignment_id";
         Integer newId = jdbcTemplate.queryForObject(sql, Integer.class,
                 assignment.getAssignmentId(), assignment.getCurriculumId(),
                 assignment.getStudentId(), assignment.getSubmittedDate(), assignment.isSubmitted());
-        return getOneAssignment(newId);
+        String stringId = Integer.toString(newId);
+        return getOneAssignment(stringId);
     }
 
 //    @Override
@@ -108,7 +110,8 @@ public class JdbcAssignmentDao implements AssignmentDao{
 //    }
 
     @Override
-    public void editAssignment(Assignment assignment, int assignmentId) {
+    public void editAssignment(Assignment assignment, String assignmentId) {
+
         String sql = "UPDATE assignment " +
                 "SET assignment_id = ?, curriculum_id = ?, student_id = ?, submission_date = ?, status = ? " +
                 "WHERE assignment_id = ?";
@@ -126,6 +129,7 @@ public class JdbcAssignmentDao implements AssignmentDao{
         assignment.setSubmitted(results.getBoolean("status"));
         assignment.setStudentName(results.getString("username"));
         assignment.setCurriculumName(results.getString("curriculum_name"));
+        assignment.setGrade(results.getInt("grade"));
 
 
         return assignment;

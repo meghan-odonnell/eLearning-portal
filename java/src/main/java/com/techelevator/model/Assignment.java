@@ -11,6 +11,15 @@ public class Assignment {
     private Date submittedDate;
     private boolean isSubmitted;
     private String studentName;
+    private Integer grade;
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
 
     public String getStudentName() {
         return studentName;

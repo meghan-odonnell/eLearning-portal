@@ -11,11 +11,11 @@ public interface AssignmentDao {
 
     List<Assignment> getAssignmentsByStudent(String studentId);
 
-    Assignment getOneAssignment (int assignmentId);
+    Assignment getOneAssignment (String assignmentId);
 
     Assignment createAssignment (Assignment assignment);
 
-    void editAssignment (Assignment assignment, int assignmentId);
+    void editAssignment (Assignment assignment, String assignmentId);
 //
 //    Assignment createAssignments(Assignment assignment);
 

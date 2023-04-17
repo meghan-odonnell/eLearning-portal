@@ -12,7 +12,7 @@ import StudentDashboard from "../views/StudentDashboard.vue"
 import CurriculumForm from "../views/CurriculumForm.vue"
 import CourseForm from "../views/CourseForm.vue"
 import TeacherDashboard from "../views/TeacherDashboard.vue"
-
+import Grading from "../views/Grading.vue"
 
 
 Vue.use(Router)
@@ -99,7 +99,11 @@ const router = new Router({
       name: "courseform",
       component: CourseForm
     },
-
+    {
+      path: "/grading/:id",
+      name: "grading",
+      component: Grading
+    },
 
 
   ]
