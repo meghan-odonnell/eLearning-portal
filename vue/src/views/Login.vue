@@ -2,7 +2,8 @@
 <template>
   <div id="login">
     <form @submit.prevent="login">
-      <h1>Welcome to Super-Smart</h1>
+      <h3>Welcome to</h3>
+      <h1>Super-Smart</h1>
       <h2>eLearning Solutions</h2>
       <h3>Please Sign In</h3>
       <div class="alert" role="alert" v-if="invalidCredentials">
@@ -92,8 +93,9 @@ export default {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 40px;
   font-family: 'Comfortaa', cursive;
+  color: #5f9ea0;
   margin-top: 0;
   text-align: center;
 }
@@ -101,6 +103,7 @@ h1 {
 h2 {
   font-size: 28px;
   font-family: 'Comfortaa', cursive;
+  color: #5f9ea0;
   margin-top: 0;
   text-align: center;
 }

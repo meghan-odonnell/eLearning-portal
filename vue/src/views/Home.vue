@@ -9,6 +9,7 @@
       v-if="$store.state.token != ''"
       class="table-link"
       >Logout</router-link>
+      &nbsp;
 
    <!-- <div>
       <router-link class="table-link" v-bind:to="{ name: 'teacherdashboard' }"
