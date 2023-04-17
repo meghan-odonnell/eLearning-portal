@@ -1,15 +1,21 @@
 <template>
   <div>
-    <router-link class="btn-2" v-bind:to="{name: 'curriculumform'}"> Add Curriculum</router-link>
+    <h1>Lessons:</h1>
+
     <div v-for="item in curriculum" v-bind:key="item.curriculumId">
+      <div>
+        
       <table>
+
         <th>
+          
           <router-link v-bind:to="{name: 'lesson', params: { id:item.curriculumId}}"> 
           {{ item.curriculumName }}
            </router-link>
           </th>
         <td>{{ item.reading }}</td>
       </table>
+      </div>
     </div>
   </div>
 </template>
@@ -40,6 +46,7 @@ export default {
 <style >
 h1{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #5F9EA0;
   text-align: center;
 }
 .container {

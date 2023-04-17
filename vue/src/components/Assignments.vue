@@ -7,13 +7,13 @@
         <th>Student Id</th>
         <th>Student Name</th>
         <th>Submission Date</th>
-        <th>Status</th>
+        <th>Submitted</th>
         <tr v-for="item in assignments" v-bind:key="item.assignmentId " v-bind:class="{ 'not-submitted': !item.submitted }">
           <td>{{ item.studentId }}</td>
           <td>{{ item.studentName }}</td>
           <td>{{ item.submittedDate }}</td>
-          <td>
-            {{ item.submitted }}
+          <td >
+           {{ item.submitted === true ? 'Submitted' : 'Not submitted' }}
           
            
           </td>
