@@ -16,18 +16,20 @@
       HOME
     </router-link>
     &nbsp;
-
+        <class-list></class-list>
         <assignments></assignments>
     </div>
 </template>
 <script>
 import Assignments from '../components/Assignments.vue'
+import ClassList from '../components/ClassList.vue'
 import HeaderPic from '../components/HeaderPic.vue'
 
 export default {
     components: {
         Assignments,
-        HeaderPic
+        HeaderPic,
+        ClassList
     } 
 }
 </script>

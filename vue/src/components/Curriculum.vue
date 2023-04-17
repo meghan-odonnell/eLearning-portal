@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Lessons:</h1>
+    <h1>Lessons</h1>
 
     <div v-for="item in curriculum" v-bind:key="item.curriculumId">
       <div>
@@ -31,9 +31,7 @@ export default {
     };
   },
   created() {
-    // DatabaseService.getAllCurriculum().then((response) => {
-    //   this.curriculum = response.data;
-      // const courseId = "S2";
+
       
       DatabaseService.getCourseCurriculum(this.$route.params.courseName)
       .then((response) => {

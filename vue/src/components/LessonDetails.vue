@@ -10,7 +10,7 @@
       Logout
     </router-link>
     <router-link
-      v-bind:to="{ name: 'home' }"
+      v-bind:to="dashboardRoute"
       v-if="$store.state.token != ''"
       class="table-link"
     >
@@ -80,6 +80,17 @@ export default {
       })
       .catch();
   },
+
+  computed: {
+    dashboardRoute() {
+       if(this.$store.state.user.authorities[0].name === 'ROLE_ADMIN') {
+            return {name: "teacherdashboard"};
+          } else {
+            return {name: "studentdashboard"};
+          }
+    }
+  },
+  
 };
 </script>
 

@@ -3,7 +3,10 @@
     <div  class="container">
    <header-pic></header-pic>
 </div>
- <router-link class="btn-2" v-bind:to="{name: 'curriculumform'}"> Add Curriculum</router-link>
+ <router-link 
+  class="btn-2" v-bind:to="{name: 'curriculumform'}" 
+  v-if="this.$store.state.user.authorities[0].name === 'ROLE_ADMIN'"
+  > Add Curriculum</router-link>
 
 
 <router-link
@@ -15,7 +18,7 @@
 </router-link>
 
 <router-link
-      v-bind:to="{ name: 'home' }"
+      v-bind:to="dashboardRoute"
       v-if="$store.state.token != ''"
       class="table-link"
     >
@@ -37,7 +40,19 @@ export default {
   },
 
   name: "curriculum-list",
-};
+
+  computed: {
+    dashboardRoute() {
+       if(this.$store.state.user.authorities[0].name === 'ROLE_ADMIN') {
+            return {name: "teacherdashboard"};
+          } else {
+            return {name: "studentdashboard"};
+          }
+    }
+  }
+}
+
+
 </script>
 <style>
 

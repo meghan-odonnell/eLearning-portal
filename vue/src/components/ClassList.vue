@@ -1,7 +1,7 @@
 <template>
   <div class="header">
 
-    <h1 class="classlist">Class List:</h1>
+    <h1 class="classlist">Class List</h1>
     <table>
       <tbody>
         <tr>
