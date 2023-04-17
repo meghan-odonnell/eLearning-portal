@@ -21,6 +21,7 @@
     >
       Logout
     </router-link>
+    &nbsp;
     
     <assignments></assignments>
     <class-list></class-list>

@@ -15,6 +15,7 @@
     >
       HOME
     </router-link>
+    &nbsp;
 
         <assignments></assignments>
     </div>

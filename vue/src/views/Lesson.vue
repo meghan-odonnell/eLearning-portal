@@ -1,7 +1,7 @@
 <template>
   <div>
     <lesson-details></lesson-details>
-        <router-link
+        <!-- <router-link
       v-bind:to="{ name: 'home' }"
       v-if="$store.state.token != ''"
       class="table-link"
@@ -14,7 +14,7 @@
       class="table-link"
     >
       Logout
-    </router-link>
+    </router-link> -->
     
   </div>
 </template>

@@ -21,6 +21,7 @@
     >
       HOME
     </router-link>
+    &nbsp;
       <curriculum></curriculum>
     </div>
 </template>
