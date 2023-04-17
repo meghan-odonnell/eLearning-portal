@@ -37,14 +37,14 @@ public class JdbcCourseDao implements CourseDao {
             //select courses from courses table where id=?. join the student table
         Integer id = Integer.parseInt(studentId);
         List<Course> courses = new ArrayList<>();
-       String sql = "SELECT course.course_id, course_name, course_description, student_id, username " +
+       String sql = "SELECT course.course_id, course_name, course_description, user_id, username " +
                " FROM course " +
                " JOIN student_class ON student_class.course_id = course.course_id " +
                " JOIN users ON users.user_id = student_class.student_id " +
                " WHERE student_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
         while (results.next()) {
-            Course course = mapRowToCourse(results);
+            Course course = mapRowToStudentCourse(results);
             courses.add(course);
         }
         return courses;
@@ -84,6 +84,17 @@ public class JdbcCourseDao implements CourseDao {
 
         return null;
     }
+
+    private Course mapRowToStudentCourse (SqlRowSet results){
+            Course course = new Course();
+            course.setCourseId(results.getString("course_id"));
+            course.setCourseName(results.getString("course_name"));
+            course.setCourseDescription(results.getString("course_description"));
+            course.setStudentId(results.getInt("user_id"));
+            course.setUsername(results.getString("username"));
+            return course;
+    }
+
 
     private Course mapRowToCourse(SqlRowSet results) {
             Course course = new Course();

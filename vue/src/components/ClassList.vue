@@ -34,9 +34,17 @@ export default {
     };
   },
   created() {
+    if (this.$store.state.user.authorities[0].name === "ROLE_USER"){
+    DatabaseService.getMyClasses(this.$store.state.user.id)
+      .then((response) => {
+        this.classes = response.data;
+      });
+    }
+     if (this.$store.state.user.authorities[0].name === "ROLE_ADMIN") {
     DatabaseService.getAllClasses().then((response) => {
       this.classes = response.data;
     });
+     } 
   },
 };
 </script>

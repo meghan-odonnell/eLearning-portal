@@ -7,6 +7,35 @@ public class Course {
     private String courseDescription;
     private String difficulty;
     private Integer cost;
+    private String username;
+
+    public Integer getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
+    }
+
+    private Integer studentId;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    private Integer userId;
 
     public Course() {
     }
@@ -58,5 +87,6 @@ public class Course {
     public void setCost(Integer cost) {
         this.cost = cost;
     }
+
 
 }

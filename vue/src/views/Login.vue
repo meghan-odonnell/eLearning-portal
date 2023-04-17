@@ -153,9 +153,9 @@ button[type="submit"]:hover {
 .alert {
   padding: 10px;
   margin-bottom: 20px;
-  color: #721c24;
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
+  color: #0e551a;
+  background-color: #bdd8bd;
+  border: 1px solid #c6f5ce;
   border-radius: 5px;
 }
 
