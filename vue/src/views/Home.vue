@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="container">
-      <img src="../img/superSmartBanner.jpg" alt="super-smart" />
+      <img src="../img/superSmartBannerfixedup.jpg" alt="super-smart" />
     </div>
 
     <router-link
