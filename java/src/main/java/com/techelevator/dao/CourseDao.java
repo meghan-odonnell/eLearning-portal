@@ -8,7 +8,7 @@ public interface CourseDao {
 
     List<Course> showAllCourses();
 
-    List<Course> showMyCourses(int id);
+    List<Course> showMyCourses(String id);
 
     Course createCourse(Course course);
 

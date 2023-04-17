@@ -33,10 +33,21 @@ public class JdbcCourseDao implements CourseDao {
 
 
     @Override
-    public List<Course> showMyCourses(int id) {
+    public List<Course> showMyCourses(String studentId) {
             //select courses from courses table where id=?. join the student table
-
-        return null;
+        Integer id = Integer.parseInt(studentId);
+        List<Course> courses = new ArrayList<>();
+       String sql = "SELECT course.course_id, course_name, course_description, student_id, username " +
+               " FROM course " +
+               " JOIN student_class ON student_class.course_id = course.course_id " +
+               " JOIN users ON users.user_id = student_class.student_id " +
+               " WHERE student_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+        while (results.next()) {
+            Course course = mapRowToCourse(results);
+            courses.add(course);
+        }
+        return courses;
     }
 
     @Override
