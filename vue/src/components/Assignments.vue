@@ -35,10 +35,7 @@ export default {
     };
   },
   created() {
-    console.log(this.$store.state.user.id);
-    console.log(typeof this.$store.state.user.id);
-
-    if (this.$store.state.user.authorities[0].name === "ROLE_ADMIN") {
+      if (this.$store.state.user.authorities[0].name === "ROLE_ADMIN") {
       DatabaseService.getHomework()
         .then((response) => {
           this.assignments = response.data;
