@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS student_class, users, course, user_detail, curriculum, assignment;
+DROP TABLE IF EXISTS student_class, grade, users, course, user_detail, curriculum, assignment;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -13,7 +13,7 @@ CREATE TABLE users (
 CREATE TABLE course (
 	course_id varchar(10),
 	course_name varchar(50) NOT NULL UNIQUE,
-	course_description varchar(500),
+	course_description varchar(5000),
 	difficulty varchar (50),
 	cost integer default 0,
 	CONSTRAINT pk_courses_course PRIMARY KEY (course_id)
@@ -47,11 +47,11 @@ CREATE table assignment (
 	submission_date date,
 	status boolean DEFAULT false,
 	grade int DEFAULT 0,
+	answer varchar(10000),
 	CONSTRAINT pk_assignment_id PRIMARY KEY (assignment_id),
 	CONSTRAINT fk_curriculum_id FOREIGN KEY (curriculum_id) REFERENCES curriculum (curriculum_id),
 	CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES users (user_id)	
 );
-
 
 CREATE TABLE student_class (
 	student_id int,

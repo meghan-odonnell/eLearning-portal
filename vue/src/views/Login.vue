@@ -6,7 +6,7 @@
       <h1>Super-Smart</h1>
       <h2>eLearning Solutions</h2>
       <h3>Please Sign In</h3>
-      <div class="alert" role="alert" v-if="invalidCredentials">
+      <div class="badalert" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
       <div
@@ -172,6 +172,17 @@ button[type="submit"]:hover {
   background-color: #bdd8bd;
   border: 1px solid #c6f5ce;
   border-radius: 5px;
+  text-align: center;
+}
+
+.badalert {
+  padding: 10px;
+  margin-bottom: 20px;
+  color: #6e1515;
+  background-color: #dda9a9;
+  border: 1px solid #dda9a9;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .math {

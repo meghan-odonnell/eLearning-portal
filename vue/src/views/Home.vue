@@ -8,53 +8,25 @@
       v-bind:to="{ name: 'logout' }"
       v-if="$store.state.token != ''"
       class="table-link"
-      >Logout</router-link>
-      &nbsp;
-
-   <!-- <div>
-      <router-link class="table-link" v-bind:to="{ name: 'teacherdashboard' }"
-     
-      
-      > teacher's dashboard </router-link>
-      </div> -->
-
+      >Logout</router-link
+    >
+    &nbsp;
 
     <class-list></class-list>
-
-    <!-- <p class="mathfact">Here's a random math fact:</p>
-    <math-fact class="mathfact"></math-fact> -->
   </div>
 </template>
 
 <script>
 import ClassList from "../components/ClassList.vue";
 
-// import MathFact from "../components/MathFact.vue";
-
 export default {
   components: {
     ClassList,
-    // MathFact,
   },
-  // props: {
-  //   role: {
-  //     type: String,
-  //     required: true,
-  //   },
-  // },
-
   name: "home",
-
-  // computed: {
-  //   isUser() {
-  //     return this.role === "user";
-  //   }
-  // }
 };
 </script>
 <style scoped>
-
-
 .container {
   max-width: 100%;
   text-align: center;
@@ -78,6 +50,4 @@ export default {
   background-color: #f8f8f8;
   margin: 0 10px;
 }
-
-
 </style>
