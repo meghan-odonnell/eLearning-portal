@@ -16,6 +16,8 @@ public interface AssignmentDao {
     Assignment createAssignment (Assignment assignment);
 
     void editAssignment (Assignment assignment, String assignmentId);
+
+    List<Integer> getStudentsInClass();
 //
 //    Assignment createAssignments(Assignment assignment);
 

@@ -82,21 +82,21 @@ public class JdbcAssignmentDao implements AssignmentDao{
         return getOneAssignment(stringId);
     }
 
-//    @Override
-//    public Assignment createAssignments(Assignment assignment) {
-//        List<Assignment> students = new ArrayList<>();
-//        String getStudent = "select student_id \n" +
-//                "from student_class\n" +
-//                "JOIN course \n" +
-//                "ON student_class.course_id = course.course_id\n" +
-//                "JOIN curriculum \n" +
-//                "ON curriculum.course_id = course.course_id\n" +
-//                "where curriculum_id = ?";
-//        SqlRowSet results = jdbcTemplate.queryForRowSet(getStudent);
-//        while( results.next()){
-//            Assignment assignment1 = mapRowToAssignment
-//            students.add(results);
-//        }
+    @Override
+    public List<Integer> getStudentsInClass() {
+        List<Integer> students = new ArrayList<>();
+        String getStudent = "select student_id \n" +
+                "from student_class\n" +
+                "JOIN course \n" +
+                "ON student_class.course_id = course.course_id\n" +
+                "JOIN curriculum \n" +
+                "ON curriculum.course_id = course.course_id\n" +
+                "where curriculum_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(getStudent);
+        while( results.next()){
+            Assignment assignment1 = mapRowToAssignment
+            students.add(results);
+        }
 //
 //        for (student in students){
 //
