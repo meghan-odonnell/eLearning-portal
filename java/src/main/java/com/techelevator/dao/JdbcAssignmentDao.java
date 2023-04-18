@@ -71,42 +71,77 @@ public class JdbcAssignmentDao implements AssignmentDao{
     }
 
     @Override
-    public Assignment createAssignment(Assignment assignment) {
+    public List <Assignment> createAssignment(Assignment assignment, String curriculumId) {
+        List<Integer> students = getStudentsInClass(assignment.getCurriculumId());
+        List<Assignment> newAssignments = new ArrayList<>();
+        Integer assignmentId = assignment.getAssignmentId();
         String sql = "INSERT INTO assignment (assignment_id, curriculum_id, student_id, submission_date, status, grade) " +
                 " VALUES (?, ?, ?, ?, ?, ?) " +
                 " RETURNING assignment_id";
-        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class,
-                assignment.getAssignmentId(), assignment.getCurriculumId(),
-                assignment.getStudentId(), assignment.getSubmittedDate(), assignment.isSubmitted());
-        String stringId = Integer.toString(newId);
-        return getOneAssignment(stringId);
+
+        for (Integer student : students) {
+            Integer newId = jdbcTemplate.queryForObject(sql, Integer.class,
+                    assignmentId, assignment.getCurriculumId(),
+                    student, assignment.getSubmittedDate(), assignment.isSubmitted(), assignment.getGrade());
+            String stringId = Integer.toString(newId);
+            newAssignments.add(getOneAssignment(stringId));
+            assignmentId++;
+        }
+        return newAssignments;
     }
 
+
     @Override
-    public List<Integer> getStudentsInClass() {
+    public List<Integer> getStudentsInClass(String curriculumId) {
         List<Integer> students = new ArrayList<>();
-        String getStudent = "select student_id \n" +
-                "from student_class\n" +
-                "JOIN course \n" +
-                "ON student_class.course_id = course.course_id\n" +
-                "JOIN curriculum \n" +
-                "ON curriculum.course_id = course.course_id\n" +
-                "where curriculum_id = ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(getStudent);
-        while( results.next()){
-            Assignment assignment1 = mapRowToAssignment
-            students.add(results);
+        Integer id;
+        String getStudent = "select student_id " +
+                " from student_class " +
+                " JOIN course " +
+                " ON student_class.course_id = course.course_id " +
+                " JOIN curriculum " +
+                " ON curriculum.course_id = course.course_id " +
+                " where curriculum_id = ? ;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(getStudent, curriculumId);
+        while (results.next()) {
+            id = results.getInt("student_id");
+            students.add(id);
         }
-//
-//        for (student in students){
-//
-//        String sql = "INSERT INTO assignment (assignment_id, curriculum_id, student_id, submission_date, status) " +
-//                " VALUES (?, ?, ?, ?, ?) " +
+        return students;
+    }
+
+
+//    @Override
+//    public Assignment createAssignment(Assignment assignment) {
+//        String sql = "INSERT INTO assignment (assignment_id, curriculum_id, student_id, submission_date, status, grade) " +
+//                " VALUES (?, ?, ?, ?, ?, ?) " +
 //                " RETURNING assignment_id";
 //        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class,
 //                assignment.getAssignmentId(), assignment.getCurriculumId(),
-//                student, assignment.getSubmittedDate(), assignment.isSubmitted());
-//        return getOneAssignment(newId);
+//                assignment.getStudentId(), assignment.getSubmittedDate(), assignment.isSubmitted(), assignment.getGrade());
+//        String stringId = Integer.toString(newId);
+//        return getOneAssignment(stringId);
+//    }
+
+
+//
+//    @Override
+//    public List<Integer> getStudentsInClass() {
+//        List<Integer> students = new ArrayList<>();
+//        Integer id;
+//        String getStudent = "select student_id \n" +
+//                "from student_class\n" +
+//                "JOIN course \n" +
+//                "ON student_class.course_id = course.course_id\n" +
+//                "JOIN curriculum \n" +
+//                "ON curriculum.course_id = course.course_id\n" +
+//                "where curriculum_id = ?";
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(getStudent);
+//        while (results.next()) {
+//            id = results.getInt("student_id");
+//            students.add(id);
+//        }
+//        return students;
 //    }
 
     @Override

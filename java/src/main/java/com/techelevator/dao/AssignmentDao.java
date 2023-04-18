@@ -13,11 +13,11 @@ public interface AssignmentDao {
 
     Assignment getOneAssignment (String assignmentId);
 
-    Assignment createAssignment (Assignment assignment);
+    List<Assignment> createAssignment (Assignment assignment, String curriculumId);
 
     void editAssignment (Assignment assignment, String assignmentId);
 
-    List<Integer> getStudentsInClass();
+    List<Integer> getStudentsInClass(String curriculumId);
 //
 //    Assignment createAssignments(Assignment assignment);
 
