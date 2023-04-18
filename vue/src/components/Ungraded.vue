@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Ungraded Assignments</h1>
+    <h1>To Do!   Grade Assignments</h1>
 
     <div>
       <table>
@@ -53,13 +53,6 @@ export default {
           this.assignments = response.data.filter(
             (item) => item.submitted === true && item.grade === 0
           );
-          //   this.assignments.forEach((item) => {
-          //     if (item.submissionDate) {
-          //       item.status = true;
-          //     } else {
-          //       item.status = false;
-          //     }
-          //   });
         })
         .catch((error) => {
           console.error(error);

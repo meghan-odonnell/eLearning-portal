@@ -1,11 +1,6 @@
 import axios from 'axios';
 
-// const http = axios.create({
-//     baseURL: 'http://localhost:9000'
-// })
-
 export default {
-    //service call
     getAllClasses() {
         return axios.get('/course');
     },
@@ -49,6 +44,9 @@ export default {
     },   
     getOneAssignment(assignmentId){
         return axios.get(`/assignment/${assignmentId}`);
+    },
+    submitGrade(assignmentId, assignment){
+        return axios.put(`/assignment/${assignmentId}`,assignment);
     }
 
 }
