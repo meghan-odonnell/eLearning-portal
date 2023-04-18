@@ -11,6 +11,7 @@ import com.techelevator.model.Curriculum;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -35,42 +36,93 @@ public class LearningController {
     //    @PreAuthorize("permitAll")
     @RequestMapping(path = "/course", method = RequestMethod.GET)
     public List<Course> getAllCourses() {
+        if (courseDao.showAllCourses() == null){
+           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Can't get all courses.");
+        } else {
+            return courseDao.showAllCourses();
+        }
 
-        return courseDao.showAllCourses();
     }
 
     //    @PreAuthorize("permitAll")
     @RequestMapping(path = "/myCourses/{id}", method = RequestMethod.GET)
     public List<Course> showMyCourses(@PathVariable String id) {
-
-        return courseDao.showMyCourses(id);
+        if (courseDao.showMyCourses(id) == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found.");
+        } else {
+            return courseDao.showMyCourses(id);
+        }
     }
 
     @RequestMapping(path = "/course/{courseId}", method = RequestMethod.GET)
     public Course showCourse(@PathVariable String courseId) {
-        return courseDao.showOneCourse(courseId);
+        if (courseDao.showOneCourse(courseId) == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found.");
+        } else {
+            return courseDao.showOneCourse(courseId);
+        }
     }
 
-   // @PreAuthorize("hasRole('admin')")
+    @RequestMapping(path = "/curriculum", method = RequestMethod.GET)
+    public List<Curriculum> showAllCurriculum() {
+        if (curriculumDao.showAllCurriculum() == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Can't get all curriculums.");
+        } else {
+            return curriculumDao.showAllCurriculum();
+        }
+    }
+
+    @RequestMapping(path = "/courseCurriculum/{courseId}", method = RequestMethod.GET)
+    public List<Curriculum> showCourseCurriculum(@PathVariable String courseId) {
+        if (curriculumDao.showCourseCurriculum(courseId) == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found.");
+        } else {
+            return curriculumDao.showCourseCurriculum(courseId);
+        }
+    }
+
+    @RequestMapping(path = "/singleCurriculum/{curriculumId}", method = RequestMethod.GET)
+    public Curriculum showSingleCurriculum(@PathVariable String curriculumId) {
+        if (curriculumDao.showSingleCurriculum(curriculumId) == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Curriculum not found.");
+        } else {
+            return curriculumDao.showSingleCurriculum(curriculumId);
+        }
+    }
+
+    @RequestMapping(path = "/assignment", method = RequestMethod.GET)
+    public List<Assignment> getAllAssignments() {
+        if (assignmentDao.getAllAssignments() == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Can't get all assignments.");
+        } else {
+            return assignmentDao.getAllAssignments();
+        }
+    }
+
+    @RequestMapping(path = "/studentAssignments/{studentId}", method = RequestMethod.GET)
+    public List<Assignment> getAssignmentsByStudent(@PathVariable String studentId) {
+        if (assignmentDao.getAssignmentsByStudent(studentId) == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Student not found.");
+        } else {
+            return assignmentDao.getAssignmentsByStudent(studentId);
+        }
+    }
+
+    @RequestMapping(path = "/assignment/{assignmentId}", method = RequestMethod.GET)
+    public Assignment getOneAssignment(@PathVariable String assignmentId) {
+        if (assignmentDao.getOneAssignment(assignmentId) == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Assignment not found.");
+        } else {
+            return assignmentDao.getOneAssignment(assignmentId);
+        }
+    }
+
+    // @PreAuthorize("hasRole('admin')")
     @RequestMapping(path = "/course", method = RequestMethod.POST)
     public Course createCourse(@RequestBody Course course) {
         return courseDao.createCourse(course);
     }
 
-    @RequestMapping(path = "/curriculum", method = RequestMethod.GET)
-    public List<Curriculum> showAllCurriculum() {
-        return curriculumDao.showAllCurriculum();
-    }
-
-    @RequestMapping(path = "/courseCurriculum/{courseId}", method = RequestMethod.GET)
-    public List<Curriculum> showCourseCurriculum(@PathVariable String courseId) {
-        return curriculumDao.showCourseCurriculum(courseId);
-    }
-
-    @RequestMapping(path = "/singleCurriculum/{curriculumId}", method = RequestMethod.GET)
-    public Curriculum showSingleCurriculum(@PathVariable String curriculumId) {
-        return curriculumDao.showSingleCurriculum(curriculumId);
-    }
 
     //@PreAuthorize("hasRole('admin')")
     @ResponseStatus(HttpStatus.CREATED)
@@ -79,34 +131,18 @@ public class LearningController {
         curriculumDao.createCurriculum(curriculum);
     }
 
-    //@PreAuthorize("hasRole('admin')")
-    @RequestMapping(path = "/curriculum/{curriculumId}", method = RequestMethod.PUT)
-    public void updateCurriculum(@PathVariable String curriculumId, @RequestBody Curriculum curriculum) {
-        curriculumDao.editCurriculum(curriculum, curriculumId);
-    }
-
-    @RequestMapping(path = "/assignment", method = RequestMethod.GET)
-    public List<Assignment> getAllAssignments() {
-
-        return assignmentDao.getAllAssignments();
-    }
-
-    @RequestMapping(path = "/studentAssignments/{studentId}", method = RequestMethod.GET)
-    public List<Assignment> getAssignmentsByStudent(@PathVariable String studentId) {
-        return assignmentDao.getAssignmentsByStudent(studentId);
-    }
-
-    @RequestMapping(path = "/assignment/{assignmentId}", method = RequestMethod.GET)
-    public Assignment getOneAssignment(@PathVariable String assignmentId) {
-        return assignmentDao.getOneAssignment(assignmentId);
-    }
-
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/assignment", method = RequestMethod.POST)
     public void createAssignment(@RequestBody Assignment assignment) {
 
         assignmentDao.createAssignment(assignment);
+    }
+
+    //@PreAuthorize("hasRole('admin')")
+    @RequestMapping(path = "/curriculum/{curriculumId}", method = RequestMethod.PUT)
+    public void updateCurriculum(@PathVariable String curriculumId, @RequestBody Curriculum curriculum) {
+        curriculumDao.editCurriculum(curriculum, curriculumId);
     }
 
     @RequestMapping(path = "/assignment/{assignmentId}", method = RequestMethod.PUT)

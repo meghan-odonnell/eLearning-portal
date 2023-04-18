@@ -7,7 +7,7 @@
     <router-link class="btn-2" v-bind:to="{ name: 'curriculumform' }">
       Add Curriculum</router-link
     >
-   
+
     <router-link
       v-bind:to="{ name: 'logout' }"
       v-if="$store.state.token != ''"
@@ -27,7 +27,7 @@ import Assignments from "../components/Assignments.vue";
 
 import ClassList from "../components/ClassList.vue";
 import HeaderPic from "../components/HeaderPic.vue";
-import Ungraded from '../components/Ungraded.vue';
+import Ungraded from "../components/Ungraded.vue";
 
 export default {
   components: {

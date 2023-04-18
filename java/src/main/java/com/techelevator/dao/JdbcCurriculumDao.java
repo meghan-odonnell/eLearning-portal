@@ -44,10 +44,6 @@ public class JdbcCurriculumDao implements CurriculumDao {
         return courseCurr;
     };
 
-
-    //TODO Finish Curriculum methods
-
-
     @Override
     public Curriculum showSingleCurriculum (String curriculumId) {
       String sql = " SELECT curriculum_id, curriculum_name, course_id, reading, homework, resources " +
