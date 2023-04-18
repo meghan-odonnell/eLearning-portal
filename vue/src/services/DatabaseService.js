@@ -33,8 +33,8 @@ export default {
         return axios.post(`/curriculum`,curriculum)
     },
     
-    createAssignment(assignment) {
-        return axios.post(`/assignment`,assignment)
+    createAssignment(assignment,curriculumId) {
+        return axios.post(`/assignment/${curriculumId}`,assignment)
     },
     getHomework() {
         return axios.get('/assignment')

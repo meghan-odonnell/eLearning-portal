@@ -79,6 +79,17 @@ export default {
         reading: this.curriculum.reading,
       };
 
+
+// finsish converintg to assignment fields
+       const newAssignment = {
+        assignmentId: this.assignment.curriculumId,
+        curriculumName: this.assignment.curriculumName,
+        courseId: this.assignment.courseId,
+        homework: this.assignment.homework,
+        resources: this.assignment.resources,
+        reading: this.assignment.reading,
+      };
+
       DatabaseService.createCurriculum(newCurriculum)
         .then((response) => {
           if (response.status === 201) {
@@ -88,6 +99,9 @@ export default {
         .catch((error) => {
           this.handleErrorResponse(error, "Adding");
         });
+
+     DatabaseService.createAssignment(newAssignment, newCurriculum.curriculumId) 
+
     },
 
     handleErrorResponse(error, verb) {
