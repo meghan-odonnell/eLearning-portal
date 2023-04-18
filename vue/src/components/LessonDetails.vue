@@ -22,7 +22,7 @@
     <div class="lesson-detail">
       <table>
       <h1>{{ curriculum.curriculumName }}</h1>
-      <!-- <th>{{ curriculum.curriculumName }}</th> -->
+  
       <tr>{{ curriculum.reading }}</tr>
       
       <h1>Homework: </h1>
@@ -90,6 +90,9 @@ export default {
           }
     }
   },
+  submitHomework() {
+    
+  }
   
 };
 </script>

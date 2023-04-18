@@ -47,6 +47,9 @@ export default {
     },
     submitGrade(assignmentId, assignment){
         return axios.put(`/assignment/${assignmentId}`,assignment);
+    },
+    submitHomework(studentId, assignment){
+        return axios.put(`/assignment/${studentId}`, assignment);
     }
 
 }
