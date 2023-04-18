@@ -1,35 +1,38 @@
 <template>
-<div>
+  <div>
+    <h2>Add Course Details</h2>
 
-  <h2>Add Course Details</h2>
-
-
-  <form class="create-course" v-on:submit.prevent>
-     <div class="form-input-group">
-      <label for="courseId">Course ID</label>
-    <input name="courseId" type="text" v-model="course.courseId" />
- </div>
- <div class="form-input-group">
-      <label for="courseName">Course Name</label>
-    <input name="courseName" type="text" v-model="course.courseName" />
- </div>
- <div class="form-input-group">
-      <label for="courseDescription">Description</label>
-    <input name="courseDescription" type="text" v-model="course.courseDescription"/>
- </div>
- <div class="form-input-group">
-      <label for="difficulty">Level of Difficulty</label>
-    <input name="difficulty" type="text" v-model="course.difficulty" />
- </div>
- <div class="form-input-group">
-      <label for="cost">Cost</label>
-    <input name="cost" type="text" v-model="course.cost" />
- </div>
- <div class="form-input-group">
-    <button type="submit" class="btn" v-on:click="saveCourse()">
-      Submit</button>
-       </div>
-  </form>
+    <form class="create-course" v-on:submit.prevent>
+      <div class="form-input-group">
+        <label for="courseId">Course ID</label>
+        <input name="courseId" type="text" v-model="course.courseId" />
+      </div>
+      <div class="form-input-group">
+        <label for="courseName">Course Name</label>
+        <input name="courseName" type="text" v-model="course.courseName" />
+      </div>
+      <div class="form-input-group">
+        <label for="courseDescription">Description</label>
+        <input
+          name="courseDescription"
+          type="text"
+          v-model="course.courseDescription"
+        />
+      </div>
+      <div class="form-input-group">
+        <label for="difficulty">Level of Difficulty</label>
+        <input name="difficulty" type="text" v-model="course.difficulty" />
+      </div>
+      <div class="form-input-group">
+        <label for="cost">Cost</label>
+        <input name="cost" type="text" v-model="course.cost" />
+      </div>
+      <div class="form-input-group">
+        <button type="submit" class="btn" v-on:click="saveCourse()">
+          Submit
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -45,7 +48,7 @@ export default {
         courseName: "",
         courseDescription: "",
         difficulty: "",
-        cost: 0
+        cost: 0,
       },
     };
   },
@@ -53,23 +56,19 @@ export default {
     setCourseId() {},
     // get the course id based on the teacher's course selection. Teacher should not be entering manually
 
-
     saveCourse() {
-        const newCourse = {
+      const newCourse = {
         courseId: this.course.courseId,
         courseName: this.course.courseName,
         courseDescription: this.course.courseDescription,
         difficulty: this.course.difficulty,
-        cost: this.course.cost
-        };
+        cost: this.course.cost,
+      };
 
-        
-      DatabaseService
-      .createCourse(newCourse)
-      .then((response) => {
-          if (response.status === 201 || 
-          response.status === 200) {
-            this.$router.push({name: "teacherdashboard"});
+      DatabaseService.createCourse(newCourse)
+        .then((response) => {
+          if (response.status === 201 || response.status === 200) {
+            this.$router.push({ name: "teacherdashboard" });
           }
         })
         .catch((error) => {

@@ -31,7 +31,7 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
 
-  // const routes = [
+    // const routes = [
     {
       path: "/",
       name: "home",

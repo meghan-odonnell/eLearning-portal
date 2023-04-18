@@ -9,13 +9,24 @@
       <div class="alert" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
-      <div class="alert" role="alert" v-if="this.$route.query.registration" v-alert:value="alert">
+      <div
+        class="alert"
+        role="alert"
+        v-if="this.$route.query.registration"
+        v-alert:value="alert"
+      >
         Registration successful!
       </div>
 
       <div class="form-input-group">
         <label for="username">Username</label>
-        <input type="text" id="username" v-model="user.username" required autofocus />
+        <input
+          type="text"
+          id="username"
+          v-model="user.username"
+          required
+          autofocus
+        />
       </div>
       <div class="form-input-group">
         <label for="password">Password</label>
@@ -23,78 +34,82 @@
       </div>
       <button type="submit">Sign in</button>
       <p>
-      <router-link :to="{ name: 'register' }">Need an account? Sign up here.</router-link></p>
+        <router-link :to="{ name: 'register' }"
+          >Need an account? Sign up here.</router-link
+        >
+      </p>
     </form>
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic">
-   <h3 class="math">Random Math Fact</h3>
-   <math-fact class="math"></math-fact>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Comfortaa|Didact Gothic"
+    />
+    <h3 class="math">Random Math Fact</h3>
+    <math-fact class="math"></math-fact>
   </div>
 </template>
 
 <script>
 import authService from "../services/AuthService";
-import MathFact from "../components/MathFact.vue"
-
+import MathFact from "../components/MathFact.vue";
 
 export default {
   name: "login",
   components: {
-   MathFact
+    MathFact,
   },
   data() {
     return {
       user: {
         username: "",
-        password: ""
+        password: "",
       },
-      invalidCredentials: false
+      invalidCredentials: false,
     };
   },
   methods: {
     login() {
       authService
         .login(this.user)
-        .then(response => {
+        .then((response) => {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
           }
           console.log(this.$store.state.user);
-          if(this.$store.state.user.authorities[0].name === 'ROLE_ADMIN') {
-            this.$router.push({name: "teacherdashboard"})
-
-          } else if(this.$store.state.user.authorities[0].name === 'ROLE_USER') {
-            this.$router.push({name: "studentdashboard"})
+          if (this.$store.state.user.authorities[0].name === "ROLE_ADMIN") {
+            this.$router.push({ name: "teacherdashboard" });
+          } else if (
+            this.$store.state.user.authorities[0].name === "ROLE_USER"
+          ) {
+            this.$router.push({ name: "studentdashboard" });
           }
         })
-        .catch(error => {
+        .catch((error) => {
           const response = error.response;
 
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
-
-
 #login {
   max-width: 400px;
   margin: auto;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-  font-family: 'Didact Gothic', sans-serif;
+  font-family: "Didact Gothic", sans-serif;
 }
 
 h1 {
   font-size: 40px;
-  font-family: 'Comfortaa', cursive;
+  font-family: "Comfortaa", cursive;
   color: #5f9ea0;
   margin-top: 0;
   text-align: center;
@@ -102,7 +117,7 @@ h1 {
 
 h2 {
   font-size: 28px;
-  font-family: 'Comfortaa', cursive;
+  font-family: "Comfortaa", cursive;
   color: #5f9ea0;
   margin-top: 0;
   text-align: center;
@@ -164,6 +179,4 @@ button[type="submit"]:hover {
   margin-top: 20px;
   text-align: center;
 }
-
-
 </style>
