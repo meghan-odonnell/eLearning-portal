@@ -111,13 +111,13 @@ public class JdbcAssignmentDao implements AssignmentDao{
 
     @Override
     public void editAssignment(Assignment assignment, String assignmentId) {
-
+        Integer id = Integer.parseInt(assignmentId);
         String sql = "UPDATE assignment " +
                 "SET assignment_id = ?, curriculum_id = ?, student_id = ?, submission_date = ?, status = ?, grade = ? " +
                 "WHERE assignment_id = ?";
-        jdbcTemplate.update(sql, assignment.getAssignmentId(),
+        jdbcTemplate.update(sql, id,
                 assignment.getCurriculumId(), assignment.getStudentId(),
-                assignment.getSubmittedDate(), assignment.isSubmitted(), assignment.getGrade(), assignmentId);
+                assignment.getSubmittedDate(), assignment.isSubmitted(), assignment.getGrade(), id);
     }
 
     private Assignment mapRowToAssignment(SqlRowSet results){

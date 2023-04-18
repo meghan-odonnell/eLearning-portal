@@ -55,10 +55,16 @@ INSERT INTO student_class(student_id, course_id)
 	VALUES ((SELECT user_id FROM users where username = 'student4'),'M1');
 
 
+INSERT INTO assignment (curriculum_id, student_id) 
+	VALUES ('S2C1',(SELECT user_id FROM users where username = 'user'));
+	
 INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
-	VALUES ('S2C1',(SELECT user_id FROM users where username = 'user'),'2023-04-11','FALSE');
+	VALUES ('S2C1',(SELECT user_id FROM users where username = 'student1'),'2023-04-11','TRUE');
 INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
 	VALUES ('S2C2',(SELECT user_id FROM users where username = 'student1'),'2023-04-11','TRUE');
+INSERT INTO assignment (curriculum_id, student_id) 
+	VALUES ('S2C3',(SELECT user_id FROM users where username = 'student1'));
+	
 INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
 	VALUES ('S2C3',(SELECT user_id FROM users where username = 'student2'),'2023-04-11','FALSE');
 INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 

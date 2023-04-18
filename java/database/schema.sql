@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS student_class, users, course, user_detail, curriculum, assignment, grade;
+DROP TABLE IF EXISTS student_class, users, course, user_detail, curriculum, assignment;
 
 CREATE TABLE users (
 	user_id SERIAL,

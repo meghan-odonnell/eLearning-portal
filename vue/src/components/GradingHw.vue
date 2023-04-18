@@ -19,8 +19,8 @@
             {{ assignments.submitted === true ? "Submitted" : "Not submitted" }}
           </td>
           <td>
-            <div class="form-input-group">
-              <select name="grade">
+            <div class="form-input-group" >
+              <select name="grade" v-model="assignments.grade">
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -77,15 +77,15 @@ export default {
         assignmentId: this.assignments.assignmentId,
         curriculumId: this.assignments.curriculumId,
         studentId: this.assignments.studentId,
-        submissionDate: this.assignments.submissionDate,
-        status: true,
+        submissionDate: this.assignments.submissionDate, // need to check why this blanks out
+        submitted: this.assignments.submitted,
         grade: this.assignments.grade,        
       };
 
       DatabaseService.submitGrade(this.assignments.assignmentId,updateGrade)
      .then((response) => {
-          if (response.status === 201) {
-            this.$router.push({name: 'curriculumlist', params: {courseName: this.curriculum.courseId}});
+          if (response.status === 201 || response.status === 200) {
+            this.$router.push({ name: "teacherdashboard" });
           }
         })
         .catch((error) => {
