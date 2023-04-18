@@ -46,20 +46,12 @@ CREATE table assignment (
 	student_id int NOT NULL,
 	submission_date date,
 	status boolean DEFAULT false,
+	grade int DEFAULT 0,
 	CONSTRAINT pk_assignment_id PRIMARY KEY (assignment_id),
 	CONSTRAINT fk_curriculum_id FOREIGN KEY (curriculum_id) REFERENCES curriculum (curriculum_id),
 	CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES users (user_id)	
 );
 
-CREATE TABLE grade (
-	grade_id SERIAL,
-	assignment_id int NOT NULL,
-	student_id int NOT NULL,
-	grade varchar(1) DEFAULT 0,
-	CONSTRAINT pk_grade_id PRIMARY KEY (grade_id),
-	CONSTRAINT fk_assignment_id FOREIGN KEY (assignment_id) REFERENCES assignment (assignment_id),
-	CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES users (user_id)	
-);
 
 CREATE TABLE student_class (
 	student_id int,
