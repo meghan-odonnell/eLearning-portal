@@ -1,17 +1,17 @@
 BEGIN TRANSACTION;
 
+
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 INSERT INTO users (username,password_hash,role) VALUES ('Meghan','$2a$10$MXWhj.tMfEHlnKs6GhXFfeDs3Y6NNoTGXt9Xn4CdLs59aZR28qdDa','ROLE_ADMIN');
-INSERT INTO users (username,password_hash,role) VALUES ('student1','asdfad','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('student2','adfadf','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('student3','asdfadfg','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('student4','qewrqwe','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Greg','$2a$10$Kt05kar/KU8thJdUIbsFh.mi3ySCQZww7NC6QlCmK7NjjjkKgjJN.','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('Ang','$2a$10$xVYWiewz0t.ZKtIkhaVJUuYF3XEAah6jTW57BxZpLiJZ0VP.0Smzq','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Rose','$2a$10$YexCO6mHqTKzdx0BvGN43.Y6MBIJTgOyNgPNLK4.t6pqYIz3vOzoy','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Bob','$2a$10$0Qe.EDAvMRDYuc4wmd.iyer/O5cHJipyoTin4bqKRbzPtvPPZ/Ree','ROLE_USER');
 
-
-INSERT INTO course (course_id, course_name, course_description, difficulty) VALUES ('M1', 'Math','Basic Math','Beginner');
-INSERT INTO course (course_id, course_name, course_description, difficulty) VALUES ('S2', 'Science','This is a science class','Intermediate');
-INSERT INTO course (course_id, course_name, course_description, difficulty) VALUES ('P3','Programming','Learn to wire it up!!','Advanced');
+INSERT INTO course (course_id, course_name, course_description, difficulty) VALUES ('M1', 'Math','This is an introductory level math course that focuses on developing students proficiency in arithmetic, algebra, geometry, and basic statistical concepts. Students will engage in various learning activities, including lectures, discussions, problem-solving exercises, and practical applications of mathematical concepts. The course emphasizes problem-solving skills, critical thinking, and logical reasoning to solve mathematical problems. Topics covered include fundamental arithmetic operations, basic algebraic concepts, geometry, and basic statistical analysis. Assessments include quizzes, tests, homework assignments, and practical applications of mathematical concepts. By the end of Math 101, students will have a solid foundation in basic mathematical concepts, problem-solving skills, and critical thinking abilities that will serve as a strong foundation for further studies in math and related disciplines.','Beginner');
+INSERT INTO course (course_id, course_name, course_description, difficulty) VALUES ('S2', 'Science','Unleash Your Inner Curiosity! Join us on an exciting journey to explore the wonders of the natural world. Through hands-on experiments, engaging discussions, and interactive demonstrations, we will delve into the fascinating realms of physics, chemistry, biology, and beyond. Discover how scientific principles shape our everyday lives and unlock the mysteries of the universe. Whether youre a budding scientist or simply curious about the world around you, this class will ignite your passion for scientific inquiry and empower you to uncover the marvels of our amazing world!','Intermediate');
+INSERT INTO course (course_id, course_name, course_description, difficulty) VALUES ('P3','Programming','Unlock the Power of Coding! Embark on an exhilarating adventure into the world of programming, where creativity meets technology. Learn the fundamental concepts of coding and gain practical skills to design, develop, and debug software applications. Through hands-on projects and real-world examples, youll master programming languages such as Python, Java, or C++, and build a solid foundation in problem-solving, algorithm development, and software design principles. Join our dynamic community of aspiring programmers and unlock your potential to create innovative solutions, automate tasks, and learn how to wire it up!','Advanced');
 
 INSERT INTO curriculum (curriculum_id, course_id, curriculum_name, reading, homework, resources) 
 	VALUES ('S2C1',	
@@ -22,6 +22,7 @@ The chemical formula for glucose is C6H12O6.',
 		   'homework',
 			'links'
 		   );
+		   
 INSERT INTO curriculum (curriculum_id, course_id, curriculum_name, reading, homework, resources) 
 	VALUES  ('S2C2',
 			'S2',
@@ -31,6 +32,7 @@ Newton\''s second law of motion states that force equals mass times acceleration
 		   'homework',
 			'links'
 		   );
+		   
 INSERT INTO curriculum (curriculum_id, course_id, curriculum_name, reading, homework, resources) 
 	VALUES  ('S2C3',	
 			'S2',
@@ -39,55 +41,6 @@ INSERT INTO curriculum (curriculum_id, course_id, curriculum_name, reading, home
 		   'homework',
 			'links'
 		   );				   
-
-
-INSERT INTO student_class(student_id, course_id)
-	VALUES ((SELECT user_id FROM users where username = 'user'),'S2');
-INSERT INTO student_class(student_id, course_id)
-	VALUES ((SELECT user_id FROM users where username = 'student1'),'S2');
-INSERT INTO student_class(student_id, course_id)
-	VALUES ((SELECT user_id FROM users where username = 'student1'),'M1');
-INSERT INTO student_class(student_id, course_id)
-	VALUES ((SELECT user_id FROM users where username = 'student2'),'S2');
-INSERT INTO student_class(student_id, course_id)
-	VALUES ((SELECT user_id FROM users where username = 'student3'),'M1');			
-INSERT INTO student_class(student_id, course_id)
-	VALUES ((SELECT user_id FROM users where username = 'student4'),'M1');
-
-
-INSERT INTO assignment (curriculum_id, student_id) 
-	VALUES ('S2C1',(SELECT user_id FROM users where username = 'user'));
-	
-INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
-	VALUES ('S2C1',(SELECT user_id FROM users where username = 'student1'),'2023-04-11','TRUE');
-INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
-	VALUES ('S2C2',(SELECT user_id FROM users where username = 'student1'),'2023-04-11','TRUE');
-INSERT INTO assignment (curriculum_id, student_id) 
-	VALUES ('S2C3',(SELECT user_id FROM users where username = 'student1'));
-	
-INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
-	VALUES ('S2C3',(SELECT user_id FROM users where username = 'student2'),'2023-04-11','FALSE');
-INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
-	VALUES ('S2C3',(SELECT user_id FROM users where username = 'student3'),'2023-04-11','FALSE');
-INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
-	VALUES ('S2C1',(SELECT user_id FROM users where username = 'student3'),'2023-04-11','FALSE');
-
-
-
-
---  INSERT INTO student_class(student_id, course_id)
--- 	VALUES ((SELECT user_id FROM users where username = 'kid'),'M1');
---  INSERT INTO student_class(student_id, course_id)
--- 	VALUES ((SELECT user_id FROM users where username = 'kid'),'S2');	
-INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
-VALUES ('S2C3',(SELECT user_id FROM users where username = 'kid'),'2023-04-11','FALSE');
-
-INSERT INTO student_class(student_id, course_id)
-	VALUES ((SELECT user_id FROM users where username = 'kid'),'S2');
-INSERT INTO student_class(student_id, course_id)
-	VALUES ((SELECT user_id FROM users where username = 'kid'),'M1');
-
-
 
 INSERT INTO curriculum (curriculum_id, course_id, curriculum_name, reading, homework, resources) 
 	VALUES ('M1C1',	
@@ -168,6 +121,42 @@ Given a real-world scenario, write a function that solves a problem and explain 
 			'links'
 		   );		   
 		   
+INSERT INTO student_class(student_id, course_id)
+	VALUES ((SELECT user_id FROM users where username = 'user'),'S2');
+INSERT INTO student_class(student_id, course_id)
+	VALUES ((SELECT user_id FROM users where username = 'Rose'),'S2');
+INSERT INTO student_class(student_id, course_id)
+	VALUES ((SELECT user_id FROM users where username = 'Rose'),'M1');
+INSERT INTO student_class(student_id, course_id)
+	VALUES ((SELECT user_id FROM users where username = 'Ang'),'S2');
+INSERT INTO student_class(student_id, course_id)
+	VALUES ((SELECT user_id FROM users where username = 'Ang'),'M1');			
+INSERT INTO student_class(student_id, course_id)
+	VALUES ((SELECT user_id FROM users where username = 'Bob'),'M1');
+
+INSERT INTO assignment (curriculum_id, student_id) 
+	VALUES ('S2C1',(SELECT user_id FROM users where username = 'Ang'));
+INSERT INTO assignment (curriculum_id, student_id) 
+	VALUES ('S2C3',(SELECT user_id FROM users where username = 'Rose'));
+	
+INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
+	VALUES ('S2C1',(SELECT user_id FROM users where username = 'Rose'),'2023-04-11','TRUE');
+INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
+	VALUES ('S2C2',(SELECT user_id FROM users where username = 'Rose'),'2023-04-11','TRUE');
+INSERT INTO assignment (curriculum_id, student_id, submission_date,status) 
+	VALUES ('S2C3',(SELECT user_id FROM users where username = 'Ang'),'2023-04-11','TRUE');
+INSERT INTO assignment (curriculum_id, student_id, status) 
+	VALUES ('S2C3',(SELECT user_id FROM users where username = 'Bob'),'FALSE');
+INSERT INTO assignment (curriculum_id, student_id, status) 
+	VALUES ('S2C1',(SELECT user_id FROM users where username = 'Bob'),'FALSE');
+INSERT INTO assignment (curriculum_id, student_id, status) 
+	VALUES ('S2C3',(SELECT user_id FROM users where username = 'Ang'),'FALSE');
+
+INSERT INTO student_class(student_id, course_id)
+	VALUES ((SELECT user_id FROM users where username = 'Bob'),'S2');
+INSERT INTO student_class(student_id, course_id)
+	VALUES ((SELECT user_id FROM users where username = 'Rose'),'M1');
+
 
 COMMIT TRANSACTION;
 

@@ -31,7 +31,6 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
 
-    // const routes = [
     {
       path: "/",
       name: "home",
@@ -104,15 +103,9 @@ const router = new Router({
       name: "grading",
       component: Grading
     },
-
-
   ]
 })
-// const router = new Router({
-//   mode: "history",
-//   base: process.env.BASE_URL,
-//   routes
-// })
+
 router.beforeEach((to, from, next) => {
   // Determine if the route requires Authentication
   const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
