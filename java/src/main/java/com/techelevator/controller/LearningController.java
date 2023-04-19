@@ -151,10 +151,16 @@ public class LearningController {
         curriculumDao.editCurriculum(curriculum, curriculumId);
     }
 
-    @RequestMapping(path = "/assignment/{assignmentId}", method = RequestMethod.PUT)
-    public void editAssignment(@PathVariable String assignmentId, @RequestBody Assignment assignment) {
-        assignmentDao.editAssignment(assignment, assignmentId);
+    @RequestMapping(path = "/assignment/{studentId}/{curriculumId}", method = RequestMethod.PUT)
+    public void editAssignment(@RequestBody Assignment assignment,@PathVariable String studentId,@PathVariable String curriculumId) {
+        assignmentDao.editAssignment(assignment,studentId,curriculumId);
     }
+
+
+//    @RequestMapping(path = "/assignment/{assignmentId}", method = RequestMethod.PUT)
+//    public void editAssignment(@PathVariable String assignmentId, @RequestBody Assignment assignment) {
+//        assignmentDao.editAssignment(assignment, assignmentId);
+//    }
 
 }
 

@@ -11,15 +11,15 @@ public interface AssignmentDao {
 
     List<Assignment> getAssignmentsByStudent(String studentId);
 
-    Assignment getOneAssignment (String assignmentId);
-
-    List<Assignment> createAssignment (Assignment assignment);
-
-    void editAssignment (Assignment assignment, String assignmentId);
+    Assignment getOneAssignment(String assignmentId);
 
     List<Integer> getStudentsInClass(String curriculumId);
-//
-//    Assignment createAssignments(Assignment assignment);
 
-//    List<Assignment> getStudentsByCourse(String curriculumId);
+    List<Assignment> createAssignment(Assignment assignment);
+
+    Integer queryForAssignmentId(String studentId, String curriculumId);
+
+    void editAssignment(Assignment assignment, String studentId, String curriculumId);
+
 }
+

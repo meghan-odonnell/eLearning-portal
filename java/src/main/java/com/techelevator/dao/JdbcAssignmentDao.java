@@ -20,7 +20,7 @@ public class JdbcAssignmentDao implements AssignmentDao{
     @Override
     public List<Assignment> getAllAssignments() {
         List<Assignment> allAssignments = new ArrayList<>();
-        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, grade, " +
+        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, grade, answer, " +
                 " users.username, curriculum.curriculum_name " +
                 " FROM assignment " +
                 " JOIN users ON assignment.student_id = users.user_id " +
@@ -38,7 +38,7 @@ public class JdbcAssignmentDao implements AssignmentDao{
     public List<Assignment> getAssignmentsByStudent(String studentId) {
         List<Assignment> oneAssignments = new ArrayList<>();
         Integer id = Integer.parseInt(studentId);
-        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, grade, " +
+        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, grade, answer," +
                 " users.username, curriculum.curriculum_name " +
                 " FROM assignment " +
                 " JOIN users ON assignment.student_id = users.user_id " +
@@ -56,7 +56,7 @@ public class JdbcAssignmentDao implements AssignmentDao{
     @Override
     public Assignment getOneAssignment(String assignmentId) {
         Integer id = Integer.parseInt(assignmentId);
-        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, grade, " +
+        String sql = "SELECT assignment_id, curriculum.curriculum_id, student_id, submission_date, status, grade, answer, " +
                 " users.username, curriculum.curriculum_name " +
                 " FROM assignment " +
                 " JOIN users ON assignment.student_id = users.user_id " +
@@ -142,17 +142,46 @@ public class JdbcAssignmentDao implements AssignmentDao{
 //        }
 //        return students;
 //    }
-
     @Override
-    public void editAssignment(Assignment assignment, String assignmentId) {
-        Integer id = Integer.parseInt(assignmentId);
-        String sql = "UPDATE assignment " +
-                "SET assignment_id = ?, curriculum_id = ?, student_id = ?, submission_date = ?, status = ?, grade = ? " +
-                "WHERE assignment_id = ?";
-        jdbcTemplate.update(sql, id,
-                assignment.getCurriculumId(), assignment.getStudentId(),
-                assignment.getSubmittedDate(), assignment.isSubmitted(), assignment.getGrade(), id);
+    public Integer queryForAssignmentId(String studentId, String curriculumId){
+        Integer studentIntId = Integer.parseInt(studentId);
+        String sql = "SELECT assignment_id FROM assignment WHERE student_id = ? AND curriculum_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, studentIntId, curriculumId);
+        if (results.next()){
+            return results.getInt("assignment_id");
+        } else {
+            return null;
+        }
     }
+    @Override
+    public void editAssignment(Assignment assignment,String studentId, String curriculumId) {
+//        Integer id = Integer.parseInt(assignmentId);
+        Integer assignmentId = queryForAssignmentId(studentId,curriculumId);
+        String sql = "UPDATE assignment " +
+                "SET assignment_id = ?, curriculum_id = ?, student_id = ?, submission_date = ?, status = ?, grade = ? , answer = ? " +
+                "WHERE assignment_id = ?";
+        jdbcTemplate.update(sql,
+                assignmentId,
+                assignment.getCurriculumId(),
+                assignment.getStudentId(),
+                assignment.getSubmittedDate(),
+                assignment.isSubmitted(),
+                assignment.getGrade(),
+                assignment.getAnswer(),
+                assignmentId );
+    }
+
+
+//    @Override
+//    public void editAssignment(Assignment assignment, String assignmentId) {
+//        Integer id = Integer.parseInt(assignmentId);
+//        String sql = "UPDATE assignment " +
+//                "SET assignment_id = ?, curriculum_id = ?, student_id = ?, submission_date = ?, status = ?, grade = ? " +
+//                "WHERE assignment_id = ?";
+//        jdbcTemplate.update(sql, id,
+//                assignment.getCurriculumId(), assignment.getStudentId(),
+//                assignment.getSubmittedDate(), assignment.isSubmitted(), assignment.getGrade(), id);
+//    }
 
     private Assignment mapRowToAssignment(SqlRowSet results){
         Assignment assignment = new Assignment();
@@ -164,6 +193,7 @@ public class JdbcAssignmentDao implements AssignmentDao{
         assignment.setStudentName(results.getString("username"));
         assignment.setCurriculumName(results.getString("curriculum_name"));
         assignment.setGrade(results.getInt("grade"));
+        assignment.setAnswer(results.getString("answer"));
 
 
         return assignment;

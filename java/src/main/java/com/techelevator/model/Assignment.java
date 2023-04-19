@@ -13,6 +13,16 @@ public class Assignment {
     private String studentName;
     private Integer grade;
 
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    private String answer;
+
     public Integer getGrade() {
         return grade;
     }
