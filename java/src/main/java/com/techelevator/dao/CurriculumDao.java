@@ -10,8 +10,6 @@ public interface CurriculumDao {
 
     List<Curriculum> showCourseCurriculum (String courseId);
 
-//    Curriculum showCourseCurriculum (String courseId);
-
     Curriculum showSingleCurriculum (String curriculumId);
 
     Curriculum createCurriculum (Curriculum curriculum);

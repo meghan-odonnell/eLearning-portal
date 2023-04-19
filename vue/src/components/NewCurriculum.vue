@@ -1,15 +1,15 @@
 <template>
   <div>
-  
     <h2>Add Curriculum Details</h2>
     <form class="create-curriculum" v-on:submit.prevent>
       <div class="form-input-group">
-        <label for="courseId">Course Id</label>
+        <label for="courseId">Course ID</label>
+
         <input name="courseId" type="text" v-model="curriculum.courseId" />
       </div>
 
       <div class="form-input-group">
-        <label for="curriculumId">Curriculum Id</label>
+        <label for="curriculumId">Curriculum ID</label>
         <input
           name="curriculumId"
           type="text"
@@ -79,29 +79,28 @@ export default {
         reading: this.curriculum.reading,
       };
 
-
-// finsish converintg to assignment fields
-       const newAssignment = {
-        assignmentId: this.assignment.curriculumId,
-        curriculumName: this.assignment.curriculumName,
-        courseId: this.assignment.courseId,
-        homework: this.assignment.homework,
-        resources: this.assignment.resources,
-        reading: this.assignment.reading,
+      const newAssignment = {
+        curriculumId: newCurriculum.curriculumId,
       };
 
-      DatabaseService.createCurriculum(newCurriculum)
-        .then((response) => {
-          if (response.status === 201) {
-            this.$router.push({name: 'curriculumlist', params: {courseName: this.curriculum.courseId}});
+      Promise.all([
+        DatabaseService.createCurriculum(newCurriculum),
+        DatabaseService.createAssignment(newAssignment),
+      ])
+        .then(([curriculumResponse, assignmentResponse]) => {
+          if (
+            curriculumResponse.status === 201 &&
+            assignmentResponse.status === 201
+          ) {
+            this.$router.push({
+              name: "curriculumlist",
+              params: { courseName: this.curriculum.courseId },
+            });
           }
         })
         .catch((error) => {
           this.handleErrorResponse(error, "Adding");
         });
-
-     DatabaseService.createAssignment(newAssignment, newCurriculum.curriculumId) 
-
     },
 
     handleErrorResponse(error, verb) {

@@ -133,12 +133,16 @@ public class LearningController {
 
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/assignment/{curriculumId}", method = RequestMethod.POST)
-    public void createAssignment(@RequestBody Assignment assignment,@PathVariable String curriculumId) {
-            assignmentDao.createAssignment(assignment,curriculumId);
+    @RequestMapping(path = "/assignment", method = RequestMethod.POST)
+    public void createAssignment(@RequestBody Assignment assignment) {
+            assignmentDao.createAssignment(assignment);
         }
 
-
+//    @ResponseStatus(HttpStatus.CREATED)
+//    @RequestMapping(path = "/assignment/{curriculumId}", method = RequestMethod.POST)
+//    public void createAssignment(@RequestBody Assignment assignment,@PathVariable String curriculumId) {
+//        assignmentDao.createAssignment(assignment);
+//    }
 
 
     //@PreAuthorize("hasRole('admin')")

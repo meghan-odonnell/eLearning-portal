@@ -13,7 +13,7 @@ public interface AssignmentDao {
 
     Assignment getOneAssignment (String assignmentId);
 
-    List<Assignment> createAssignment (Assignment assignment, String curriculumId);
+    List<Assignment> createAssignment (Assignment assignment);
 
     void editAssignment (Assignment assignment, String assignmentId);
 
