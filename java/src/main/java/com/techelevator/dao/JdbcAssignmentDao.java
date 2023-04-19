@@ -43,7 +43,7 @@ public class JdbcAssignmentDao implements AssignmentDao{
                 " FROM assignment " +
                 " JOIN users ON assignment.student_id = users.user_id " +
                 " JOIN curriculum ON curriculum.curriculum_id = assignment.curriculum_id " +
-                " WHERE student_id = ? SORT BY curriculum_id ASC, student_id ASC; ";
+                " WHERE student_id = ?; ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
         while(results.next()) {
             Assignment assignment = mapRowToAssignment(results);

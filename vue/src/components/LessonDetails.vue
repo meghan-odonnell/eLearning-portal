@@ -34,7 +34,7 @@
 
 
       <div id="homework">
-        <form @submit.prevent="submitHomework">
+        <form>
           <h3>Submit Homework</h3>
           <div class ="form-input-group">
           <label for="studentId">Student ID:</label>
@@ -49,7 +49,7 @@
           ></textarea>
           </div>
           <div class ="form-input-group">
-          <button type="submit">Submit Homework</button>
+          <button type="submit" v-on:click="saveHomework">Submit Homework</button>
           </div>
         </form>
       </div>
@@ -70,6 +70,16 @@ export default {
   data() {
     return {
       curriculum: [],
+      homework: {
+        assignmentId: "",
+        curriculumId: "",
+        studentId: this.$store.state.user.id,
+        submissionDate: Date,
+        status: true,
+        grade: 0,
+        answer: ""
+        
+      },
     };
   },
 
@@ -79,6 +89,29 @@ export default {
         this.curriculum = response.data;
       })
       .catch();
+  },
+  methods: {
+    saveHomework() {
+      const updateHomework = {
+        assignmentId: 11,
+        curriculumId: this.curriculum.curriculumId,
+        studentId: this.$store.state.user.id,
+        submissionDate: this.homework.submissionDate,
+        status: this.homework.status,
+        grade: this.homework.grade,
+        answer: this.homework.answer
+        
+      };
+      DatabaseService.submitHomework(this.homework.assignmentId,updateHomework)
+      .then((response) => {
+        if(response.status === 201 || response.status === 200) {
+          this.$router.push({name: "studentdashboard"});
+        }
+      })
+      .catch((error) => {
+          this.handleErrorResponse(error, "Adding");
+        });
+    }
   },
 
   computed: {
@@ -90,9 +123,7 @@ export default {
           }
     }
   },
-  submitHomework() {
-    
-  }
+
   
 };
 </script>
