@@ -71,4 +71,8 @@ td {
   padding: 12px;
   text-align: left;
 }
+th:nth-child(2),
+td:nth-child(2) {
+  width: 70%;
+}
 </style>
