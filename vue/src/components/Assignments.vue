@@ -15,7 +15,11 @@
           v-bind:key="item.assignmentId"
           v-bind:class="{ 'not-submitted': !item.submitted }"
         >
-          <td>{{ item.curriculumId }}</td>
+        <router-link v-bind:to="{name: 'lesson', params: { id:item.curriculumId}}" class="black-link"> 
+         
+           
+          <td>{{ item.curriculumName }}</td>
+          </router-link>
           <td>{{ item.studentId }}</td>
           <td>{{ item.studentName }}</td>
           <td>{{ item.submittedDate }}</td>
@@ -72,6 +76,10 @@ export default {
 </script>
 
 <style scoped >
+.black-link {
+  color: black;
+  /* Additional styling if needed */
+}
 .not-submitted {
   background-color: #ffe6e6;
 }
@@ -80,4 +88,5 @@ h1 {
   color: #5f9ea0;
   text-align: center;
 }
+
 </style>

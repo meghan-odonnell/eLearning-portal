@@ -52,7 +52,7 @@ Learning how to graph linear inequalities and shade the regions that satisfy the
 		   'Plot the points (2, 5), (4, 9), and (6, 13) on a coordinate plane and connect them to create a line representing a linear equation. Find the slope and y-intercept of the line and write the equation in slope-intercept form.
 Analyze the graph of the equation y = 3x - 2. Identify the x-intercept and y-intercept of the line and shade the region that satisfies the inequality y < 3x - 2.
 Create a graph of the inequality y > -2x + 5 on a coordinate plane and shade the region that satisfies the inequality.',
-			'links'
+			'Follow up videos can be found on youtube.com under Super-Smart'
 		   );
 
 INSERT INTO curriculum (curriculum_id, course_id, curriculum_name, reading, homework, resources) 
@@ -65,7 +65,7 @@ Applying measures of central tendency to interpret data in real-world scenarios.
 		   'Given the data set {2, 4, 6, 8, 10}, find the mean, median, and mode.
 Analyze the following statement: "The mean is the best measure of central tendency because it takes into account all the data points."
 Given the data set {3, 5, 7, 9, 11, 13, 15}, add an outlier to the data set and observe how it affects the mean, median, and mode.',
-			'links'
+			'The Teacher put links to his daily lectures on your Gitlab.'
 		   );
 
 INSERT INTO curriculum (curriculum_id, course_id, curriculum_name, reading, homework, resources) 

@@ -188,10 +188,6 @@ tr:hover {
   background-color: #F5F5F5;
   transition: background-color 0.3s ease;
 }
-td:first-child {
-  color: #F5A623;
-  font-weight: bold;
-}
 
 tbody {
   font-family: "Comfortaa", sans-serif;
@@ -230,6 +226,9 @@ button[type="submit"]:hover {
   cursor: pointer;
   background-color: #0069d9;
 }
-
+.black-link {
+  color: black;
+  /* Additional styling if needed */
+}
 
 </style>
