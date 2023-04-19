@@ -7,7 +7,7 @@
         <th>Student Id</th>
         <th>Student Name</th>
         <th>Submission Date</th>
-        <th>Submitted</th>
+        <th class="answer">Answer</th>
         <th>Update Grade</th>
         <th></th>
 
@@ -15,9 +15,8 @@
           <td>{{ assignments.studentId }}</td>
           <td>{{ assignments.studentName }}</td>
           <td>{{ assignments.submittedDate }}</td>
-          <td>
-            {{ assignments.submitted === true ? "Submitted" : "Not submitted" }}
-          </td>
+          <td>{{ assignments.answer }}</td>
+          
           <td>
             <div class="form-input-group" >
               <select name="grade" v-model="assignments.grade">
@@ -55,7 +54,7 @@ export default {
         assignmentId: "",
         curriculumId: "",
         studentId: "",
-        submissionDate: "",
+        // submissionDate: this.assignments.submissionDate,
         submitted: false,
         grade: "", 
       },
@@ -77,7 +76,7 @@ export default {
         assignmentId: this.assignments.assignmentId,
         curriculumId: this.assignments.curriculumId,
         studentId: this.assignments.studentId,
-        submissionDate: this.assignments.submissionDate, // need to check why this blanks out
+        // submissionDate: this.assignments.submissionDate, 
         submitted: this.assignments.submitted,
         grade: this.assignments.grade,        
       };
@@ -117,5 +116,54 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+body {
+  font-family: comforta, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.routerView {
+  width: 79%;
+  position: absolute;
+  right: 0;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  cursor: pointer;
+}
+th:nth-child(4),
+td:nth-child(4) {
+  width: 50%;
+}
+
+
+
+
+
 </style>

@@ -19,7 +19,9 @@ public interface AssignmentDao {
 
     Integer queryForAssignmentId(String studentId, String curriculumId);
 
-    void editAssignment(Assignment assignment, String studentId, String curriculumId);
+    void gradeAssignment(Assignment assignment, String assignmentId);
+
+    void submitAssignment(Assignment assignment,String studentId, String curriculumId);
 
 }
 

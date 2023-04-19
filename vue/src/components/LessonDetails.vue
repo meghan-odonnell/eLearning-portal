@@ -32,6 +32,12 @@
       </table>
       </div>
 
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
       <div id="homework">
         <form v-on:submit.prevent>
